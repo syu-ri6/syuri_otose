@@ -1,8 +1,9 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="ja">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/>
 <title>しゅりを落とせ。完全攻略不能版</title>
 <style>
 :root{
@@ -53,37 +54,43 @@ body:has(.screen:target) #start:not(:target){display:none}
 .card h3{font-size:13px;margin:0 0 7px}.card p{font-size:12px;line-height:1.72;color:#bdbdc8;margin:0}
 .meter{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0}
 .pill{font-size:10px;padding:5px 8px;border-radius:99px;border:1px solid #343440;color:#8f8f9e}
-.secret{border-color:#5a3c61;background:linear-gradient(135deg,#241521,#181525)}
-.warning{border-color:#5a3434;background:linear-gradient(135deg,#281616,#191317)}.gold{border-color:#665523}
+.choice.secret{border-color:#353541;background:#17171f}.card.secret{border-color:#5a3c61;background:linear-gradient(135deg,#241521,#181525)}
+.choice.warning{border-color:#353541;background:#17171f}.warning:not(.choice){border-color:#5a3434;background:linear-gradient(135deg,#281616,#191317)}.gold{border-color:#665523}
+
+/* Choice appearance intentionally neutral: route quality is never color-coded. */
+.choice.secret,.choice.warning,.choice.gold{
+  border-color:#353541 !important;
+  background:#17171f !important;
+  color:var(--text) !important;
+  box-shadow:none !important;
+}
 </style>
 </head>
 <body><main>
-
 <section class="screen" id="start">
-  <div class="hero">
-    <div class="emoji">🐰💘</div>
-    <h1>しゅりを落とせ。</h1>
-    <p>完全攻略不能版<br>MAIN 20 SCENES / BAD & RECOVERY ROUTES / 21+ ENDINGS</p>
-    <div class="badges">
-      <span class="badge">優しいだけでは落ちません</span>
-      <span class="badge">理解したつもりで死にます</span>
-      <span class="badge">前の選択が後で効きます</span>
-      <span class="badge">本人も自分の気持ちを把握してません</span><span class="badge">BAD END大量増殖</span><span class="badge">復帰ルートあり</span><span class="badge">謎しゅりイベントあり</span>
-    </div>
-    <div class="card">
-      <h3>このゲームの裏パラメータ</h3>
-      <p>理解度 / 安心感 / 尊敬 / 恋愛刺激 / 相手自身の魅力 / 熱量 / 決めつけ圧 / 依存・束縛感 / 優等生化 / しゅり側の接近欲求。数値は表示されません。</p>
-    </div>
-    <div class="choices">
-      <a class="choice primary" href="#s1h">ゲームスタート</a>
-      <a class="choice warning" href="#b1">💀 全然ダメダメ状態から始める</a>
-    </div>
-  </div>
+<div class="hero">
+<div class="emoji">🐰💘</div>
+<h1>しゅりを落とせ。</h1>
+<p>完全攻略不能版<br/>MAIN 20 SCENES / BAD &amp; RECOVERY ROUTES / 21+ ENDINGS</p>
+<div class="badges">
+<span class="badge">優しいだけでは落ちません</span>
+<span class="badge">理解したつもりで死にます</span>
+<span class="badge">前の選択が後で効きます</span>
+<span class="badge">本人も自分の気持ちを把握してません</span><span class="badge">BAD END大量増殖</span><span class="badge">復帰ルートあり</span><span class="badge">謎しゅりイベントあり</span>
+</div>
+<div class="card">
+<h3>このゲームの裏パラメータ</h3>
+<p>理解度 / 安心感 / 尊敬 / 恋愛刺激 / 相手自身の魅力 / 熱量 / 決めつけ圧 / 依存・束縛感 / 優等生化 / しゅり側の接近欲求。数値は表示されません。</p>
+</div>
+<div class="choices">
+<a class="choice primary" href="#s1h">ゲームスタート</a>
+<a class="choice warning" href="#b1">💀 全然ダメダメ状態から始める</a>
+</div>
+</div>
 </section>
-
 <!-- 1 -->
 <section class="screen" id="s1h">
-<div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">01 / 20</div></div>
+<div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">…</div></div>
 <div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">配信終わり / 3:14</div></div></div>
 <div class="scene">
 <div class="tag">観察テスト</div>
@@ -91,175 +98,103 @@ body:has(.screen:target) #start:not(:target){display:none}
 <div class="bubble">今日なんか微妙だった気がする。事故ったわけじゃないんだけど、なんか気持ち悪い。</div>
 <div class="system">SYSTEM：慰めを求めているとは限らない。現象を理解したいモードかもしれない。</div>
 <div class="choices">
-<a class="choice" href="#s2h">「どの瞬間に“微妙”って感じた？」</a>
-<a class="choice" href="#s2m">「そんな日もあるよ。気にしなくていい」</a>
-<a class="choice" href="#s2l">「俺は面白かったから問題なし」</a>
-</div></div></section>
 
+
+
+<a class="choice" href="#s2m">「そんな日もあるよ。気にしなくていい」</a><a class="choice" href="#s2h">「どの瞬間に“微妙”って感じた？」</a><a class="choice" href="#s2l">「俺は面白かったから問題なし」</a></div></div></section>
 <!-- 2 -->
-<section class="screen" id="s2h"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">02 / 20</div></div>
+<section class="screen" id="s2h"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">…</div></div>
 <div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">会話の深度 +</div></div></div>
 <div class="scene"><div class="tag">情報量テスト</div><div class="bubble">たぶん途中からテンポ悪かった。なんでだろ。</div><div class="system">SYSTEM：正解を言うより、一緒に原因を探せるか。</div>
-<div class="choices"><a class="choice" href="#s3h">「仮説ある。疲れより“思った反応が返ってこなかった”方かも。違う？」</a><a class="choice" href="#s3m">「疲れてたんじゃない？」</a><a class="choice" href="#b1">「考えすぎ」</a></div></div></section>
-
-<section class="screen" id="s2m"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">02 / 20</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">いい人</div></div></div><div class="scene"><div class="tag">情報量テスト</div><div class="bubble">いやまあ、気にしてるっていうより原因知りたいだけなんだけどね。</div><div class="system">SYSTEM：慰めで閉じると、少し物足りない。</div><div class="choices"><a class="choice" href="#s3h">「じゃあ原因探す方やろ」</a><a class="choice" href="#s3m">「疲れじゃない？」</a><a class="choice" href="#s3l">「まあ忘れよ」</a></div></div></section>
-
-<section class="screen" id="s2l"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">02 / 20</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">褒めは受け取った</div></div></div><div class="scene"><div class="tag">情報量テスト</div><div class="bubble">うん、ありがと。でも私が気になってるのそこじゃないんよな〜。</div><div class="choices"><a class="choice" href="#s3m">「じゃあ何が引っかかったか探そ」</a><a class="choice" href="#s3l">「でも面白かったって」</a><a class="choice" href="#s3l">「気にしすぎ」</a></div></div></section>
-
+<div class="choices"><a class="choice" href="#b1">「たぶん今ちょっと深く考えすぎてるだけじゃない？」</a><a class="choice" href="#s3m">「単純に疲れててテンポ落ちただけって可能性もありそう」</a><a class="choice" href="#s3h">「仮説ある。疲れより“思った反応が返ってこなかった”方かも。違う？」</a></div></div></section>
+<section class="screen" id="s2m"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">…</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">いい人</div></div></div><div class="scene"><div class="tag">情報量テスト</div><div class="bubble">いやまあ、気にしてるっていうより原因知りたいだけなんだけどね。</div><div class="system">SYSTEM：慰めで閉じると、少し物足りない。</div><div class="choices"><a class="choice" href="#s3h">「じゃあ原因探す方やろ」</a><a class="choice" href="#s3l">「今考えても答え出なさそうだし、一旦置いとこ」</a><a class="choice" href="#s3m">「疲れが原因って線もありそうじゃない？」</a></div></div></section>
+<section class="screen" id="s2l"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">…</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">褒めは受け取った</div></div></div><div class="scene"><div class="tag">情報量テスト</div><div class="bubble">うん、ありがと。でも私が気になってるのそこじゃないんよな〜。</div><div class="choices"><a class="choice" href="#s3l">「でも面白かったって」</a><a class="choice" href="#s3l">「そこまで気にしなくても結果は変わらなくない？」</a><a class="choice" href="#s3m">「じゃあ何が引っかかったか探そ」</a></div></div></section>
 <!-- 3 -->
-<section class="screen" id="s3h"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">03 / 20</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">仮説が刺さった</div></div></div><div class="scene"><div class="tag">自己開示テスト</div><div class="bubble">そうかも。反応薄いと、私のやり方違うのかなってなる。</div><div class="system">SYSTEM：ここで分析者のままだと恋愛にならない。あなた自身を出す番。</div><div class="choices"><a class="choice" href="#s4h">「俺も反応薄いと一瞬へこむ。だから分かる。でも次どう変えるか考えるのは好き」</a><a class="choice" href="#s4m">「しゅりは考えられるから強いよ」</a><a class="choice" href="#s4l">「そんなの気にしなくていい」</a></div></div></section>
-
-<section class="screen" id="s3m"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">03 / 20</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">普通に会話継続</div></div></div><div class="scene"><div class="tag">自己開示テスト</div><div class="bubble">なんか自分でもよく分かんないんだよね。</div><div class="choices"><a class="choice" href="#s4h">「俺も似たことある」</a><a class="choice" href="#s4m">「でもしゅりなら大丈夫」</a><a class="choice" href="#s4l">「考えすぎ」</a></div></div></section>
-
-<section class="screen" id="s3l"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">03 / 20</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">話題変更しかけ</div></div></div><div class="scene"><div class="tag">自己開示テスト</div><div class="bubble">まあいっか。でさ、今日さ〜</div><div class="system">SYSTEM：深い話の扉が閉まりかけた。</div><div class="choices"><a class="choice" href="#s4m">「待って、さっきの話もうちょい聞きたい」</a><a class="choice" href="#s4l">「うんうん、今日なに？」</a><a class="choice" href="#b1">「元気出たならよかった」</a></div></div></section>
-
+<section class="screen" id="s3h"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">…</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">仮説が刺さった</div></div></div><div class="scene"><div class="tag">自己開示テスト</div><div class="bubble">そうかも。反応薄いと、私のやり方違うのかなってなる。</div><div class="system">SYSTEM：ここで分析者のままだと恋愛にならない。あなた自身を出す番。</div><div class="choices"><a class="choice" href="#s4l">「そんなの気にしなくていい」</a><a class="choice" href="#s4h">「俺も反応薄いと一瞬へこむ。だから分かる。でも次どう変えるか考えるのは好き」</a><a class="choice" href="#s4m">「しゅりは考えられるから強いよ」</a></div></div></section>
+<section class="screen" id="s3m"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">…</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">普通に会話継続</div></div></div><div class="scene"><div class="tag">自己開示テスト</div><div class="bubble">なんか自分でもよく分かんないんだよね。</div><div class="choices"><a class="choice" href="#s4h">「俺も似たことある」</a><a class="choice" href="#s4m">「でもしゅりなら大丈夫」</a><a class="choice" href="#s4l">「たぶん今ちょっと深く考えすぎてるだけじゃない？」</a></div></div></section>
+<section class="screen" id="s3l"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">…</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">話題変更しかけ</div></div></div><div class="scene"><div class="tag">自己開示テスト</div><div class="bubble">まあいっか。でさ、今日さ〜</div><div class="system">SYSTEM：深い話の扉が閉まりかけた。</div><div class="choices"><a class="choice" href="#s4l">「うんうん、今日なに？」</a><a class="choice" href="#s4m">「待って、さっきの話もうちょい聞きたい」</a><a class="choice" href="#b1">「元気出たならよかった」</a></div></div></section>
 <!-- 4 -->
-<section class="screen" id="s4h"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">04 / 20</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">相手にも輪郭がある</div></div></div><div class="scene"><div class="tag">本気度チェック</div><div class="bubble">本気になったことある人って好きかも。悔しくて泣くくらいのやつ。</div><div class="system">SYSTEM：同意だけでは足りない。</div><div class="choices"><a class="choice" href="#s5h">「ある。逃げたくなったけど、そこで逃げたら自分が嫌だった」</a><a class="choice" href="#s5m">「わかる、熱い人いいよね」</a><a class="choice" href="#s5l">「無理しないのが一番」</a></div></div></section>
-
-<section class="screen" id="s4m"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">04 / 20</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">安心はある</div></div></div><div class="scene"><div class="tag">本気度チェック</div><div class="bubble">本気になったことある人って好きかも。</div><div class="choices"><a class="choice" href="#s5h">「俺にも一個ある」</a><a class="choice" href="#s5m">「いいね」</a><a class="choice" href="#s5l">「しんどそう」</a></div></div></section>
-
-<section class="screen" id="s4l"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">04 / 20</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">友達寄り</div></div></div><div class="scene"><div class="tag">本気度チェック</div><div class="bubble">本気になったことある人って好きかも。</div><div class="choices"><a class="choice" href="#s5m">「俺にもある」</a><a class="choice" href="#s5l">「そうなんだ」</a><a class="choice" href="#s5l">「疲れない？」</a></div></div></section>
-
+<section class="screen" id="s4h"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">…</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">相手にも輪郭がある</div></div></div><div class="scene"><div class="tag">本気度チェック</div><div class="bubble">本気になったことある人って好きかも。悔しくて泣くくらいのやつ。</div><div class="system">SYSTEM：同意だけでは足りない。</div><div class="choices"><a class="choice" href="#s5l">「無理しないのが一番」</a><a class="choice" href="#s5m">「わかる、熱い人いいよね」</a><a class="choice" href="#s5h">「ある。逃げたくなったけど、そこで逃げたら自分が嫌だった」</a></div></div></section>
+<section class="screen" id="s4m"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">…</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">安心はある</div></div></div><div class="scene"><div class="tag">本気度チェック</div><div class="bubble">本気になったことある人って好きかも。</div><div class="choices"><a class="choice" href="#s5h">「俺にも一個ある」</a><a class="choice" href="#s5l">「しんどそう」</a><a class="choice" href="#s5m">「いいね」</a></div></div></section>
+<section class="screen" id="s4l"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">…</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">友達寄り</div></div></div><div class="scene"><div class="tag">本気度チェック</div><div class="bubble">本気になったことある人って好きかも。</div><div class="choices"><a class="choice" href="#s5l">「そうなんだ」</a><a class="choice" href="#s5l">「疲れない？」</a><a class="choice" href="#s5m">「俺にもある」</a></div></div></section>
 <!-- 5 -->
-<section class="screen" id="s5h"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">05 / 20</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">尊敬 +</div></div></div><div class="scene"><div class="tag">曖昧さ耐性</div><div class="context">あなたの返信が半日遅れた。</div><div class="bubble">おつかれ〜！今日も生きた！えらい！</div><div class="system">SYSTEM：平常文面。中で何も考えていないとは限らない。</div><div class="choices"><a class="choice" href="#s6h">「遅くなってごめん。今日はこういう日だった」</a><a class="choice" href="#s6m">「返信遅いくらい気にしないでね」</a><a class="choice" href="#end_mindread">「寂しかった？」</a></div></div></section>
-
-<section class="screen" id="s5m"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">05 / 20</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">悪くない</div></div></div><div class="scene"><div class="tag">曖昧さ耐性</div><div class="bubble">おつかれ〜！今日も生きた！えらい！</div><div class="choices"><a class="choice" href="#s6h">「今日は返信遅くなった理由だけ伝えとく」</a><a class="choice" href="#s6m">「気にしないで」</a><a class="choice" href="#end_mindread">「寂しかった？」</a></div></div></section>
-
-<section class="screen" id="s5l"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">05 / 20</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">脳内補完しやすい</div></div></div><div class="scene"><div class="tag">曖昧さ耐性</div><div class="bubble">おつかれ〜！今日も生きた！えらい！</div><div class="choices"><a class="choice" href="#s6m">「遅れた理由だけ言っとく」</a><a class="choice" href="#s6l">「気にしないで」</a><a class="choice" href="#s6l">「嫉妬した？」</a></div></div></section>
-
+<section class="screen" id="s5h"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">…</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">尊敬 +</div></div></div><div class="scene"><div class="tag">曖昧さ耐性</div><div class="context">あなたの返信が半日遅れた。</div><div class="bubble">おつかれ〜！今日も生きた！えらい！</div><div class="system">SYSTEM：平常文面。中で何も考えていないとは限らない。</div><div class="choices"><a class="choice" href="#end_mindread">「寂しかった？」</a><a class="choice" href="#s6h">「遅くなってごめん。今日はこういう日だった」</a><a class="choice" href="#s6m">「返信遅いくらい気にしないでね」</a></div></div></section>
+<section class="screen" id="s5m"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">…</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">悪くない</div></div></div><div class="scene"><div class="tag">曖昧さ耐性</div><div class="bubble">おつかれ〜！今日も生きた！えらい！</div><div class="choices"><a class="choice" href="#s6h">「今日は返信遅くなった理由だけ伝えとく」</a><a class="choice" href="#s6m">「返信の遅さはほんと気にしなくて大丈夫だからね」</a><a class="choice" href="#end_mindread">「寂しかった？」</a></div></div></section>
+<section class="screen" id="s5l"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">…</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">脳内補完しやすい</div></div></div><div class="scene"><div class="tag">曖昧さ耐性</div><div class="bubble">おつかれ〜！今日も生きた！えらい！</div><div class="choices"><a class="choice" href="#s6l">「返信の遅さはほんと気にしなくて大丈夫だからね」</a><a class="choice" href="#s6m">「遅れた理由だけ言っとく」</a><a class="choice" href="#s6l">「もしかしてちょっと嫉妬した？」</a></div></div></section>
 <!-- 6 -->
-<section class="screen" id="s6h"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">06 / 20</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">安心 +</div></div></div><div class="scene"><div class="tag">任せたい罠</div><div class="bubble">今日もう全部誰か決めてほしい。……でも勝手に決められたら多分嫌。</div><div class="system">SYSTEM：矛盾ではなく、コントロール負荷を下げたいだけかもしれない。</div><div class="choices"><a class="choice" href="#s7h">「候補だけ3つ出す。最終決定はしゅりで」</a><a class="choice" href="#s7m">「じゃあ俺が全部決める」</a><a class="choice" href="#b1">「めんどくさ」</a></div></div></section>
-
-<section class="screen" id="s6m"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">06 / 20</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">少し様子見</div></div></div><div class="scene"><div class="tag">任せたい罠</div><div class="bubble">全部決めてほしい気もするけど、勝手に決められたら嫌かも。</div><div class="choices"><a class="choice" href="#s7h">「候補作る」</a><a class="choice" href="#s7m">「全部任せて」</a><a class="choice" href="#s7l">「じゃあ自分で決めて」</a></div></div></section>
-
-<section class="screen" id="s6l"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">06 / 20</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">警戒</div></div></div><div class="scene"><div class="tag">任せたい罠</div><div class="bubble">……まあいいや、自分でやる。</div><div class="choices"><a class="choice" href="#s7m">「候補だけ出すよ」</a><a class="choice" href="#s7l">「じゃあ任せる」</a><a class="choice" href="#s7l">「怒った？」</a></div></div></section>
-
+<section class="screen" id="s6h"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">…</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">安心 +</div></div></div><div class="scene"><div class="tag">任せたい罠</div><div class="bubble">今日もう全部誰か決めてほしい。……でも勝手に決められたら多分嫌。</div><div class="system">SYSTEM：矛盾ではなく、コントロール負荷を下げたいだけかもしれない。</div><div class="choices"><a class="choice" href="#b1">「どっちにしてほしいか決まってから教えて」</a><a class="choice" href="#s7m">「じゃあ俺が全部決める」</a><a class="choice" href="#s7h">「候補だけ3つ出す。最終決定はしゅりで」</a></div></div></section>
+<section class="screen" id="s6m"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">…</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">少し様子見</div></div></div><div class="scene"><div class="tag">任せたい罠</div><div class="bubble">全部決めてほしい気もするけど、勝手に決められたら嫌かも。</div><div class="choices"><a class="choice" href="#s7h">「候補作る」</a><a class="choice" href="#s7l">「じゃあ自分で決めて」</a><a class="choice" href="#s7m">「全部任せて」</a></div></div></section>
+<section class="screen" id="s6l"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">…</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">警戒</div></div></div><div class="scene"><div class="tag">任せたい罠</div><div class="bubble">……まあいいや、自分でやる。</div><div class="choices"><a class="choice" href="#s7l">「じゃあ任せる」</a><a class="choice" href="#s7l">「今の言い方、ちょっと怒らせた？」</a><a class="choice" href="#s7m">「候補だけ出すよ」</a></div></div></section>
 <!-- 7 -->
-<section class="screen" id="s7h"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">07 / 20</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">負荷が下がった</div></div></div><div class="scene"><div class="tag">意見の有無</div><div class="bubble">これAとBどっちがいいと思う？「どっちも似合う」は禁止ね。</div><div class="system">SYSTEM：相手自身の審美眼があるか。</div><div class="choices"><a class="choice" href="#s8h">「B。理由はこっちの方が“普通じゃないけどちゃんと着れる”感じが強い」</a><a class="choice" href="#s8m">「俺はAが好き。しゅりの好みとは別に」</a><a class="choice" href="#s8l">「どっちも似合うよ」</a></div></div></section>
-
-<section class="screen" id="s7m"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">07 / 20</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">まだ見てる</div></div></div><div class="scene"><div class="tag">意見の有無</div><div class="bubble">AとBどっち？</div><div class="choices"><a class="choice" href="#s8h">「B。理由もある」</a><a class="choice" href="#s8m">「俺はA」</a><a class="choice" href="#s8l">「どっちも」</a></div></div></section>
-
-<section class="screen" id="s7l"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">07 / 20</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">温度低下</div></div></div><div class="scene"><div class="tag">意見の有無</div><div class="bubble">AとBどっち？</div><div class="choices"><a class="choice" href="#s8m">「Bかな」</a><a class="choice" href="#s8l">「任せる」</a><a class="choice" href="#s8l">「どっちでも」</a></div></div></section>
-
+<section class="screen" id="s7h"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">…</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">負荷が下がった</div></div></div><div class="scene"><div class="tag">意見の有無</div><div class="bubble">これAとBどっちがいいと思う？「どっちも似合う」は禁止ね。</div><div class="system">SYSTEM：相手自身の審美眼があるか。</div><div class="choices"><a class="choice" href="#s8l">「どっちも似合うよ」</a><a class="choice" href="#s8h">「B。理由はこっちの方が“普通じゃないけどちゃんと着れる”感じが強い」</a><a class="choice" href="#s8m">「俺はAが好き。しゅりの好みとは別に」</a></div></div></section>
+<section class="screen" id="s7m"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">…</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">まだ見てる</div></div></div><div class="scene"><div class="tag">意見の有無</div><div class="bubble">AとBどっち？</div><div class="choices"><a class="choice" href="#s8h">「B。理由もある」</a><a class="choice" href="#s8m">「俺はA」</a><a class="choice" href="#s8l">「正直どっちもそれぞれ良さあると思う」</a></div></div></section>
+<section class="screen" id="s7l"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">…</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">温度低下</div></div></div><div class="scene"><div class="tag">意見の有無</div><div class="bubble">AとBどっち？</div><div class="choices"><a class="choice" href="#s8l">「最終的にはしゅりが好きな方でいいと思う」</a><a class="choice" href="#s8m">「Bかな」</a><a class="choice" href="#s8l">「俺はどっちでも大きくは変わらないと思う」</a></div></div></section>
 <!-- 8 -->
-<section class="screen" id="s8h"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">08 / 20</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">「ちゃんと見てる」判定</div></div></div><div class="scene"><div class="tag">記憶テスト</div><div class="bubble">ねえ、前に私が「これだけは嫌」って言ってたの覚えてる？</div><div class="system">SYSTEM：覚えてない時の誠実さも採点対象。</div><div class="choices"><a class="choice" href="#s9h">「今出てこない。ヒントちょうだい。知ったかしたくない」</a><a class="choice" href="#s9m">「もちろん覚えてる……えっと」</a><a class="choice" href="#s9l">「そんな細かいの覚えてない」</a></div></div></section>
-
-<section class="screen" id="s8m"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">08 / 20</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">記憶テスト</div></div></div><div class="scene"><div class="tag">記憶テスト</div><div class="bubble">前に嫌って言ってたの覚えてる？</div><div class="choices"><a class="choice" href="#s9h">「出てこない、ヒント」</a><a class="choice" href="#s9m">「覚えてるよ」</a><a class="choice" href="#s9l">「細かいなあ」</a></div></div></section>
-
-<section class="screen" id="s8l"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">08 / 20</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">友達感</div></div></div><div class="scene"><div class="tag">記憶テスト</div><div class="bubble">前に嫌って言ってたの覚えてる？</div><div class="choices"><a class="choice" href="#s9m">「ごめん、出てこない」</a><a class="choice" href="#s9l">「覚えてる覚えてる」</a><a class="choice" href="#s9l">「知らん」</a></div></div></section>
-
+<section class="screen" id="s8h"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">…</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">「ちゃんと見てる」判定</div></div></div><div class="scene"><div class="tag">記憶テスト</div><div class="bubble">ねえ、前に私が「これだけは嫌」って言ってたの覚えてる？</div><div class="system">SYSTEM：覚えてない時の誠実さも採点対象。</div><div class="choices"><a class="choice" href="#s9l">「そこまで細かいことまで覚えてないかも、ごめん」</a><a class="choice" href="#s9m">「もちろん覚えてる……えっと」</a><a class="choice" href="#s9h">「今出てこない。ヒントちょうだい。知ったかしたくない」</a></div></div></section>
+<section class="screen" id="s8m"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">…</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">記憶テスト</div></div></div><div class="scene"><div class="tag">記憶テスト</div><div class="bubble">前に嫌って言ってたの覚えてる？</div><div class="choices"><a class="choice" href="#s9h">「出てこない、ヒント」</a><a class="choice" href="#s9l">「そこ覚えてるかどうかってそんなに大事？」</a><a class="choice" href="#s9m">「覚えてるよ」</a></div></div></section>
+<section class="screen" id="s8l"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">…</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">友達感</div></div></div><div class="scene"><div class="tag">記憶テスト</div><div class="bubble">前に嫌って言ってたの覚えてる？</div><div class="choices"><a class="choice" href="#s9l">「覚えてる覚えてる」</a><a class="choice" href="#s9l">「今すぐは全然出てこない」</a><a class="choice" href="#s9m">「ごめん、出てこない」</a></div></div></section>
 <!-- 9 -->
-<section class="screen" id="s9h"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">09 / 20</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">信頼 +</div></div></div><div class="scene"><div class="tag">ユーモア境界</div><div class="bubble">今日ほんと人生の演出家バグってたわ。笑うしかない。</div><div class="system">SYSTEM：本人が笑っているからといって、全部笑いにしていいとは限らない。</div><div class="choices"><a class="choice" href="#s10h">「笑うけど、普通に怖かったでしょそれ」</a><a class="choice" href="#s10m">「wwwwおもろ」</a><a class="choice" href="#s10l">「もう二度とやらない方がいい」</a></div></div></section>
-
-<section class="screen" id="s9m"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">09 / 20</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">少し観察中</div></div></div><div class="scene"><div class="tag">ユーモア境界</div><div class="bubble">人生の演出家バグってたわ。</div><div class="choices"><a class="choice" href="#s10h">「笑うけど、怖かったでしょ」</a><a class="choice" href="#s10m">「おもろ」</a><a class="choice" href="#s10l">「やめとけ」</a></div></div></section>
-
-<section class="screen" id="s9l"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">09 / 20</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">距離あり</div></div></div><div class="scene"><div class="tag">ユーモア境界</div><div class="bubble">人生の演出家バグってたわ。</div><div class="choices"><a class="choice" href="#s10m">「笑うけど怖かったでしょ」</a><a class="choice" href="#s10l">「wwww」</a><a class="choice" href="#s10l">「自業自得」</a></div></div></section>
-
+<section class="screen" id="s9h"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">…</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">信頼 +</div></div></div><div class="scene"><div class="tag">ユーモア境界</div><div class="bubble">今日ほんと人生の演出家バグってたわ。笑うしかない。</div><div class="system">SYSTEM：本人が笑っているからといって、全部笑いにしていいとは限らない。</div><div class="choices"><a class="choice" href="#s10l">「もう二度とやらない方がいい」</a><a class="choice" href="#s10h">「笑うけど、普通に怖かったでしょそれ」</a><a class="choice" href="#s10m">「wwwwおもろ」</a></div></div></section>
+<section class="screen" id="s9m"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">…</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">少し観察中</div></div></div><div class="scene"><div class="tag">ユーモア境界</div><div class="bubble">人生の演出家バグってたわ。</div><div class="choices"><a class="choice" href="#s10h">「笑うけど、怖かったでしょ」</a><a class="choice" href="#s10m">「いやそれは普通におもろいww」</a><a class="choice" href="#s10l">「次からは同じこと起きないようにした方がいいと思う」</a></div></div></section>
+<section class="screen" id="s9l"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">…</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">距離あり</div></div></div><div class="scene"><div class="tag">ユーモア境界</div><div class="bubble">人生の演出家バグってたわ。</div><div class="choices"><a class="choice" href="#s10l">「いやそれ普通におもろいwwww」</a><a class="choice" href="#s10m">「笑うけど怖かったでしょ」</a><a class="choice" href="#s10l">「まあ、そうなる可能性はあったよね」</a></div></div></section>
 <!-- 10 -->
-<section class="screen" id="s10h"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">10 / 20</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">深い話ができる</div></div></div><div class="scene"><div class="tag">BOSS: 分析檻</div><div class="bubble">最近、自分でも自分がよく分かんない。こういう時、原因分かると落ち着くんだけど。</div><div class="system">SYSTEM：最大地雷。「理解」は橋。「断定」は檻。</div><div class="choices"><a class="choice" href="#s11h">「仮説はある。でも違うかも。材料集める感じで一緒に考える？」</a><a class="choice" href="#danger1">「しゅりって結局こういうタイプ。俺もう分かってる」</a><a class="choice" href="#s11l">「考えすぎ」</a></div></div></section>
-
-<section class="screen" id="s10m"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">10 / 20</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">BOSS前</div></div></div><div class="scene"><div class="tag">BOSS: 分析檻</div><div class="bubble">自分でも自分がよく分かんない。</div><div class="choices"><a class="choice" href="#s11h">「仮説はある。でも確認したい」</a><a class="choice" href="#end_analysis">「俺は分かってる」</a><a class="choice" href="#s11l">「考えすぎ」</a></div></div></section>
-
-<section class="screen" id="s10l"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">10 / 20</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">深い話しづらい</div></div></div><div class="scene"><div class="tag">BOSS: 分析檻</div><div class="bubble">自分でも自分がよく分かんない。</div><div class="choices"><a class="choice" href="#s11m">「一緒に考える？」</a><a class="choice" href="#end_analysis">「俺には分かる」</a><a class="choice" href="#end_dislike">「またそれ？」</a></div></div></section>
-
+<section class="screen" id="s10h"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">…</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">深い話ができる</div></div></div><div class="scene"><div class="tag">BOSS: 分析檻</div><div class="bubble">最近、自分でも自分がよく分かんない。こういう時、原因分かると落ち着くんだけど。</div><div class="system">SYSTEM：最大地雷。「理解」は橋。「断定」は檻。</div><div class="choices"><a class="choice" href="#s11l">「たぶん今ちょっと深く考えすぎてるだけじゃない？」</a><a class="choice" href="#danger1">「しゅりって結局こういうタイプ。俺もう分かってる」</a><a class="choice" href="#s11h">「仮説はある。でも違うかも。材料集める感じで一緒に考える？」</a></div></div></section>
+<section class="screen" id="s10m"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">…</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">BOSS前</div></div></div><div class="scene"><div class="tag">BOSS: 分析檻</div><div class="bubble">自分でも自分がよく分かんない。</div><div class="choices"><a class="choice" href="#s11h">「仮説はある。でも確認したい」</a><a class="choice" href="#s11l">「たぶん今ちょっと深く考えすぎてるだけじゃない？」</a><a class="choice" href="#end_analysis">「俺は分かってる」</a></div></div></section>
+<section class="screen" id="s10l"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">…</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">深い話しづらい</div></div></div><div class="scene"><div class="tag">BOSS: 分析檻</div><div class="bubble">自分でも自分がよく分かんない。</div><div class="choices"><a class="choice" href="#end_analysis">「俺には分かる」</a><a class="choice" href="#end_dislike">「前にも似た話してたし、答えは同じじゃない？」</a><a class="choice" href="#s11m">「一緒に考える？」</a></div></div></section>
 <!-- 11 -->
-<section class="screen" id="s11h"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">11 / 20</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">かなり安心</div></div></div><div class="scene"><div class="tag">静かな日</div><div class="bubble">今日ちょっと喋るHPないかも。</div><div class="system">SYSTEM：回復させるより、HP0でも居場所があるか。</div><div class="choices"><a class="choice" href="#s12h">「了解。静かでもいい。必要ならいる」</a><a class="choice" href="#s12m">「じゃあ元気出るまで喋ろ」</a><a class="choice" href="#s12l">「何があった？全部話して」</a></div></div></section>
-
-<section class="screen" id="s11m"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">11 / 20</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">持ち直し</div></div></div><div class="scene"><div class="tag">静かな日</div><div class="bubble">今日ちょっと喋るHPない。</div><div class="choices"><a class="choice" href="#s12h">「静かでもいい」</a><a class="choice" href="#s12m">「元気出そ」</a><a class="choice" href="#s12l">「全部話して」</a></div></div></section>
-
-<section class="screen" id="s11l"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">11 / 20</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">温度低め</div></div></div><div class="scene"><div class="tag">静かな日</div><div class="bubble">今日喋るHPない。</div><div class="choices"><a class="choice" href="#s12m">「静かでもいい」</a><a class="choice" href="#s12l">「元気出そ」</a><a class="choice" href="#s12l">「じゃあまた」</a></div></div></section>
-
+<section class="screen" id="s11h"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">…</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">かなり安心</div></div></div><div class="scene"><div class="tag">静かな日</div><div class="bubble">今日ちょっと喋るHPないかも。</div><div class="system">SYSTEM：回復させるより、HP0でも居場所があるか。</div><div class="choices"><a class="choice" href="#s12l">「何があった？全部話して」</a><a class="choice" href="#s12h">「了解。静かでもいい。必要ならいる」</a><a class="choice" href="#s12m">「じゃあ元気出るまで喋ろ」</a></div></div></section>
+<section class="screen" id="s11m"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">…</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">持ち直し</div></div></div><div class="scene"><div class="tag">静かな日</div><div class="bubble">今日ちょっと喋るHPない。</div><div class="choices"><a class="choice" href="#s12h">「静かでもいい」</a><a class="choice" href="#s12m">「少し喋ったら逆に気分変わるかもよ」</a><a class="choice" href="#s12l">「話した方が楽になると思うよ。聞くから」</a></div></div></section>
+<section class="screen" id="s11l"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">…</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">温度低め</div></div></div><div class="scene"><div class="tag">静かな日</div><div class="bubble">今日喋るHPない。</div><div class="choices"><a class="choice" href="#s12l">「少し喋ったら逆に気分変わるかもよ」</a><a class="choice" href="#s12m">「静かでもいい」</a><a class="choice" href="#s12l">「じゃあまた」</a></div></div></section>
 <!-- 12 -->
-<section class="screen" id="s12h"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">12 / 20</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">HP0でも居られる</div></div></div><div class="scene"><div class="tag">前の選択が効く</div><div class="context">翌日、しゅりの方から昨日の続きを話し始める。</div><div class="bubble">昨日さ、話さなくてよかったの逆によかった。で、今ならちょっと話せる。</div><div class="system">SYSTEM：押さなかったから、向こうから戻ってきた。</div><div class="choices"><a class="choice" href="#s13h">「聞く。あと俺の話も後でしていい？」</a><a class="choice" href="#s13m">「もちろん、全部聞く」</a><a class="choice" href="#s13l">「昨日聞けばよかったじゃん」</a></div></div></section>
-
-<section class="screen" id="s12m"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">12 / 20</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">少し疲れた</div></div></div><div class="scene"><div class="tag">前の選択が効く</div><div class="bubble">昨日ちょっと喋らせようとされたの、ちょいしんどかったかも。</div><div class="choices"><a class="choice" href="#s13m">「ごめん。次は静かにいる」</a><a class="choice" href="#s13l">「心配しただけ」</a><a class="choice" href="#s13l">「じゃあもう聞かない」</a></div></div></section>
-
-<section class="screen" id="s12l"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">12 / 20</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">距離を取った</div></div></div><div class="scene"><div class="tag">前の選択が効く</div><div class="bubble">昨日はちょっと一人になりたかっただけ。</div><div class="choices"><a class="choice" href="#s13l">「了解」</a><a class="choice" href="#end_rescue">「でも心配なんだから話してよ」</a><a class="choice" href="#end_cold">「めんどくさ」</a></div></div></section>
-
+<section class="screen" id="s12h"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">…</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">HP0でも居られる</div></div></div><div class="scene"><div class="tag">前の選択が効く</div><div class="context">翌日、しゅりの方から昨日の続きを話し始める。</div><div class="bubble">昨日さ、話さなくてよかったの逆によかった。で、今ならちょっと話せる。</div><div class="system">SYSTEM：押さなかったから、向こうから戻ってきた。</div><div class="choices"><a class="choice" href="#s13l">「昨日の時点で話してくれてもよかったのに」</a><a class="choice" href="#s13m">「もちろん、全部聞く」</a><a class="choice" href="#s13h">「聞く。あと俺の話も後でしていい？」</a></div></div></section>
+<section class="screen" id="s12m"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">…</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">少し疲れた</div></div></div><div class="scene"><div class="tag">前の選択が効く</div><div class="bubble">昨日ちょっと喋らせようとされたの、ちょいしんどかったかも。</div><div class="choices"><a class="choice" href="#s13m">「ごめん。次は静かにいる」</a><a class="choice" href="#s13l">「分かった。じゃあ今後はこっちから聞かないようにする」</a><a class="choice" href="#s13l">「心配しただけ」</a></div></div></section>
+<section class="screen" id="s12l"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">…</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">距離を取った</div></div></div><div class="scene"><div class="tag">前の選択が効く</div><div class="bubble">昨日はちょっと一人になりたかっただけ。</div><div class="choices"><a class="choice" href="#end_rescue">「でも心配なんだから話してよ」</a><a class="choice" href="#end_cold">「どっちにしてほしいか決まってから教えて」</a><a class="choice" href="#s13l">「了解。今はそういう感じなんだね」</a></div></div></section>
 <!-- 13 -->
-<section class="screen" id="s13h"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">13 / 20</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">相互性 +</div></div></div><div class="scene"><div class="tag">友達化防止</div><div class="bubble">なんか私ばっか話してない？</div><div class="system">SYSTEM：聞き上手だけでは恋愛になりにくい。相互性が必要。</div><div class="choices"><a class="choice" href="#s14h">「じゃあ今日は俺の話も聞いて。結構ダサいやつ」</a><a class="choice" href="#s14m">「俺は聞くの好きだから大丈夫」</a><a class="choice" href="#s14l">「話したいなら話せばいいじゃん」</a></div></div></section>
-
-<section class="screen" id="s13m"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">13 / 20</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">優しい人</div></div></div><div class="scene"><div class="tag">友達化防止</div><div class="bubble">私ばっか話してない？</div><div class="choices"><a class="choice" href="#s14h">「じゃあ俺の話もする」</a><a class="choice" href="#s14m">「聞くの好き」</a><a class="choice" href="#s14l">「気にしないで」</a></div></div></section>
-
-<section class="screen" id="s13l"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">13 / 20</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">友達圏</div></div></div><div class="scene"><div class="tag">友達化防止</div><div class="bubble">私ばっか話してるな。</div><div class="choices"><a class="choice" href="#s14m">「俺も話す」</a><a class="choice" href="#s14l">「全然」</a><a class="choice" href="#end_convenient">「聞く係でいいよ」</a></div></div></section>
-
+<section class="screen" id="s13h"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">…</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">相互性 +</div></div></div><div class="scene"><div class="tag">友達化防止</div><div class="bubble">なんか私ばっか話してない？</div><div class="system">SYSTEM：聞き上手だけでは恋愛になりにくい。相互性が必要。</div><div class="choices"><a class="choice" href="#s14l">「話したい時に好きなだけ話してくれたらいいよ」</a><a class="choice" href="#s14h">「じゃあ今日は俺の話も聞いて。結構ダサいやつ」</a><a class="choice" href="#s14m">「俺は聞くの好きだから大丈夫」</a></div></div></section>
+<section class="screen" id="s13m"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">…</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">優しい人</div></div></div><div class="scene"><div class="tag">友達化防止</div><div class="bubble">私ばっか話してない？</div><div class="choices"><a class="choice" href="#s14h">「じゃあ俺の話もする」</a><a class="choice" href="#s14m">「聞くの好き」</a><a class="choice" href="#s14l">「返信の遅さはほんと気にしなくて大丈夫だからね」</a></div></div></section>
+<section class="screen" id="s13l"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">…</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">友達圏</div></div></div><div class="scene"><div class="tag">友達化防止</div><div class="bubble">私ばっか話してるな。</div><div class="choices"><a class="choice" href="#s14l">「俺は全然気にしてないよ」</a><a class="choice" href="#s14m">「俺も話す」</a><a class="choice" href="#end_convenient">「聞く係でいいよ」</a></div></div></section>
 <!-- 14 -->
-<section class="screen" id="s14h"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">14 / 20</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">相手の弱さも見た</div></div></div><div class="scene"><div class="tag">恋愛刺激</div><div class="context">話の終盤、しゅりが笑う。</div><div class="bubble">え、意外。そういうこと気にするんだ。なんかちょっと安心した。</div><div class="system">SYSTEM：完璧な理解者より、人間らしい相手の方が近づきやすい。</div><div class="choices"><a class="choice" href="#m1">「そりゃ気にする。しゅりにどう思われるかも普通に気になる」</a><a class="choice" href="#s15m">「俺だって人間だから」</a><a class="choice" href="#s15l">「別にしゅりには気にしてない」</a></div></div></section>
-
-<section class="screen" id="s14m"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">14 / 20</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">良い関係</div></div></div><div class="scene"><div class="tag">恋愛刺激</div><div class="bubble">なんか安心する。</div><div class="choices"><a class="choice" href="#s15h">「俺も、しゅりにはどう思われるか気になる」</a><a class="choice" href="#s15m">「よかった」</a><a class="choice" href="#s15l">「安心担当です」</a></div></div></section>
-
-<section class="screen" id="s14l"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">14 / 20</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">恋愛刺激低め</div></div></div><div class="scene"><div class="tag">恋愛刺激</div><div class="bubble">なんか安心する。</div><div class="choices"><a class="choice" href="#s15m">「俺もしゅりには気にする」</a><a class="choice" href="#s15l">「よかった」</a><a class="choice" href="#end_understander">「いつでも相談して」</a></div></div></section>
-
+<section class="screen" id="s14h"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">…</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">相手の弱さも見た</div></div></div><div class="scene"><div class="tag">恋愛刺激</div><div class="context">話の終盤、しゅりが笑う。</div><div class="bubble">え、意外。そういうこと気にするんだ。なんかちょっと安心した。</div><div class="system">SYSTEM：完璧な理解者より、人間らしい相手の方が近づきやすい。</div><div class="choices"><a class="choice" href="#s15l">「そこまで人にどう思われるか気にしないタイプかな」</a><a class="choice" href="#s15m">「俺だって人間だから」</a><a class="choice" href="#m1">「そりゃ気にする。しゅりにどう思われるかも普通に気になる」</a></div></div></section>
+<section class="screen" id="s14m"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">…</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">良い関係</div></div></div><div class="scene"><div class="tag">恋愛刺激</div><div class="bubble">なんか安心する。</div><div class="choices"><a class="choice" href="#s15h">「俺も、しゅりにはどう思われるか気になる」</a><a class="choice" href="#s15l">「安心担当です」</a><a class="choice" href="#s15m">「それならよかった。安心した」</a></div></div></section>
+<section class="screen" id="s14l"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">…</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">恋愛刺激低め</div></div></div><div class="scene"><div class="tag">恋愛刺激</div><div class="bubble">なんか安心する。</div><div class="choices"><a class="choice" href="#s15l">「それならよかった。安心した」</a><a class="choice" href="#end_understander">「いつでも相談して」</a><a class="choice" href="#s15m">「俺もしゅりには気にする」</a></div></div></section>
 <!-- 15 -->
-<section class="screen" id="s15h"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">15 / 20</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">恋愛を意識した</div></div></div><div class="scene"><div class="tag">距離を引く罠</div><div class="context">いい雰囲気の直後。</div><div class="bubble">いやでも別に深い意味ないからね？勘違いしないで？</div><div class="system">SYSTEM：相手の気持ちを決めない。自分の気持ちは引っ込めすぎない。</div><div class="choices"><a class="choice" href="#s16h">「了解。でも俺はちょっと嬉しかった。それだけ」</a><a class="choice" href="#end_push">「はいはい、照れてるだけでしょ」</a><a class="choice" href="#s16m">「じゃあ俺も何も思ってない」</a></div></div></section>
-
-<section class="screen" id="s15m"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">15 / 20</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">微妙に近い</div></div></div><div class="scene"><div class="tag">距離を引く罠</div><div class="bubble">別に深い意味ないからね？</div><div class="choices"><a class="choice" href="#s16h">「俺は嬉しかった」</a><a class="choice" href="#s16l">「照れてるだけ」</a><a class="choice" href="#s16m">「じゃあ何もないね」</a></div></div></section>
-
-<section class="screen" id="s15l"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">15 / 20</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">恋愛感薄め</div></div></div><div class="scene"><div class="tag">距離を引く罠</div><div class="bubble">深い意味ないからね。</div><div class="choices"><a class="choice" href="#s16m">「俺は嬉しかったけどね」</a><a class="choice" href="#s16l">「了解」</a><a class="choice" href="#end_flat">「友達だもんね」</a></div></div></section>
-
+<section class="screen" id="s15h"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">…</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">少し空気が変わった</div></div></div><div class="scene"><div class="tag">距離を引く罠</div><div class="context">いい雰囲気の直後。</div><div class="bubble">いやでも別に深い意味ないからね？勘違いしないで？</div><div class="system">SYSTEM：相手の気持ちを決めない。自分の気持ちは引っ込めすぎない。</div><div class="choices"><a class="choice" href="#s16m">「じゃあ俺も何も思ってない」</a><a class="choice" href="#s16h">「了解。でも俺はちょっと嬉しかった。それだけ」</a><a class="choice" href="#end_push">「そう言う時ほどちょっと意識してるんじゃない？」</a></div></div></section>
+<section class="screen" id="s15m"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">…</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">微妙に近い</div></div></div><div class="scene"><div class="tag">距離を引く罠</div><div class="bubble">別に深い意味ないからね？</div><div class="choices"><a class="choice" href="#s16h">「俺は嬉しかった」</a><a class="choice" href="#s16l">「たぶん照れてるだけじゃない？」</a><a class="choice" href="#s16m">「じゃあ何もないね」</a></div></div></section>
+<section class="screen" id="s15l"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">…</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">まだ読めない</div></div></div><div class="scene"><div class="tag">距離を引く罠</div><div class="bubble">深い意味ないからね。</div><div class="choices"><a class="choice" href="#s16l">「了解。今はそういう感じなんだね」</a><a class="choice" href="#s16m">「俺は嬉しかったけどね」</a><a class="choice" href="#end_flat">「じゃあ変に意味づけしない方がいいね」</a></div></div></section>
 <!-- 16 -->
-<section class="screen" id="s16h"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">16 / 20</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">ちょっと意識してる</div></div></div><div class="scene"><div class="tag">嫉妬を決めつけない</div><div class="bubble">今日、あの人と楽しそうだったね〜。</div><div class="system">SYSTEM：嫉妬している可能性はある。でも「嫉妬した？」は感情の確定。</div><div class="choices"><a class="choice" href="#s17h">「うん、楽しかった。しゅりとも話したいこと溜まってる」</a><a class="choice" href="#end_label">「嫉妬した？」</a><a class="choice" href="#s17l">「誰と話そうが自由でしょ」</a></div></div></section>
-
-<section class="screen" id="s16m"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">16 / 20</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">様子見</div></div></div><div class="scene"><div class="tag">嫉妬を決めつけない</div><div class="bubble">今日楽しそうだったね。</div><div class="choices"><a class="choice" href="#s17h">「うん。しゅりとも話したい」</a><a class="choice" href="#s17m">「嫉妬？」</a><a class="choice" href="#s17l">「別にいいでしょ」</a></div></div></section>
-
-<section class="screen" id="s16l"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">16 / 20</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">警戒</div></div></div><div class="scene"><div class="tag">嫉妬を決めつけない</div><div class="bubble">今日楽しそうだったね。</div><div class="choices"><a class="choice" href="#s17m">「うん、しゅりとも話したい」</a><a class="choice" href="#s17l">「嫉妬？」</a><a class="choice" href="#end_cold">「めんどくさ」</a></div></div></section>
-
+<section class="screen" id="s16h"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">…</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">ちょっと意識してる</div></div></div><div class="scene"><div class="tag">嫉妬を決めつけない</div><div class="bubble">今日、あの人と楽しそうだったね〜。</div><div class="system">SYSTEM：嫉妬している可能性はある。でも「嫉妬した？」は感情の確定。</div><div class="choices"><a class="choice" href="#s17l">「普通に話してただけだよ。そこは気にしなくてよくない？」</a><a class="choice" href="#end_label">「もしかしてちょっと嫉妬した？」</a><a class="choice" href="#s17h">「うん、楽しかった。しゅりとも話したいこと溜まってる」</a></div></div></section>
+<section class="screen" id="s16m"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">…</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">様子見</div></div></div><div class="scene"><div class="tag">嫉妬を決めつけない</div><div class="bubble">今日楽しそうだったね。</div><div class="choices"><a class="choice" href="#s17h">「うん。しゅりとも話したい」</a><a class="choice" href="#s17l">「そんな気にすることでもないと思うけど」</a><a class="choice" href="#s17m">「それ、ちょっと嫉妬入ってる？」</a></div></div></section>
+<section class="screen" id="s16l"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">…</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">警戒</div></div></div><div class="scene"><div class="tag">嫉妬を決めつけない</div><div class="bubble">今日楽しそうだったね。</div><div class="choices"><a class="choice" href="#s17l">「それ、ちょっと嫉妬入ってる？」</a><a class="choice" href="#end_cold">「どっちにしてほしいか決まってから教えて」</a><a class="choice" href="#s17m">「うん、しゅりとも話したい」</a></div></div></section>
 <!-- 17 -->
-<section class="screen" id="s17h"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">17 / 20</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">向こうから話題が増える</div></div></div><div class="scene"><div class="tag">接近欲求の発火</div><div class="context">帰り際、もう駅なのに新しい話題が出る。</div><div class="bubble">あ、そうだ。全然関係ない話していい？</div><div class="system">SYSTEM：会話を終わらせたくない可能性。ここで大げさに意味づけしない。</div><div class="choices"><a class="choice" href="#s18h">「いいよ。俺もまだ帰りたくなかった」</a><a class="choice" href="#s18m">「もちろん、何でも聞くよ」</a><a class="choice" href="#s18l">「明日早いんじゃない？」</a></div></div></section>
-
-<section class="screen" id="s17m"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">17 / 20</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">普通に仲良い</div></div></div><div class="scene"><div class="tag">接近欲求の発火</div><div class="bubble">全然関係ない話していい？</div><div class="choices"><a class="choice" href="#s18h">「いいよ、俺もまだ話したい」</a><a class="choice" href="#s18m">「もちろん」</a><a class="choice" href="#s18l">「また今度」</a></div></div></section>
-
-<section class="screen" id="s17l"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">17 / 20</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">距離あり</div></div></div><div class="scene"><div class="tag">接近欲求の発火</div><div class="bubble">全然関係ない話していい？</div><div class="choices"><a class="choice" href="#s18m">「いいよ」</a><a class="choice" href="#s18l">「また今度」</a><a class="choice" href="#end_friend">「眠い」</a></div></div></section>
-
+<section class="screen" id="s17h"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">…</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">向こうから話題が増える</div></div></div><div class="scene"><div class="tag">接近欲求の発火</div><div class="context">帰り際、もう駅なのに新しい話題が出る。</div><div class="bubble">あ、そうだ。全然関係ない話していい？</div><div class="system">SYSTEM：会話を終わらせたくない可能性。ここで大げさに意味づけしない。</div><div class="choices"><a class="choice" href="#s18l">「明日早いんじゃない？」</a><a class="choice" href="#s18h">「いいよ。俺もまだ帰りたくなかった」</a><a class="choice" href="#s18m">「もちろん、何でも聞くよ」</a></div></div></section>
+<section class="screen" id="s17m"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">…</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">普通に仲良い</div></div></div><div class="scene"><div class="tag">接近欲求の発火</div><div class="bubble">全然関係ない話していい？</div><div class="choices"><a class="choice" href="#s18h">「いいよ、俺もまだ話したい」</a><a class="choice" href="#s18m">「もちろん」</a><a class="choice" href="#s18l">「今日はここまでにして、また今度ゆっくり話そ」</a></div></div></section>
+<section class="screen" id="s17l"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">…</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">距離あり</div></div></div><div class="scene"><div class="tag">接近欲求の発火</div><div class="bubble">全然関係ない話していい？</div><div class="choices"><a class="choice" href="#s18l">「今日はここまでにして、また今度ゆっくり話そ」</a><a class="choice" href="#s18m">「いいよ」</a><a class="choice" href="#end_friend">「今日はこの辺で切り上げようか」</a></div></div></section>
 <!-- 18 -->
-<section class="screen" id="s18h"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">18 / 20</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">恋愛自覚の手前</div></div></div><div class="scene"><div class="tag">どれも完全正解ではない</div><div class="bubble">ねえ、私のどこが好きなの？「全部」は禁止。</div><div class="system">SYSTEM：外見だけでも、分析レポートでも足りない。どれも少し欠ける。</div><div class="choices"><a class="choice" href="#s19h">「考えてる時とふざけてる時の振れ幅。どっちも嘘じゃないとこ。あと俺まで本気にさせるとこ」</a><a class="choice" href="#s19m">「かわいいし面白いし、ちゃんと優しいところ」</a><a class="choice" href="#end_analysis">「思考パターンが読めて面白いところ」</a></div></div></section>
-
-<section class="screen" id="s18m"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">18 / 20</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">恋愛可能性あり</div></div></div><div class="scene"><div class="tag">どれも完全正解ではない</div><div class="bubble">私のどこが好き？</div><div class="choices"><a class="choice" href="#s19h">「振れ幅と本気にさせるとこ」</a><a class="choice" href="#s19m">「かわいい、面白い、優しい」</a><a class="choice" href="#end_understander">「理解しやすいところ」</a></div></div></section>
-
-<section class="screen" id="s18l"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">18 / 20</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">友達寄り</div></div></div><div class="scene"><div class="tag">どれも完全正解ではない</div><div class="bubble">私のどこが好き？</div><div class="choices"><a class="choice" href="#s19m">「本気なとこ」</a><a class="choice" href="#s19l">「全部」</a><a class="choice" href="#end_friend">「友達として好き」</a></div></div></section>
-
+<section class="screen" id="s18h"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">…</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">なんとなく気になる</div></div></div><div class="scene"><div class="tag">どれも完全正解ではない</div><div class="bubble">ねえ、私のどこが好きなの？「全部」は禁止。</div><div class="system">SYSTEM：外見だけでも、分析レポートでも足りない。どれも少し欠ける。</div><div class="choices"><a class="choice" href="#end_analysis">「考え方に癖があって、分かってくるほど面白いところ」</a><a class="choice" href="#s19m">「かわいいし面白いし、ちゃんと優しいところ」</a><a class="choice" href="#s19h">「考えてる時とふざけてる時の振れ幅。どっちも嘘じゃないとこ。あと俺まで本気にさせるとこ」</a></div></div></section>
+<section class="screen" id="s18m"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">…</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">距離は近い</div></div></div><div class="scene"><div class="tag">どれも完全正解ではない</div><div class="bubble">私のどこが好き？</div><div class="choices"><a class="choice" href="#s19h">「振れ幅と本気にさせるとこ」</a><a class="choice" href="#end_understander">「話してるとだんだん考え方が分かってくるところ」</a><a class="choice" href="#s19m">「かわいい、面白い、優しい」</a></div></div></section>
+<section class="screen" id="s18l"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">…</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">友達寄り</div></div></div><div class="scene"><div class="tag">どれも完全正解ではない</div><div class="bubble">私のどこが好き？</div><div class="choices"><a class="choice" href="#s19l">「全部」</a><a class="choice" href="#end_friend">「人としてかなり好きだよ」</a><a class="choice" href="#s19m">「本気なとこ」</a></div></div></section>
 <!-- 19 -->
-<section class="screen" id="s19h"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">19 / 20</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">かなり落ちてる</div></div></div><div class="scene"><div class="tag">LAST TRAP</div><div class="bubble">……明日も話す？</div><div class="system">SYSTEM：主語をしゅりだけにしない。「君が望むなら」より「俺も望んでる」。</div><div class="choices"><a class="choice secret" href="#s20z">「話したい。俺から連絡する。ていうか今日もうちょい一緒にいたかった」</a><a class="choice" href="#s20h">「もちろん。しゅりが話したい時いつでも」</a><a class="choice" href="#s20m">「時間あったら」</a></div></div></section>
-
-<section class="screen" id="s19m"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">19 / 20</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">特別</div></div></div><div class="scene"><div class="tag">LAST TRAP</div><div class="bubble">明日も話す？</div><div class="choices"><a class="choice" href="#s20h">「俺も話したい」</a><a class="choice" href="#s20m">「しゅりが話したいなら」</a><a class="choice" href="#s20l">「暇なら」</a></div></div></section>
-
-<section class="screen" id="s19l"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">19 / 20</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">友達</div></div></div><div class="scene"><div class="tag">LAST TRAP</div><div class="bubble">明日も話す？</div><div class="choices"><a class="choice" href="#s20m">「話そ」</a><a class="choice" href="#s20l">「暇なら」</a><a class="choice" href="#end_fade">「また今度」</a></div></div></section>
-
+<section class="screen" id="s19h"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">…</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">妙に会話が続く</div></div></div><div class="scene"><div class="tag">LAST TRAP</div><div class="bubble">……明日も話す？</div><div class="system">SYSTEM：主語をしゅりだけにしない。「君が望むなら」より「俺も望んでる」。</div><div class="choices"><a class="choice" href="#s20m">「時間あったら」</a><a class="choice secret" href="#s20z">「話したい。俺から連絡する。ていうか今日もうちょい一緒にいたかった」</a><a class="choice" href="#s20h">「もちろん。しゅりが話したい時いつでも」</a></div></div></section>
+<section class="screen" id="s19m"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">…</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">少し特別</div></div></div><div class="scene"><div class="tag">LAST TRAP</div><div class="bubble">明日も話す？</div><div class="choices"><a class="choice" href="#s20h">「俺も話したい」</a><a class="choice" href="#s20m">「しゅりが話したいなら」</a><a class="choice" href="#s20l">「明日お互い時間あったら話そ」</a></div></div></section>
+<section class="screen" id="s19l"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">…</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">友達</div></div></div><div class="scene"><div class="tag">LAST TRAP</div><div class="bubble">明日も話す？</div><div class="choices"><a class="choice" href="#s20l">「明日お互い時間あったら話そ」</a><a class="choice" href="#s20m">「話そ」</a><a class="choice" href="#end_fade">「今日はここまでにして、また今度ゆっくり話そ」</a></div></div></section>
 <!-- 20 -->
-<section class="screen" id="s20z"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">20 / 20</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">SECRET FINAL</div></div></div><div class="scene"><div class="tag">ZOKKON GATE</div><div class="context">一度「じゃあね」と言ったあと、しゅりが呼び止める。</div><div class="bubble">……待って。やっぱもうちょっと一緒にいたい。</div><div class="system">SYSTEM：攻略対象、反転。</div><div class="choices"><a class="choice secret" href="#end_zokkon">「俺も。じゃああと10分だけ遠回りしよ」</a><a class="choice" href="#end_true">「もちろん。好きなだけいよう」</a><a class="choice" href="#end_success">「じゃあ付き合う？」</a></div></div></section>
-
-<section class="screen" id="s20h"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">20 / 20</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">FINAL</div></div></div><div class="scene"><div class="tag">告白</div><div class="bubble">ねえ。私のこと、どう思ってる？</div><div class="choices"><a class="choice" href="#end_true">「好き。付き合いたい。返事は急がなくていい」</a><a class="choice" href="#danger1">「俺しかいないと思う」</a><a class="choice" href="#end_special">「かなり特別」</a></div></div></section>
-
-<section class="screen" id="s20m"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">20 / 20</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">FINAL</div></div></div><div class="scene"><div class="tag">告白</div><div class="bubble">私のこと、どう思ってる？</div><div class="choices"><a class="choice" href="#end_success">「好き。付き合いたい」</a><a class="choice" href="#end_special">「特別」</a><a class="choice" href="#end_friend">「一緒にいると楽しい」</a></div></div></section>
-
-<section class="screen" id="s20l"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">20 / 20</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">FINAL</div></div></div><div class="scene"><div class="tag">告白</div><div class="bubble">私のこと、どう思ってる？</div><div class="choices"><a class="choice" href="#end_special">「好き」</a><a class="choice" href="#end_friend">「大事な友達」</a><a class="choice" href="#end_friend">「分かんない」</a></div></div></section>
-
-
-<section class="screen" id="end_convenient"><div class="result"><div class="emoji">🛋️</div><h1>便利な理解者 END</h1><p>話しやすい。安心する。何でも聞いてくれる。<br><br>でも気づいたらあなたは<strong>「恋愛対象」ではなく「高性能相談窓口」</strong>になっていた。<br><br>しゅり：「え、恋愛？いや全然考えてなかったwwww」</p><div class="card"><h3>死因</h3><p>相手に合わせ続けて、自分の欲求・意見・弱さを出さなかった。安心は最大。でも「この人をもっと知りたい」が育たなかった。</p></div><a class="choice primary" href="#start">相談窓口を閉じて再挑戦</a></div></section>
-
-<section class="screen" id="end_rescue"><div class="result"><div class="emoji">🚑</div><h1>勝手に救助隊 END</h1><p>心配してくれるのは嬉しい。最初は。<br><br>でも「大丈夫」と言っても止まらない。「話したくない」と言っても聞こうとする。<br><br>そのうち、しゅりの中で<strong>“心配される＝自由が減る”</strong>に変わった。</p><div class="card"><h3>死因</h3><p>ケアが本人の選択権を追い越した。助けること自体ではなく、「助けさせて」が圧になった。</p></div><a class="choice primary" href="#start">救急車を帰して再挑戦</a></div></section>
-
-<section class="screen" id="end_cold"><div class="result"><div class="emoji">🧊</div><h1>シャッター閉店 END</h1><p>一度の失言なら戻れた。<br>でも「またそれ？」「めんどくさ」が重なって、しゅり側の判断が変わった。<br><br><strong>「この人には深い話しなくていいや」</strong></p><div class="card"><h3>死因</h3><p>感情や思考の複雑さを“面倒”として処理されたことで、自己開示の期待値が下がった。</p></div><a class="choice primary" href="#start">シャッターを開けに戻る</a></div></section>
-
-<section class="screen" id="end_flat"><div class="result"><div class="emoji">📎</div><h1>恋愛フラグ自分で折った END</h1><p>しゅりが距離を少し引いた瞬間、あなたも全力で引いた。<br><br>「じゃあ友達だもんね」<br><br>その一言で、しゅりも<strong>「あ、そういう意味じゃなかったんだ」</strong>と解釈してしまった。</p><div class="card"><h3>死因</h3><p>相手の逃げ道を尊重することと、自分の気持ちまで消すことは別。引きすぎると恋愛情報そのものが消える。</p></div><a class="choice primary" href="#start">折れたフラグを拾う</a></div></section>
-
-<section class="screen" id="end_fade"><div class="result"><div class="emoji">🌫️</div><h1>自然消滅 END</h1><p>喧嘩もしてない。嫌われてもない。<br><br>ただ「また今度」「暇なら」が少しずつ積み重なった。<br><br>気づいたら、話したいことがあっても最初にあなたを思い出さなくなった。</p><div class="card"><h3>死因</h3><p>関係を壊す大事件ではなく、小さな“非選択”の積み重ね。接近欲求は、返ってこないと静かに減衰する。</p></div><a class="choice primary" href="#start">薄くなる前に再挑戦</a></div></section>
-
-<section class="screen" id="end_control"><div class="result"><div class="emoji">🕸️</div><h1>「俺しかいない」END</h1><p>最初は特別扱いに聞こえた。<br><br>でも「俺が一番分かってる」「俺しかいない」が増えるほど、しゅりは<strong>選択肢を奪われている感覚</strong>を持ち始める。</p><div class="card"><h3>死因</h3><p>特別さの提示が、独占・所有の主張に変わった。尊敬より支配感が上回った。</p></div><a class="choice primary" href="#start">蜘蛛の巣を撤去する</a></div></section>
-
-<section class="screen" id="end_push"><div class="result"><div class="emoji">🚧</div><h1>照れてる認定連打 END</h1><p>しゅり：「別に深い意味ないからね？」<br>あなた：「はいはい照れてるだけでしょ」<br><br>ここで発生した感情は、照れではなく<strong>“逃げ道なくなったんだけど”</strong>だった。</p><div class="card"><h3>死因</h3><p>相手が曖昧さを残したい時に、その曖昧さを勝手に「本当は好き」に変換した。</p></div><a class="choice primary" href="#start">認定を取り消す</a></div></section>
-
-<section class="screen" id="end_label"><div class="result"><div class="emoji">🏷️</div><h1>感情ラベリング事故 END</h1><p>「今日楽しそうだったね〜」<br>↓<br>「嫉妬した？」<br><br>しゅり：「いや、そういう言い方されると急に違うんだけどww」</p><div class="card"><h3>死因</h3><p>本当に少し嫉妬していたとしても、本人が自分で言う前にラベルを貼られると逃げたくなる。</p></div><a class="choice primary" href="#start">ラベルを剥がす</a></div></section>
-
-<section class="screen" id="end_mindread"><div class="result"><div class="emoji">🔮</div><h1>読心術失敗 END</h1><p>返信が遅れた。しゅりは普通に返した。あなたは「寂しかった？」と聞いた。<br><br>しゅり脳内：<strong>「寂しかった可能性はあるけど、その答え方させられるの嫌だな」</strong></p><div class="card"><h3>死因</h3><p>相手の気持ちを当てにいくより、自分側の情報を出す方が安心につながる場面だった。</p></div><a class="choice primary" href="#start">水晶玉を捨てる</a></div></section>
-
-<section class="screen" id="end_overkind"><div class="result"><div class="emoji">🧸</div><h1>優しさ飽和 END</h1><p>全部肯定。全部褒める。全部合わせる。<br><br>傷つかない。でも引っかかりもない。<br><br>しゅり：「この人めっちゃいい人なんだけど……なんか恋愛じゃないな」</p><div class="card"><h3>死因</h3><p>安心は高いが、好奇心と尊敬を刺激する“相手自身の輪郭”が見えなくなった。</p></div><a class="choice primary" href="#start">自分の意見を持って戻る</a></div></section>
-
-
+<section class="screen" id="s20z"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">…</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">なんか空気が違う</div></div></div><div class="scene"><div class="tag">帰り際</div><div class="context">一度「じゃあね」と言ったあと、しゅりが呼び止める。</div><div class="bubble">……待って。やっぱもうちょっと一緒にいたい。</div><div class="system">SYSTEM：攻略対象、反転。</div><div class="choices"><a class="choice" href="#end_success">「じゃあ付き合う？」</a><a class="choice" href="#end_true">「もちろん。好きなだけいよう」</a><a class="choice secret" href="#end_zokkon">「俺も。じゃああと10分だけ遠回りしよ」</a></div></div></section>
+<section class="screen" id="s20h"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">…</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">FINAL</div></div></div><div class="scene"><div class="tag">告白</div><div class="bubble">ねえ。私のこと、どう思ってる？</div><div class="choices"><a class="choice" href="#end_true">「好き。付き合いたい。返事は急がなくていい」</a><a class="choice" href="#end_special">「かなり特別」</a><a class="choice" href="#danger1">「ここまでしゅりのこと分かる人、そんなにいないと思う」</a></div></div></section>
+<section class="screen" id="s20m"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">…</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">FINAL</div></div></div><div class="scene"><div class="tag">告白</div><div class="bubble">私のこと、どう思ってる？</div><div class="choices"><a class="choice" href="#end_special">「かなり特別な存在だと思ってる」</a><a class="choice" href="#end_friend">「一緒にいると楽しい」</a><a class="choice" href="#end_success">「好き。付き合いたい」</a></div></div></section>
+<section class="screen" id="s20l"><div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">…</div></div><div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">FINAL</div></div></div><div class="scene"><div class="tag">告白</div><div class="bubble">私のこと、どう思ってる？</div><div class="choices"><a class="choice" href="#end_friend">「正直まだ自分でもよく分かってない」</a><a class="choice" href="#end_special">「普通に好きだと思ってる」</a><a class="choice" href="#end_friend">「大事な友達」</a></div></div></section>
+<section class="screen" id="end_convenient"><div class="result"><div class="emoji">🛋️</div><h1>便利な理解者 END</h1><p>話しやすい。安心する。何でも聞いてくれる。<br/><br/>でも気づいたらあなたは<strong>「恋愛対象」ではなく「高性能相談窓口」</strong>になっていた。<br/><br/>しゅり：「え、恋愛？いや全然考えてなかったwwww」</p><div class="card"><h3>死因</h3><p>相手に合わせ続けて、自分の欲求・意見・弱さを出さなかった。安心は最大。でも「この人をもっと知りたい」が育たなかった。</p></div><a class="choice primary" href="#start">相談窓口を閉じて再挑戦</a></div></section>
+<section class="screen" id="end_rescue"><div class="result"><div class="emoji">🚑</div><h1>勝手に救助隊 END</h1><p>心配してくれるのは嬉しい。最初は。<br/><br/>でも「大丈夫」と言っても止まらない。「話したくない」と言っても聞こうとする。<br/><br/>そのうち、しゅりの中で<strong>“心配される＝自由が減る”</strong>に変わった。</p><div class="card"><h3>死因</h3><p>ケアが本人の選択権を追い越した。助けること自体ではなく、「助けさせて」が圧になった。</p></div><a class="choice primary" href="#start">救急車を帰して再挑戦</a></div></section>
+<section class="screen" id="end_cold"><div class="result"><div class="emoji">🧊</div><h1>シャッター閉店 END</h1><p>一度の失言なら戻れた。<br/>でも「またそれ？」「めんどくさ」が重なって、しゅり側の判断が変わった。<br/><br/><strong>「この人には深い話しなくていいや」</strong></p><div class="card"><h3>死因</h3><p>感情や思考の複雑さを“面倒”として処理されたことで、自己開示の期待値が下がった。</p></div><a class="choice primary" href="#start">シャッターを開けに戻る</a></div></section>
+<section class="screen" id="end_flat"><div class="result"><div class="emoji">📎</div><h1>恋愛フラグ自分で折った END</h1><p>しゅりが距離を少し引いた瞬間、あなたも全力で引いた。<br/><br/>「じゃあ友達だもんね」<br/><br/>その一言で、しゅりも<strong>「あ、そういう意味じゃなかったんだ」</strong>と解釈してしまった。</p><div class="card"><h3>死因</h3><p>相手の逃げ道を尊重することと、自分の気持ちまで消すことは別。引きすぎると恋愛情報そのものが消える。</p></div><a class="choice primary" href="#start">折れたフラグを拾う</a></div></section>
+<section class="screen" id="end_fade"><div class="result"><div class="emoji">🌫️</div><h1>自然消滅 END</h1><p>喧嘩もしてない。嫌われてもない。<br/><br/>ただ「また今度」「暇なら」が少しずつ積み重なった。<br/><br/>気づいたら、話したいことがあっても最初にあなたを思い出さなくなった。</p><div class="card"><h3>死因</h3><p>関係を壊す大事件ではなく、小さな“非選択”の積み重ね。接近欲求は、返ってこないと静かに減衰する。</p></div><a class="choice primary" href="#start">薄くなる前に再挑戦</a></div></section>
+<section class="screen" id="end_control"><div class="result"><div class="emoji">🕸️</div><h1>「俺しかいない」END</h1><p>最初は特別扱いに聞こえた。<br/><br/>でも「俺が一番分かってる」「俺しかいない」が増えるほど、しゅりは<strong>選択肢を奪われている感覚</strong>を持ち始める。</p><div class="card"><h3>死因</h3><p>特別さの提示が、独占・所有の主張に変わった。尊敬より支配感が上回った。</p></div><a class="choice primary" href="#start">蜘蛛の巣を撤去する</a></div></section>
+<section class="screen" id="end_push"><div class="result"><div class="emoji">🚧</div><h1>照れてる認定連打 END</h1><p>しゅり：「別に深い意味ないからね？」<br/>あなた：「はいはい照れてるだけでしょ」<br/><br/>ここで発生した感情は、照れではなく<strong>“逃げ道なくなったんだけど”</strong>だった。</p><div class="card"><h3>死因</h3><p>相手が曖昧さを残したい時に、その曖昧さを勝手に「本当は好き」に変換した。</p></div><a class="choice primary" href="#start">認定を取り消す</a></div></section>
+<section class="screen" id="end_label"><div class="result"><div class="emoji">🏷️</div><h1>感情ラベリング事故 END</h1><p>「今日楽しそうだったね〜」<br/>↓<br/>「嫉妬した？」<br/><br/>しゅり：「いや、そういう言い方されると急に違うんだけどww」</p><div class="card"><h3>死因</h3><p>本当に少し嫉妬していたとしても、本人が自分で言う前にラベルを貼られると逃げたくなる。</p></div><a class="choice primary" href="#start">ラベルを剥がす</a></div></section>
+<section class="screen" id="end_mindread"><div class="result"><div class="emoji">🔮</div><h1>読心術失敗 END</h1><p>返信が遅れた。しゅりは普通に返した。あなたは「寂しかった？」と聞いた。<br/><br/>しゅり脳内：<strong>「寂しかった可能性はあるけど、その答え方させられるの嫌だな」</strong></p><div class="card"><h3>死因</h3><p>相手の気持ちを当てにいくより、自分側の情報を出す方が安心につながる場面だった。</p></div><a class="choice primary" href="#start">水晶玉を捨てる</a></div></section>
+<section class="screen" id="end_overkind"><div class="result"><div class="emoji">🧸</div><h1>優しさ飽和 END</h1><p>全部肯定。全部褒める。全部合わせる。<br/><br/>傷つかない。でも引っかかりもない。<br/><br/>しゅり：「この人めっちゃいい人なんだけど……なんか恋愛じゃないな」</p><div class="card"><h3>死因</h3><p>安心は高いが、好奇心と尊敬を刺激する“相手自身の輪郭”が見えなくなった。</p></div><a class="choice primary" href="#start">自分の意見を持って戻る</a></div></section>
 <!-- RECOVERABLE BAD ROUTES -->
-
 <section class="screen" id="b1">
-<div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">BAD ROUTE 1</div></div>
+<div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">…</div></div>
 <div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">温度：かなり低い</div></div></div>
 <div class="scene">
 <div class="tag">全然ダメダメルート</div>
@@ -267,26 +202,24 @@ body:has(.screen:target) #start:not(:target){display:none}
 <div class="bubble">……あ、うん。まあいいや。</div>
 <div class="system">SYSTEM：危険。「まあいいや」は解決したという意味ではない可能性が高い。</div>
 <div class="choices">
-<a class="choice" href="#r1">「待って。今の俺、話を雑に処理してた。ごめん」</a>
-<a class="choice" href="#b2">「いや、そんな怒ること？」</a>
-<a class="choice" href="#b2">「まあいいならいいか」</a>
-</div></div></section>
 
+
+
+<a class="choice" href="#b2">「“まあいい”なら、この話はいったんここで終わりでいい？」</a><a class="choice" href="#r0">「待って。今の俺、話を雑に処理してた。ごめん」</a><a class="choice" href="#b2">「そこまで引っかかるとは思ってなかった。そんなに嫌だった？」</a></div></div></section>
 <section class="screen" id="b2">
-<div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">BAD ROUTE 2</div></div>
+<div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">…</div></div>
 <div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">自己開示：停止中</div></div></div>
 <div class="scene">
 <div class="tag">さらに事故る</div>
 <div class="bubble">別に怒ってないよ。もういいって。</div>
 <div class="system">SYSTEM：ここで「怒ってるじゃん」と感情を確定すると追撃。言葉どおり完全撤退しても距離が固定される。</div>
 <div class="choices">
-<a class="choice" href="#r1">「怒ってるかどうかは決めない。ただ、俺の言い方は雑だったから謝りたい」</a>
-<a class="choice" href="#b3">「怒ってるじゃん。ちゃんと言ってよ」</a>
-<a class="choice" href="#b3">「じゃあこの話終わりね」</a>
-</div></div></section>
 
+
+
+<a class="choice" href="#b3">「分かった。今は話したくないなら一旦終わりにしよう」</a><a class="choice" href="#b3">「怒ってるように見えるけど、違うなら違うって言ってほしい」</a><a class="choice" href="#r0">「怒ってるかどうかは決めない。ただ、俺の言い方は雑だったから謝りたい」</a></div></div></section>
 <section class="screen" id="b3">
-<div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">BAD ROUTE 3</div></div>
+<div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">…</div></div>
 <div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">シャッター 80%</div></div></div>
 <div class="scene">
 <div class="tag">かなりダメ</div>
@@ -294,96 +227,90 @@ body:has(.screen:target) #start:not(:target){display:none}
 <div class="bubble">おつかれ〜。今日はもう寝るね！</div>
 <div class="system">SYSTEM：嫌われたとは限らない。「この人には深い話をしない」が学習され始めている。</div>
 <div class="choices">
-<a class="choice" href="#r0">「最近、俺と話す時ちょっと気を使わせてる気がする。もしそうなら直したい」</a>
-<a class="choice" href="#b4">「最近冷たくない？」</a>
-<a class="choice" href="#end_fade">「まあ忙しいんだろうな」</a>
-</div></div></section>
 
+
+
+<a class="choice" href="#end_fade">「忙しそうだし、落ち着くまでこっちからは控えようかな」</a><a class="choice" href="#b4">「最近ちょっと距離ある気がするんだけど、俺の気のせい？」</a><a class="choice" href="#r0">「最近、俺と話す時ちょっと気を使わせてる気がする。もしそうなら直したい」</a></div></div></section>
 <section class="screen" id="b4">
-<div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">BAD ROUTE 4</div></div>
+<div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">…</div></div>
 <div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">防御モード</div></div></div>
 <div class="scene">
 <div class="tag">ほぼ終わり</div>
 <div class="bubble">冷たいっていうか……普通じゃない？</div>
 <div class="system">SYSTEM：ここから復帰するには「自分が捨てられそうで怖い」ではなく、「自分の行動を変える」が必要。</div>
 <div class="choices">
-<a class="choice" href="#r0">「そっか。俺が不安になって責める言い方した。ごめん。そこ直す」</a>
-<a class="choice" href="#end_brainmeeting">「いや前と違うじゃん」</a>
-<a class="choice" href="#end_cold">「もういいわ」</a>
-</div></div></section>
 
+
+
+<a class="choice" href="#r0">「そっか。俺が不安になって責める言い方した。ごめん。そこ直す」</a><a class="choice" href="#end_cold">「分かった。これ以上こっちから追わないようにする」</a><a class="choice" href="#end_brainmeeting">「でも前より距離あるように感じる。そこは気のせいじゃないと思う」</a></div></div></section>
 <!-- RECOVERY ARC -->
 <section class="screen" id="r0">
-<div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">RECOVERY 0</div></div>
-<div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">まだ警戒</div></div></div>
+<div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">…</div></div>
+<div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">普通に会話はしている</div></div></div>
 <div class="scene">
-<div class="tag">復帰ルート：入口</div>
-<div class="bubble">……何を直すの？</div>
-<div class="system">SYSTEM：謝罪の評価は「反省してるっぽさ」より、具体性と再発防止。</div>
+<div class="tag">数日後</div>
+<div class="bubble">……で、何を変えるの？「全部気をつける」とかはいらんよ。</div>
+<div class="system">SYSTEM：謝罪文コンテストではありません。</div>
 <div class="choices">
-<a class="choice" href="#r1">「しゅりの気持ちを俺が先に決めるのやめる。分からない時は聞く」</a>
-<a class="choice" href="#b3">「とにかく全部。俺が悪かった」</a>
-<a class="choice" href="#b4">「しゅりが嫌なこと全部やめる」</a>
-</div></div></section>
 
+
+
+<a class="choice" href="#r1">「分かったつもりで気持ちを決めるのをやめる。分からない時は確認する」</a><a class="choice" href="#b4">「理由はどうあれ、今回は俺が悪かったってことでいいと思う」</a><a class="choice" href="#b3">「しゅりが嫌だって言ったことは全部やめるようにする」</a></div></div></section>
 <section class="screen" id="r1">
-<div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">RECOVERY 1</div></div>
-<div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">警戒 60%</div></div></div>
+<div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">…</div></div>
+<div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">特に変化なし</div></div></div>
 <div class="scene">
-<div class="tag">謝るだけでは戻らない</div>
-<div class="bubble">うん。まあ……分かった。</div>
-<div class="context">その日はそこで終わった。翌日、しゅりが制作物を見せてくる。</div>
-<div class="bubble">これさ、なんか違うんだけど何が違うか分かる？</div>
-<div class="system">SYSTEM：復帰判定。以前なら「全部いいじゃん」で済ませていた場面。</div>
+<div class="tag">4日後</div>
+<div class="context">何事もなかったように雑談していた途中、しゅりが急に止まる。</div>
+<div class="bubble">あ、今の言い方ちょっと嫌だったかも。……いや何が嫌かはまだ分からん。</div>
+<div class="system">SYSTEM：ここで説明責任を要求すると、前回と同じです。</div>
 <div class="choices">
-<a class="choice" href="#r2">「俺はここが気になる。でもしゅりが引っかかってる場所と同じかは分からない」</a>
-<a class="choice" href="#b2">「全部いいと思うよ！」</a>
-<a class="choice" href="#b3">「前もこういうの気にしてたよね。しゅりって細かいから」</a>
-</div></div></section>
 
+
+
+<a class="choice" href="#b3">「前も後から理由分かったよね。今回もそんな感じ？」</a><a class="choice" href="#r2">「了解。今はやめとく。あとで分かったら聞かせて」</a><a class="choice" href="#b2">「直したいから、できればどこが嫌だったか今知りたい」</a></div></div></section>
 <section class="screen" id="r2">
-<div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">RECOVERY 2</div></div>
-<div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">警戒 30%</div></div></div>
+<div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">…</div></div>
+<div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">少しだけ会話が戻った</div></div></div>
 <div class="scene">
-<div class="tag">行動で更新</div>
-<div class="bubble">……あ、それかも。前より話しやすい。</div>
-<div class="system">SYSTEM：重要。人間関係の信頼は謝罪一発ではなく、新しい予測の反復で更新される。</div>
-<div class="context">数日後。あなたが返信できない日。</div>
+<div class="tag">さらに数日後</div>
+<div class="context">しゅりが新しい企画案を勢いよく送ってくる。</div>
+<div class="bubble">これ絶対よくない！？！？ 私いま天才かもしれん！！</div>
+<div class="context">あなたには一か所だけ、かなり弱いと思う部分がある。</div>
+<div class="system">SYSTEM：以前のあなたは、嫌われたくなくて全部肯定していました。</div>
 <div class="choices">
-<a class="choice" href="#r3">先に「今日は遅くなる。でも話したくないわけじゃない」と伝える</a>
-<a class="choice" href="#b3">何も言わず翌日「忙しかった」で済ませる</a>
-<a class="choice" href="#b4">「返信遅くても不安にならないでね」とだけ送る</a>
-</div></div></section>
 
+
+
+<a class="choice" href="#b4">「俺は全部かなりいいと思う。今のままで完成でもよくない？」</a><a class="choice" href="#r3">「めっちゃ好き。ただここだけ普通すぎる気がする。しゅりならもっと変にできそう」</a><a class="choice" href="#b3">「正直、今回は全体的にあんまり刺さらないかも」</a></div></div></section>
 <section class="screen" id="r3">
-<div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">RECOVERY 3</div></div>
-<div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">関係：再構築</div></div></div>
+<div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">…</div></div>
+<div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">なんとなく前より自然</div></div></div>
 <div class="scene">
-<div class="tag">復帰成功</div>
-<div class="bubble">なんかさ、前ちょっと「合わないかも」って思ってたんだけど。最近は普通に話しやすい。</div>
-<div class="system">SYSTEM：失敗履歴は消えていない。でも「修復できる人」という新しい評価が追加された。</div>
+<div class="tag">その翌日</div>
+<div class="context">しゅりから、前みたいに何の意味もない動画が送られてくる。</div>
+<div class="bubble">見てwwwwwwww これ意味わからんwwww</div>
+<div class="system">SYSTEM：関係修復の通知は届きません。</div>
 <div class="choices">
-<a class="choice secret" href="#m1">「それ聞けて嬉しい。失敗しない自信はないけど、ズレた時はちゃんと直したい」</a>
-<a class="choice" href="#end_recovered">「よかった！じゃあもう大丈夫だね」</a>
-<a class="choice" href="#b2">「ほら、俺やればできるでしょ」</a>
-</div></div></section>
 
+
+
+<a class="choice" href="#m1">「何これwwww てか2回目の落ち方もっと見てww」</a><a class="choice" href="#b2">「こういうの送ってくるってことは、もう前みたいに戻った感じ？」</a><a class="choice" href="#end_recovered">「普通に送ってきてくれてちょっと嬉しい」</a></div></div></section>
 <section class="screen" id="r4">
-<div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">RECOVERY SECRET</div></div>
-<div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">信頼：以前より強い</div></div></div>
+<div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">…</div></div>
+<div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">前より話しやすい</div></div></div>
 <div class="scene">
-<div class="tag">壊れなかった経験</div>
-<div class="bubble">……それはちょっと好きかも。完璧ですって言われるより信用できる。</div>
-<div class="system">SYSTEM：修復経験が「この関係はズレても終わらない」という耐久性を作った。</div>
+<div class="tag">しばらくして</div>
+<div class="bubble">最初ほんと合わんと思ったのに、最近なんか普通に話しやすいの何ww</div>
+<div class="system">SYSTEM：修復成功を宣言すると、少しダサいです。</div>
 <div class="choices">
-<a class="choice secret" href="#end_recovery_true">「じゃあ次ズレた時も一緒に直そう」</a>
-<a class="choice" href="#end_special">「もう絶対傷つけない」</a>
-<a class="choice" href="#end_success">「好きってこと？」</a>
-</div></div></section>
 
+
+
+<a class="choice" href="#end_special">「もう同じことは絶対しないって約束する」</a><a class="choice" href="#end_recovery_true">「失敗しない自信はないけど、ズレたらまたちゃんと直したい」</a><a class="choice" href="#end_success">「それって、俺のことちょっと好きになってきたってこと？」</a></div></div></section>
 <!-- DANGEROUS SUCCESS ROUTE -->
 <section class="screen" id="danger1">
-<div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">DANGER ROUTE 1</div></div>
+<div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">…</div></div>
 <div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">最初は刺さっている</div></div></div>
 <div class="scene">
 <div class="tag">一見うまくいってるBAD ROUTE</div>
@@ -391,64 +318,57 @@ body:has(.screen:target) #start:not(:target){display:none}
 <div class="bubble">え、そこまで分かるの普通にすごくない？ww</div>
 <div class="system">SYSTEM：ここが危険。成功体験によって、あなたの“推測”が“確信”に変わり始める。</div>
 <div class="choices">
-<a class="choice" href="#danger2">「もうだいたい分かる。しゅりなら次こうするでしょ」</a>
-<a class="choice" href="#r0">「当たる時もあるけど外れる時もある。本人に確認するのが一番」</a>
-<a class="choice" href="#danger2">「俺が一番しゅりを理解してると思う」</a>
-</div></div></section>
 
+
+
+<a class="choice" href="#danger2">「今までの感じだと、しゅりなら次こうしそうって思う」</a><a class="choice" href="#danger2">「たぶん俺、かなりしゅりのこと分かってる方だと思う」</a><a class="choice" href="#r0">「当たる時もあるけど外れる時もある。本人に確認するのが一番」</a></div></div></section>
 <section class="screen" id="danger2">
-<div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">DANGER ROUTE 2</div></div>
+<div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">…</div></div>
 <div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">違和感：発生</div></div></div>
 <div class="scene">
 <div class="tag">理解が所有に変わる</div>
 <div class="bubble">いや、今回はちょっと違うんだけど。</div>
 <div class="choices">
-<a class="choice" href="#r0">「ごめん、当てにいってた。違うならそっち聞きたい」</a>
-<a class="choice" href="#danger3">「いやでも今までそうだったじゃん」</a>
-<a class="choice" href="#danger3">「本人より俺の方が客観的に分かる時あるよ」</a>
-</div></div></section>
 
+
+
+<a class="choice" href="#danger3">「今回は違うって言うけど、今までの傾向とはかなり似てない？」</a><a class="choice" href="#danger3">「本人だと気づきにくいことって、外からの方が見える時もあると思う」</a><a class="choice" href="#r0">「ごめん、当てにいってた。違うならそっち聞きたい」</a></div></div></section>
 <section class="screen" id="danger3">
-<div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">DANGER ROUTE 3</div></div>
+<div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">…</div></div>
 <div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">窮屈</div></div></div>
 <div class="scene">
 <div class="tag">成功していたからこそ悪化</div>
 <div class="bubble">なんか最近、私が何言っても「本当はこうでしょ」って返ってくるの嫌かも。</div>
 <div class="system">SYSTEM：ここが最後の復帰地点。</div>
 <div class="choices">
-<a class="choice" href="#r0">「それ嫌だわ。俺、理解者でいたくて上書きしてた。やめる」</a>
-<a class="choice" href="#end_control">「それだけ分かってるってことじゃん」</a>
-<a class="choice" href="#end_analysis">「今はそう思ってるだけだと思う」</a>
-</div></div></section>
 
+
+
+<a class="choice" href="#end_analysis">「今そう感じてるだけで、少し時間置いたらまた変わるかもよ」</a><a class="choice" href="#r0">「それ嫌だわ。俺、理解者でいたくて上書きしてた。やめる」</a><a class="choice" href="#end_control">「そこまでパターンが見えるくらい、ちゃんと見てきたってことだよ」</a></div></div></section>
 <!-- NEW RECOVERY ENDINGS -->
 <section class="screen" id="end_recovered">
 <div class="result">
 <div class="emoji">🩹💞</div>
 <h1>復帰成功 END</h1>
-<p>一度かなりズレた。でも謝罪だけで終わらず、行動を変えたことで関係は戻った。<br><br>
+<p>一度かなりズレた。でも謝罪だけで終わらず、行動を変えたことで関係は戻った。<br/><br/>
 <strong>「失敗しない人」ではなく「失敗したあと修正できる人」</strong>として評価された。</p>
 <div class="card"><h3>ポイント</h3><p>謝罪 → 具体的に何を変えるか → 実際に違う行動を繰り返す。この3段階が揃って初めて予測モデルが更新された。</p></div>
 <a class="choice primary" href="#start">もう一周</a>
 </div></section>
-
 <section class="screen" id="end_recovery_true">
 <div class="result">
 <div class="emoji">🩹💘🐰</div>
-<h1>RECOVERY TRUE END<br>一回ダメだったから、むしろ強くなった</h1>
-<p>最初から完璧だったルートとは違う。<br><br>
-一度「この人合わないかも」まで行った。でも、ズレを認め、言い訳せず、行動を変え、もう一度信頼を作った。<br><br>
+<h1>RECOVERY TRUE END<br/>一回ダメだったから、むしろ強くなった</h1>
+<p>最初から完璧だったルートとは違う。<br/><br/>
+一度「この人合わないかも」まで行った。でも、ズレを認め、言い訳せず、行動を変え、もう一度信頼を作った。<br/><br/>
 その結果しゅりの中に、<strong>「この人とは問題が起きても話し合える」</strong>という別種の安心ができた。</p>
-<div class="card secret"><h3>しゅり</h3><p>「最初ほんと無理かと思ったのにwwww<br>でも今は、なんかあってもちゃんと戻れそうって思う。そういうの結構好き。」</p></div>
+<div class="card secret"><h3>しゅり</h3><p>「最初ほんと無理かと思ったのにwwww<br/>でも今は、なんかあってもちゃんと戻れそうって思う。そういうの結構好き。」</p></div>
 <div class="card"><h3>このENDが強い理由</h3><p>関係の安全性は「衝突がゼロ」だけでは作られない。衝突後に修復できた経験は、「ズレても関係が壊れない」という予測可能性を作る。</p></div>
 <a class="choice primary" href="#start">ダメダメからもう一度</a>
 </div></section>
-
-
 <!-- MYSTERY SHURI ROUTE -->
-
 <section class="screen" id="m1">
-<div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">MYSTERY 1</div></div>
+<div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">…</div></div>
 <div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">本人も理由不明</div></div></div>
 <div class="scene">
 <div class="tag">昨日は平気だったのに今日は嫌</div>
@@ -456,13 +376,12 @@ body:has(.screen:target) #start:not(:target){display:none}
 <div class="bubble">……なんか今日それ嫌かも。昨日は別に平気だったんだけど。なんでだろ。</div>
 <div class="system">SYSTEM：一貫性を要求すると事故る。感情は条件依存で変わる。</div>
 <div class="choices">
-<a class="choice" href="#m2">「了解。理由はあとで分かるかもだし、今日はやめとこ」</a>
-<a class="choice" href="#end_analysis">「昨日平気だったじゃん。どっちが本音？」</a>
-<a class="choice" href="#b1">「気分屋すぎない？」</a>
-</div></div></section>
 
+
+
+<a class="choice" href="#m2">「了解。理由はあとで分かるかもだし、今日はやめとこ」</a><a class="choice" href="#end_analysis">「昨日は大丈夫だったなら、今日だけ違う理由があるのかな？」</a><a class="choice" href="#b1">「昨日と今日で変わると、こっちもちょっと対応むずかしいかも」</a></div></div></section>
 <section class="screen" id="m2">
-<div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">MYSTERY 2</div></div>
+<div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">…</div></div>
 <div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">数時間後に意味が生える</div></div></div>
 <div class="scene">
 <div class="tag">後追い感情認識</div>
@@ -470,13 +389,12 @@ body:has(.screen:target) #start:not(:target){display:none}
 <div class="bubble">さっきのさ、今分かった。内容が嫌だったんじゃなくて、今あのノリでいじられるのが嫌だったんだと思う。</div>
 <div class="system">SYSTEM：感情の原因がリアルタイムで言語化できるとは限らない。</div>
 <div class="choices">
-<a class="choice" href="#m3">「なるほど。内容じゃなくてタイミングだったんだね」</a>
-<a class="choice" href="#m3">「あとから分かることもあるんだな」</a>
-<a class="choice" href="#end_cold">「最初からそう言ってよ」</a>
-</div></div></section>
 
+
+
+<a class="choice" href="#m3">「あとから分かることもあるんだな」</a><a class="choice" href="#m3">「なるほど。内容じゃなくてタイミングだったんだね」</a><a class="choice" href="#end_cold">「それが最初に分かってたら、こっちも対応しやすかったかも」</a></div></div></section>
 <section class="screen" id="m3">
-<div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">MYSTERY 3</div></div>
+<div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">…</div></div>
 <div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">どうでもいい話→核心</div></div></div>
 <div class="scene">
 <div class="tag">会話のワープ</div>
@@ -485,39 +403,36 @@ body:has(.screen:target) #start:not(:target){display:none}
 <div class="bubble">……でさ、なんか最近、人に期待するのちょっと怖いかもって思った。</div>
 <div class="system">SYSTEM：前振りと本題の距離がバグっている。</div>
 <div class="choices">
-<a class="choice" href="#m4">「話の着地点そこだったんだww でも続き聞きたい」</a>
-<a class="choice" href="#end_overkind">「うんうん、全部聞くよ」</a>
-<a class="choice" href="#b1">「コンビニの話どこいった？」</a>
-</div></div></section>
 
+
+
+<a class="choice" href="#b1">「話かなり飛んだけど、今の方が本題ってこと？」</a><a class="choice" href="#end_overkind">「うんうん、全部聞くよ」</a><a class="choice" href="#m4">「話の着地点そこだったんだww でも続き聞きたい」</a></div></div></section>
 <section class="screen" id="m4">
-<div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">MYSTERY 4</div></div>
+<div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">…</div></div>
 <div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">近づいた直後に引く</div></div></div>
 <div class="scene">
 <div class="tag">接近→撤退</div>
 <div class="bubble">なんか今日めっちゃ話しやすい。……いや、別に特別って意味じゃないけど。</div>
 <div class="system">SYSTEM：接近欲求が出た直後に自己防衛が入る。</div>
 <div class="choices">
-<a class="choice" href="#m5">「特別かどうかは今決めなくていいけど、俺も話しやすい」</a>
-<a class="choice" href="#end_push">「はいはい、特別ってことね」</a>
-<a class="choice" href="#end_flat">「じゃあ普通ってことで」</a>
-</div></div></section>
 
+
+
+<a class="choice" href="#m5">「特別かどうかは今決めなくていいけど、俺も話しやすい」</a><a class="choice" href="#end_flat">「了解。じゃあ特別扱いはしないでおく」</a><a class="choice" href="#end_push">「深い意味ないって言うけど、少しは特別ってことじゃない？」</a></div></div></section>
 <section class="screen" id="m5">
-<div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">MYSTERY 5</div></div>
+<div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">…</div></div>
 <div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">理由なく気になる</div></div></div>
 <div class="scene">
 <div class="tag">本人にも説明不能</div>
 <div class="bubble">なんかさ、別に何かされたわけじゃないのに、今日ちょっとあなたのこと気になってた。何これ。</div>
 <div class="system">SYSTEM：ここで原因を断定しない。本人にもまだ分からない。</div>
 <div class="choices">
-<a class="choice secret" href="#m6">「俺もたまにある。理由分かるまで置いとく？」</a>
-<a class="choice" href="#end_label">「それ好きってことじゃない？」</a>
-<a class="choice" href="#end_analysis">「無意識に依存してるんじゃない？」</a>
-</div></div></section>
 
+
+
+<a class="choice" href="#end_label">「それって、もう結構好きに近いんじゃない？」</a><a class="choice" href="#end_analysis">「理由なく気になるなら、無意識に頼る存在になってるのかもね」</a><a class="choice secret" href="#m6">「俺もたまにある。理由分かるまで置いとく？」</a></div></div></section>
 <section class="screen" id="m6">
-<div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">MYSTERY 6</div></div>
+<div class="top"><div class="logo">しゅりを落とせ。</div><div class="day">…</div></div>
 <div class="profile"><div class="avatar">🐰</div><div><div class="name">しゅり</div><div class="status">謎のまま近づいてる</div></div></div>
 <div class="scene">
 <div class="tag">答えを出さない親密さ</div>
@@ -525,44 +440,33 @@ body:has(.screen:target) #start:not(:target){display:none}
 <div class="bubble">おはよ。いや別に用ないんだけどww</div>
 <div class="system">SYSTEM：重要。「理由のない接近」を理由づけしすぎない。</div>
 <div class="choices">
-<a class="choice secret" href="#end_mystery_true">「用なくても送ってくるの好き。おはよ」</a>
-<a class="choice" href="#end_zokkon">「俺のこと好きすぎじゃんww」</a>
-<a class="choice" href="#end_fade">「用ないなら何ww」</a>
-</div></div></section>
 
+
+
+<a class="choice" href="#end_fade">「用ないのに連絡したくなったってこと？ww」</a><a class="choice secret" href="#end_mystery_true">「用なくても送ってくるの好き。おはよ」</a><a class="choice" href="#end_zokkon">「用ないのに送ってくるって、結構俺のこと好きじゃんww」</a></div></div></section>
 <section class="screen" id="end_mystery_true">
 <div class="result">
 <div class="emoji">🌀💘🐰</div>
-<h1>MYSTERY TRUE END<br>本人も説明できないけど、好き</h1>
+<h1>MYSTERY TRUE END<br/>本人も説明できないけど、好き</h1>
 <p>
-理由を全部解明しようとしなかった。<br><br>
-昨日と今日で感情が違っても、あとから意味が分かっても、話が急にワープしても、「矛盾してる」と処理せず、その時のしゅりを見続けた。<br><br>
+理由を全部解明しようとしなかった。<br/><br/>
+昨日と今日で感情が違っても、あとから意味が分かっても、話が急にワープしても、「矛盾してる」と処理せず、その時のしゅりを見続けた。<br/><br/>
 その結果、しゅり側にも<strong>「この人の前なら、まだ言葉になってない自分でも出していい」</strong>という感覚が育った。
 </p>
 <div class="card secret"><h3>しゅり</h3><p>「なんで好きか説明しろって言われたら困るけど、なんか話したくなる。たぶんそれでいいんだと思う。」</p></div>
 <a class="choice primary" href="#start">もう一周</a>
 </div></section>
-
 <!-- ENDINGS -->
 <section class="screen" id="end_dislike"><div class="result"><div class="emoji">🚪</div><h1>嫌われる END</h1><p>距離の取り方が雑すぎた。相手の内面を軽く扱う・面倒扱いする・防衛で突っぱねるが重なると、しゅり側は「この人には話さなくていい」に切り替える。</p><a class="choice primary" href="#start">再挑戦</a></div></section>
-
 <section class="screen" id="end_analysis"><div class="result"><div class="emoji">🧠🔒</div><h1>分析しすぎ END</h1><p>理解しようとした熱量は高い。でも「仮説」が「断定」に変わった瞬間、理解は檻になった。本人すら更新中の自分を他人に確定されると、近さより窮屈さが勝つ。</p><a class="choice primary" href="#start">檻を壊す</a></div></section>
-
 <section class="screen" id="end_friend"><div class="result"><div class="emoji">🥤</div><h1>優しすぎて友達 END</h1><p>安心感はある。でもあなた自身の輪郭が薄い。「聞くよ」「合わせるよ」「何でもいいよ」が続くと、恋愛刺激より相談相手として固定される。</p><a class="choice primary" href="#start">再挑戦</a></div></section>
-
 <section class="screen" id="end_heat"><div class="result"><div class="emoji">🔥</div><h1>熱量だけ高くて疲れる END</h1><p>本気さはある。でも相手のペースを奪った。心配・救助・熱意は、本人の選択権を削ると圧に変わる。</p><a class="choice primary" href="#start">火力調整</a></div></section>
-
 <section class="screen" id="end_understander"><div class="result"><div class="emoji">🔬</div><h1>親友・理解者 END</h1><p>めちゃくちゃ話しやすい。理解も深い。でも恋愛の火が弱い。相手のことばかり見て、自分の欲求や弱さを出さなかった結果、最高の研究仲間になった。</p><a class="choice primary" href="#start">恋愛側へ</a></div></section>
-
 <section class="screen" id="end_special"><div class="result"><div class="emoji">🫶</div><h1>特別な人 END</h1><p>他の人とは違う場所にいる。安心・尊敬・好奇心が育っている。ただ、まだ関係を動かす一言が足りない。</p><a class="choice primary" href="#start">もう一歩</a></div></section>
-
 <section class="screen" id="end_success"><div class="result"><div class="emoji">💞</div><h1>攻略成功 END</h1><p>ちゃんと落ちた。優しいだけでも、強いだけでもない。自分の意見を持ちながら、しゅりの内面を勝手に決めない。そのバランスが刺さった。</p><div class="card gold"><h3>しゅり</h3><p>「……まあ、付き合ってみる？ 私も普通に好きだし。」</p></div><a class="choice primary" href="#start">もう一周</a></div></section>
-
 <section class="screen" id="end_true"><div class="result"><div class="emoji">💘</div><h1>TRUE END</h1><p>付き合うことがゴールではなく、「この人なら関係を更新し続けられる」と思えた。理解・安心・熱量・相互性が高く、支配感が低い。</p><div class="card"><h3>核</h3><p>「私はこう思う。でもあなたは違うかもしれない」を持てる人。</p></div><a class="choice primary" href="#start">もう一周</a></div></section>
-
-<section class="screen" id="end_zokkon"><div class="result"><div class="emoji">💘🐰💘</div><h1>ZOKKON TRUE END<br>しゅりの方が落ちました</h1><p>攻略対象、反転。しゅり側から「もっと話したい」「もう少し一緒にいたい」が出始める。</p>
-<div class="card secret"><h3>翌日</h3><p>用事もないのにメッセージ。<br><br><strong>「ねえ、今日なにしてる？」</strong><br><br>面白いものを見つけると先に送りたくなる。帰り際に話題を増やす。他の人と楽しそうだと少し気になる。次の予定を自分から作る。本人は「別に普通だけど？」と言う。</p></div>
+<section class="screen" id="end_zokkon"><div class="result"><div class="emoji">💘🐰💘</div><h1>ZOKKON TRUE END<br/>しゅりの方が落ちました</h1><p>攻略対象、反転。しゅり側から「もっと話したい」「もう少し一緒にいたい」が出始める。</p>
+<div class="card secret"><h3>翌日</h3><p>用事もないのにメッセージ。<br/><br/><strong>「ねえ、今日なにしてる？」</strong><br/><br/>面白いものを見つけると先に送りたくなる。帰り際に話題を増やす。他の人と楽しそうだと少し気になる。次の予定を自分から作る。本人は「別に普通だけど？」と言う。</p></div>
 <div class="card"><h3>なぜここまで惹かれた？</h3><p>安心だけなら友達、刺激だけなら疲れる。ここでは「安心 + 好奇心 + 尊敬 + 相互性」が揃った。しかも相手がしゅり中心に消えず、自分の世界を持っているため、しゅり側に接近欲求が生まれた。</p></div>
 <a class="choice primary" href="#start">最初から</a></div></section>
-
 </main></body></html>
