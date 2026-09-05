@@ -1500,6 +1500,226 @@ img{
 .row{grid-template-columns:26px minmax(0,1fr) auto!important}.rowBtns{display:grid;grid-template-columns:31px 31px;gap:4px}.rowBtns button{width:31px!important;height:31px!important;min-height:31px!important}.distanceCards{grid-template-columns:repeat(3,minmax(0,1fr))!important}.distanceCards button{min-height:94px!important}.distanceCards small{font-size:7.7px!important;line-height:1.35!important}
 .top,.subtop,.system,.firstTop,.firstHud,.firstAnalyze{position:relative;z-index:30}.app{overflow:hidden!important}.scene{min-height:0!important;overflow:hidden!important}.reply{min-height:0!important;overflow:auto!important;-webkit-overflow-scrolling:touch}
 .brightEnd,.endBody{background:linear-gradient(180deg,rgba(255,255,255,.97),rgba(255,244,251,.95))!important}.endSubtitle{color:#a55383!important}
+
+/* =========================================================
+   CLARITY + PREMIUM AFFECTION UI
+   ========================================================= */
+
+/* Hide every legacy affection rendering so only the premium widget is visible. */
+.aff,.firstAff,
+.stage .veil::after,
+.firstStageVeil::after{
+  display:none !important;
+  content:none !important;
+}
+
+/* Premium affection card */
+.affPremium{
+  position:absolute;
+  z-index:9;
+  right:11px;
+  top:10px;
+  width:132px;
+  height:48px;
+  padding:7px 10px 8px;
+  box-sizing:border-box;
+  border-radius:16px;
+  background:
+    radial-gradient(circle at 86% 12%,rgba(255,190,225,.34),transparent 28%),
+    linear-gradient(180deg,rgba(255,255,255,.97),rgba(255,248,253,.93));
+  border:1.4px solid rgba(238,184,214,.95);
+  box-shadow:
+    0 8px 18px rgba(176,99,148,.12),
+    inset 0 1px 0 rgba(255,255,255,.98),
+    inset 0 -1px 0 rgba(230,193,219,.34);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+}
+.affTop{
+  height:16px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  color:#99547b;
+  font-weight:1000;
+  letter-spacing:.01em;
+}
+.affTop span{
+  font-size:8.6px;
+}
+.affTop b{
+  font-size:10.6px;
+  color:#8f4d78;
+}
+.affTrack{
+  position:relative;
+  height:8px;
+  margin-top:7px;
+  border-radius:999px;
+  background:
+    repeating-linear-gradient(90deg,transparent 0 24%,rgba(180,142,186,.14) 24% 25%),
+    linear-gradient(180deg,#f6edf4,#eee3ec);
+  box-shadow:
+    inset 0 1px 2px rgba(114,76,110,.12),
+    0 1px 0 rgba(255,255,255,.9);
+}
+.affTrack i{
+  position:absolute;
+  inset:0 auto 0 0;
+  width:64%;
+  border-radius:999px;
+  background:linear-gradient(90deg,#ff6caf 0%,#ec7bc5 52%,#a38ff0 100%);
+  box-shadow:
+    0 0 8px rgba(235,109,181,.22),
+    inset 0 1px 0 rgba(255,255,255,.35);
+}
+.affTrack i::after{
+  content:"";
+  position:absolute;
+  right:-2px;
+  top:50%;
+  width:10px;
+  height:10px;
+  transform:translateY(-50%);
+  border-radius:50%;
+  background:white;
+  border:2px solid #a68cea;
+  box-shadow:0 2px 6px rgba(111,82,145,.18);
+}
+.affTrack em{
+  position:absolute;
+  right:-2px;
+  top:-17px;
+  font-style:normal;
+  font-size:9px;
+  color:#ee86bd;
+  opacity:.75;
+}
+
+/* ---------- At-a-glance hierarchy ---------- */
+
+/* 1. Situation / explanation */
+.sceneBar,
+.firstSceneBar{
+  background:
+    linear-gradient(135deg,rgba(250,247,255,.96),rgba(255,249,253,.94)) !important;
+  border-color:rgba(204,184,239,.88) !important;
+  box-shadow:
+    0 5px 14px rgba(151,121,199,.08),
+    inset 3px 0 0 rgba(176,145,230,.75),
+    inset 0 1px 0 rgba(255,255,255,.96) !important;
+}
+.sceneBar::before,
+.firstSceneBar::before{
+  content:"◇  状況説明" !important;
+  color:#8064ad !important;
+  letter-spacing:.04em !important;
+  font-size:8.8px !important;
+}
+.sceneBar,
+.firstSceneBar p{
+  color:#665568 !important;
+}
+
+/* 2. Shuri's line */
+.dialog,
+.firstDialog{
+  background:
+    radial-gradient(circle at 92% 18%,rgba(255,211,233,.32),transparent 26%),
+    linear-gradient(180deg,rgba(255,255,255,.97),rgba(255,247,251,.96)) !important;
+  border-color:rgba(240,167,204,.92) !important;
+  box-shadow:
+    0 6px 16px rgba(194,104,154,.08),
+    inset 3px 0 0 rgba(242,113,177,.68),
+    inset 0 1px 0 rgba(255,255,255,.98) !important;
+}
+.speaker,
+.firstSpeaker{
+  background:linear-gradient(135deg,#ff72b6,#d48ce8) !important;
+  padding:3px 11px !important;
+  min-width:62px !important;
+  font-size:8.4px !important;
+  letter-spacing:.02em !important;
+  box-shadow:0 3px 8px rgba(206,102,164,.14);
+}
+
+/* 3. Player reply */
+.reply{
+  position:relative;
+  padding:9px 8px 8px !important;
+  background:
+    linear-gradient(180deg,rgba(252,249,255,.92),rgba(255,255,255,.88)) !important;
+  border-color:rgba(207,183,235,.88) !important;
+  box-shadow:
+    0 6px 16px rgba(138,112,181,.07),
+    inset 3px 0 0 rgba(183,148,226,.62),
+    inset 0 1px 0 rgba(255,255,255,.96) !important;
+}
+.oplabel,
+.firstReplyLabel{
+  display:flex;
+  align-items:center;
+  width:max-content;
+  min-height:20px;
+  margin:0 0 6px 2px !important;
+  padding:3px 9px;
+  border-radius:999px;
+  background:linear-gradient(135deg,#f0e8ff,#ffeaf5);
+  color:#7d62a3 !important;
+  font-size:8.2px !important;
+  font-weight:1000 !important;
+  letter-spacing:.03em !important;
+  box-shadow:inset 0 0 0 1px rgba(199,170,230,.55);
+}
+.oplabel::before,
+.firstReplyLabel::before{
+  content:"↳";
+  margin-right:5px;
+  font-size:10px;
+  color:#c069a5;
+}
+.firstReplyLabel{
+  margin:0 2px 5px !important;
+}
+
+/* Choices read as a separate interactive block */
+.choice,
+.firstChoice{
+  background:linear-gradient(180deg,#ffffff,#fffafe) !important;
+  border-color:rgba(229,176,211,.96) !important;
+  box-shadow:
+    0 4px 0 rgba(231,190,214,.52),
+    0 7px 14px rgba(180,110,157,.05),
+    inset 0 1px 0 rgba(255,255,255,.98) !important;
+}
+.choice:hover,
+.firstChoice:hover{
+  border-color:rgba(204,154,225,.96) !important;
+}
+.choice:before,
+.firstChoiceNo{
+  background:linear-gradient(135deg,#ff70b2,#c991ee) !important;
+  box-shadow:0 3px 7px rgba(196,113,173,.16);
+}
+
+/* tiny spacing improvement so 3 sections visually separate without getting taller */
+.scene{
+  gap:6px !important;
+}
+.firstSceneArea{
+  gap:5px !important;
+}
+
+@media(max-width:390px){
+  .affPremium{
+    width:126px;
+    height:46px;
+    right:9px;
+    top:9px;
+  }
+  .affTop span{font-size:8.2px}
+  .affTop b{font-size:10.2px}
+}
 </style><!-- GitHub Pages / Safari playable build -->
 </head><body><div id="app"></div>
 
@@ -1539,7 +1759,7 @@ function contextualModes(s){
 
 function modeFor(s){let key='op:'+s.id;let x=sessionStorage.getItem(key);if(x)return x;let pool=contextualModes(s);x=pool[Math.floor(Math.random()*pool.length)];sessionStorage.setItem(key,x);return x}
 function go(id,answer=''){if(!SCENES[id])return;if(answer)log.push({scene:current,answer});current=id;render()}
-function frame(s,reply){return `<div class="spark"></div><div class="app"><div class="top"><img class="logo" src="${U['ui/logo_title.png']}"><button class="iconbtn heart" onclick="openLog()"></button><button class="iconbtn menu" onclick="openMenu()"></button></div><div class="subtop"><div class="nameplate"></div><div class="dayplate"></div></div><div class="system"></div><div class="stage"><img class="bg" src="${U[s.bg]}"><div class="veil"></div><img class="avatar" src="${U[avatarMap[s.expr]||avatarMap.normal]}"><div class="live"></div><div class="aff"></div><div class="time">☾ SCENE ${s.id.toUpperCase()}</div></div><div class="scene"><div class="sceneBar">${esc(s.prologue)}</div><div class="dialog"><span class="speaker">しゅり</span>${esc(s.text)}</div>${reply}</div><div class="footer">♥　SYURI LOVE SIMULATION　♥</div></div>`}
+function frame(s,reply){return `<div class="spark"></div><div class="app"><div class="top"><img class="logo" src="${U['ui/logo_title.png']}"><button class="iconbtn heart" onclick="openLog()"></button><button class="iconbtn menu" onclick="openMenu()"></button></div><div class="subtop"><div class="nameplate"></div><div class="dayplate"></div></div><div class="system"></div><div class="stage"><img class="bg" src="${U[s.bg]}"><div class="veil"></div><img class="avatar" src="${U[avatarMap[s.expr]||avatarMap.normal]}"><div class="live"></div><div class="affPremium" aria-label="好感度64パーセント"><div class="affTop"><span>♡ 好感度</span><b>64%</b></div><div class="affTrack"><i></i><em>♥</em></div></div><div class="time">☾ SCENE ${s.id.toUpperCase()}</div></div><div class="scene"><div class="sceneBar">${esc(s.prologue)}</div><div class="dialog"><span class="speaker">しゅりから</span>${esc(s.text)}</div>${reply}</div><div class="footer">♥　SYURI LOVE SIMULATION　♥</div></div>`}
 function esc(x){return String(x||'').replace(/[&<>]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[m])).replace(/\n/g,'<br>')}
 function choiceHtml(opts){return `<div class="choices">${opts.map((o,i)=>`<button class="choice" data-n="${i+1}" onclick='pick(${JSON.stringify(o.to)},${JSON.stringify(o.text)})'>${esc(o.text)}</button>`).join('')}</div>`}
 window.pick=(to,text)=>go(to,text);
@@ -1581,7 +1801,7 @@ function renderFirstScene(s,opts){
         <img class="firstAvatar" src="${av}" alt="しゅり">
         <div class="firstGlassFrame" aria-hidden="true"></div>
         <img class="firstLive" src="${U['ui/live_badge.png']}" alt="LIVE">
-        <img class="firstAff" src="${U['ui/affection_bar.png']}" alt="好感度">
+        <div class="affPremium firstAffPremium" aria-label="好感度64パーセント"><div class="affTop"><span>♡ 好感度</span><b>64%</b></div><div class="affTrack"><i></i><em>♥</em></div></div>
         <div class="firstTime">☾ 配信後・深夜</div>
       </section>
 
@@ -1593,11 +1813,11 @@ function renderFirstScene(s,opts){
 
         <div class="firstDialog">
           <img src="${U['ui/dialogue_window.png']}" alt="">
-          <span class="firstSpeaker">しゅり</span>
+          <span class="firstSpeaker">しゅりから</span>
           <p>${esc(s.text)}</p>
         </div>
 
-        ${firstChoiceHtml(opts)}
+        <div class="firstReplyLabel">あなたの返事</div>${firstChoiceHtml(opts)}
       </section>
     </div>`;
   applyVars();
@@ -1617,7 +1837,7 @@ function render(){
     return;
   }
 
-  let shell=`<div class="reply"><div class="oplabel">REPLY</div><div id="op"></div></div>`;
+  let shell=`<div class="reply"><div class="oplabel">あなたの返事</div><div id="op"></div></div>`;
   app.innerHTML=frame(s,shell);
   applyVars();
   renderOp(s,opts,modeFor(s));
@@ -1648,7 +1868,7 @@ if(mode==='swipe'){renderOp(s,opts,'distance');return}
 if(mode==='read'){
   const start=performance.now();op.innerHTML=`<div class="panel readPanel"><div class="opTitle">📩 しゅりからメッセージ</div><button class="notify readNotify" id="note" type="button"><small>未読</small><b>タップして開く</b></button><div class="opExplain">タップした瞬間に既読になります。</div></div>`;$('#note').onclick=()=>{const t=(performance.now()-start)/1000,i=t<1.5?0:(t<4?1:2),label=i===0?'即既読':i===1?'少し置いて既読':'ゆっくり既読';go((opts[i]||opts[1]).to,label)};return
 }
-if(mode==='interrupt'){let full=s.text;let d=$('.dialog');d.innerHTML='<span class="speaker">しゅり</span><span id="typed"></span>';op.innerHTML=`<button class="bigbtn" id="intr">待って、そこ聞きたい</button><div class="subtle" style="margin-top:7px">しゅりはまだ喋ってる。</div>`;let i=0,done=false;let timer=setInterval(()=>{i+=2;if($('#typed'))$('#typed').innerHTML=esc(full.slice(0,i));if(i>=full.length){clearInterval(timer);done=true;op.innerHTML=choiceHtml(opts)}},42);$('#intr').onclick=()=>{clearInterval(timer);if($('#typed'))$('#typed').innerHTML=esc(full.slice(0,i));op.innerHTML=`<div class="panel"><b>しゅり「まだ喋ってるwwwwww」</b></div>`+choiceHtml(opts)};return}
+if(mode==='interrupt'){let full=s.text;let d=$('.dialog');d.innerHTML='<span class="speaker">しゅりから</span><span id="typed"></span>';op.innerHTML=`<button class="bigbtn" id="intr">待って、そこ聞きたい</button><div class="subtle" style="margin-top:7px">しゅりはまだ喋ってる。</div>`;let i=0,done=false;let timer=setInterval(()=>{i+=2;if($('#typed'))$('#typed').innerHTML=esc(full.slice(0,i));if(i>=full.length){clearInterval(timer);done=true;op.innerHTML=choiceHtml(opts)}},42);$('#intr').onclick=()=>{clearInterval(timer);if($('#typed'))$('#typed').innerHTML=esc(full.slice(0,i));op.innerHTML=`<div class="panel"><b>しゅり「まだ喋ってるwwwwww」</b></div>`+choiceHtml(opts)};return}
 if(mode==='free'){op.innerHTML=choiceHtml(opts);return}
 op.innerHTML=choiceHtml(opts)}
 function renderEnd(s){
