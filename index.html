@@ -1479,6 +1479,27 @@ img{
 .firstChoiceText{
   font-size:10.6px !important;
 }
+
+/* REFINED UX PASS */
+.iconbtn.heart,.iconbtn.menu{background-image:none!important;background:rgba(255,255,255,.9)!important;border:1.5px solid rgba(237,199,224,.92)!important;box-shadow:0 4px 10px rgba(177,111,160,.08),inset 0 1px 0 rgba(255,255,255,.95)!important;color:#d85998!important;font-size:0!important;display:grid!important;place-items:center!important;overflow:hidden!important}
+.iconbtn.heart::before{content:"♡";font-size:21px;line-height:1;font-weight:1000}.iconbtn.menu::before{content:"≡";font-size:19px;line-height:1;color:#765f9b;font-weight:1000}
+.firstIcon{overflow:hidden!important;background:rgba(255,255,255,.9)!important;border:1.5px solid rgba(237,199,224,.92)!important;box-shadow:0 4px 10px rgba(177,111,160,.08)!important}.firstIcon img{display:none!important}.firstIcon:first-of-type::before{content:"♡";font-size:21px;color:#d85998;font-weight:1000}.firstIcon:last-of-type::before{content:"≡";font-size:19px;color:#765f9b;font-weight:1000}
+.stage .veil::after,.firstStageVeil::after{content:"♡  好感度   64%"!important;width:128px!important;height:42px!important;padding:7px 10px 0!important;border-radius:14px!important;background:linear-gradient(90deg,#ff75b8 0 58%,#b49af1 58% 78%,#f1eaf0 78% 100%) 10px 27px/108px 7px no-repeat,linear-gradient(180deg,rgba(255,255,255,.97),rgba(255,249,253,.93))!important;border:1.5px solid rgba(236,180,210,.95)!important;color:#9a4e7b!important;font-size:8.8px!important;line-height:1.1!important;letter-spacing:.02em!important;box-shadow:0 5px 13px rgba(183,105,149,.10),inset 0 1px 0 rgba(255,255,255,.95)!important}
+.app,.firstPage{scroll-margin-top:0!important;overscroll-behavior:none}.top,.subtop,.system,.firstTop,.firstHud,.firstAnalyze{opacity:1!important;visibility:visible!important;flex-shrink:0!important}.subtop{display:flex!important;min-height:30px!important}.nameplate,.dayplate{display:block!important}input,textarea{scroll-margin-top:160px}
+.opTitle{font-size:11px;line-height:1.25;font-weight:1000;color:#674c63;margin:0 0 4px}.opExplain{font-size:9.4px;line-height:1.35;font-weight:750;color:#8b7086;margin:0 0 8px}.orderChoices{display:grid;gap:6px}.orderPick{min-height:44px;display:grid;grid-template-columns:28px minmax(0,1fr);gap:8px;align-items:center;width:100%;padding:7px 10px;border:1.6px solid rgba(235,171,204,.92);border-radius:13px;background:rgba(255,255,255,.88);color:#543f52;text-align:left;font-family:inherit;font-size:10.5px;line-height:1.3;font-weight:850}.orderNo{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,#ff72b5,#c592ed);color:white;font-size:9px;font-weight:1000}
+.distanceCards{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}.distanceCards button{min-height:86px;padding:9px 6px;border:1.6px solid rgba(226,178,217,.92);border-radius:14px;background:rgba(255,255,255,.88);color:#573f54;font-family:inherit}.distanceCards button:nth-child(2){border-color:rgba(240,151,203,.96);background:linear-gradient(180deg,#fff,#fff4fa)}.distanceCards b{display:block;font-size:10.7px;margin-bottom:5px}.distanceCards small{display:block;font-size:8px;line-height:1.25;color:#8b7086}
+.endApp{display:block!important;height:100svh!important;overflow:auto!important;padding-bottom:calc(env(safe-area-inset-bottom) + 58px)!important}.brightEnd{display:grid;gap:8px;padding:4px 2px 14px}.endKicker{width:max-content;margin:0 auto;padding:6px 13px;border-radius:999px;background:linear-gradient(135deg,#ff7ab8,#c596ea);color:white;font-size:9px;font-weight:1000;letter-spacing:.08em}.endHero{position:relative;height:250px;overflow:hidden;border-radius:24px;border:1.8px solid rgba(237,176,210,.95);box-shadow:0 8px 22px rgba(185,105,151,.10)}.endBg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.88) brightness(1.08)}.endVeil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.10),rgba(255,220,239,.12))}.endAvatar{position:absolute;left:50%;bottom:-28%;transform:translateX(-50%);height:138%;width:auto;max-width:92%;object-fit:contain}.endBody{padding:14px;border:1.7px solid rgba(237,176,210,.92);border-radius:20px;background:rgba(255,255,255,.86);box-shadow:0 6px 16px rgba(185,105,151,.08)}.endSubtitle{font-size:18px;line-height:1.2;font-weight:1000;color:#7b4668;margin-bottom:9px}.endText{font-size:11.2px;line-height:1.55;color:#594255;font-weight:800;white-space:pre-wrap}.endMessage{margin:12px 0 10px;padding:10px 12px;border-radius:14px;background:linear-gradient(135deg,#fff1f8,#f6efff);color:#b45c8f;font-size:10px;line-height:1.45;font-weight:900}
+@media(max-width:390px){.distanceCards b{font-size:10px}.distanceCards small{font-size:7.6px}.endHero{height:225px}}
+
+/* FINAL UX QUALITY PASS */
+.tempoPanel,.readPanel,.waitPanel,.orderPanel,.distancePanel{background:linear-gradient(180deg,rgba(255,255,255,.96),rgba(255,247,253,.92))!important;border:1.6px solid rgba(234,172,207,.92)!important;box-shadow:0 8px 22px rgba(178,103,153,.10),inset 0 1px 0 rgba(255,255,255,.96)!important}
+.tempoMessage{margin:7px 0 9px;padding:9px 11px;border-radius:13px;background:rgba(255,255,255,.94);border:1.4px solid rgba(229,189,220,.92);color:#594455;font-size:10.5px;line-height:1.35;font-weight:850}
+.tempoScale{position:relative;display:grid;grid-template-columns:repeat(3,1fr);height:35px;margin:4px 6px 8px;padding-top:16px;color:#856c82;font-size:8px;font-weight:900;text-align:center}.tempoScale:before{content:"";position:absolute;left:2%;right:2%;top:9px;height:7px;border-radius:999px;background:linear-gradient(90deg,#ff78b8,#d7a0ea 52%,#9a8ee8)}#tempoNeedle{position:absolute;top:3px;left:0;width:18px;height:18px;border-radius:50%;background:white;border:3px solid #ff6eaf;box-shadow:0 2px 8px rgba(177,89,141,.22);transform:translateX(-50%)}.tempoSend{touch-action:none;user-select:none;-webkit-user-select:none;background:linear-gradient(135deg,#ff6daf,#c997ed)!important;color:white!important}.tempoSend b{display:block;font-size:10.6px}.tempoSend small{display:block;margin-top:2px;font-size:7.8px;opacity:.9}.tempoSend.pressing{transform:scale(.985)}
+.readNotify{width:100%;min-height:62px;border:1.6px solid rgba(233,174,207,.94);border-radius:15px;background:linear-gradient(180deg,#fff,#fff6fb);color:#624a60;font-family:inherit;text-align:left;padding:10px 12px}.readNotify small{display:block;color:#d8649d;font-size:8px;font-weight:1000;margin-bottom:3px}.readNotify b{font-size:11px}
+.typingDots{display:flex;justify-content:center;gap:7px;padding:15px 0 12px}.typingDots i{width:8px;height:8px;border-radius:50%;background:#d993c2;animation:typingBounce 1s infinite ease-in-out}.typingDots i:nth-child(2){animation-delay:.16s}.typingDots i:nth-child(3){animation-delay:.32s}@keyframes typingBounce{0%,70%,100%{transform:translateY(0);opacity:.45}35%{transform:translateY(-5px);opacity:1}}.quietAction{width:100%;min-height:38px;border:1.3px solid rgba(220,193,215,.85);border-radius:12px;background:rgba(255,255,255,.72);color:#856b81;font-family:inherit;font-size:9px;font-weight:850}
+.row{grid-template-columns:26px minmax(0,1fr) auto!important}.rowBtns{display:grid;grid-template-columns:31px 31px;gap:4px}.rowBtns button{width:31px!important;height:31px!important;min-height:31px!important}.distanceCards{grid-template-columns:repeat(3,minmax(0,1fr))!important}.distanceCards button{min-height:94px!important}.distanceCards small{font-size:7.7px!important;line-height:1.35!important}
+.top,.subtop,.system,.firstTop,.firstHud,.firstAnalyze{position:relative;z-index:30}.app{overflow:hidden!important}.scene{min-height:0!important;overflow:hidden!important}.reply{min-height:0!important;overflow:auto!important;-webkit-overflow-scrolling:touch}
+.brightEnd,.endBody{background:linear-gradient(180deg,rgba(255,255,255,.97),rgba(255,244,251,.95))!important}.endSubtitle{color:#a55383!important}
 </style><!-- GitHub Pages / Safari playable build -->
 </head><body><div id="app"></div>
 
@@ -1504,21 +1525,16 @@ const app=$('#app'); let current='s1h'; let log=[];
 const avatarMap={normal:'avatars/shuri_normal.png',good:'avatars/shuri_good.png',interest:'avatars/shuri_interest.png',shy:'avatars/shuri_shy.png',confused:'avatars/shuri_confused.png',nope:'avatars/shuri_nope.png',zokkon:'avatars/shuri_zokkon.png'};
 function shuffle(a){a=[...a];for(let i=a.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
 function isEnd(id){return id.startsWith('end_')}
-function contextualModes(s){let q=(s.text+' '+s.prologue+' '+s.tag).toLowerCase(); if(s.choices.length!==3)return ['choice']; if(/告白|好き|付き合/.test(q))return ['hold','choice','wait']; if(/写真|服|どっち/.test(q))return ['swipe','distance','choice']; if(/メッセージ|既読/.test(q))return ['read','choice','wait']; if(s.text.length>75)return ['interrupt','wait','choice','hold']; return ['choice','hold','wait','reorder','distance','swipe','free'];}
-function modeFor(s){let key='op:'+s.id;let x=sessionStorage.getItem(key);if(x)return x;let pool=contextualModes(s);x=pool[Math.floor(Math.random()*pool.length)];sessionStorage.setItem(key,x);return x}
-function go(id,answer=''){if(!SCENES[id])return;if(answer)log.push({scene:current,answer});current=id;render()}
-function frame(s,reply){return `<div class="spark"></div><div class="app"><div class="top"><img class="logo" src="${U['ui/logo_title.png']}"><button class="iconbtn heart" onclick="openLog()"></button><button class="iconbtn menu" onclick="openMenu()"></button></div><div class="subtop"><div class="nameplate"></div><div class="dayplate"></div></div><div class="system"></div><div class="stage"><img class="bg" src="${U[s.bg]}"><div class="veil"></div><img class="avatar" src="${U[avatarMap[s.expr]||avatarMap.normal]}"><div class="live"></div><div class="aff"></div><div class="time">☾ SCENE ${s.id.toUpperCase()}</div></div><div class="scene"><div class="sceneBar">${esc(s.prologue)}</div><div class="dialog"><span class="speaker">しゅり</span>${esc(s.text)}</div>${reply}</div><div class="footer">♥　SYURI LOVE SIMULATION　♥</div></div>`}
-function esc(x){return String(x||'').replace(/[&<>]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[m])).replace(/\n/g,'<br>')}
-function choiceHtml(opts){return `<div class="choices">${opts.map((o,i)=>`<button class="choice" data-n="${i+1}" onclick='pick(${JSON.stringify(o.to)},${JSON.stringify(o.text)})'>${esc(o.text)}</button>`).join('')}</div>`}
-window.pick=(to,text)=>go(to,text);
-function firstChoiceHtml(opts){
-  return `<div class="firstChoices">${opts.map((o,i)=>`
-    <button class="firstChoice" onclick='pick(${JSON.stringify(o.to)},${JSON.stringify(o.text)})'>
-      <img class="firstChoiceBg" src="asset_e4158dcff994.png" alt="">
-      <span class="firstChoiceNo">${i+1}</span>
-      <span class="firstChoiceText">${esc(o.text)}</span>
-      <span class="firstChoiceHeart">♡</span>
-    </button>`).join('')}</div>`
+function contextualModes(s){
+  const q=(s.text+' '+s.prologue+' '+(s.tag||'')).toLowerCase();
+  if(s.choices.length!==3)return ['choice'];
+  if(/告白|付き合|会いたい|好きって|好き。|返事は今じゃなく/.test(q)) return ['hold','choice'];
+  if(/メッセージ|既読|通知|dm|連絡/.test(q)) return ['read','choice'];
+  if(/待って|考えてる|考え中|入力中|返事が止|返信が止|まだ喋/.test(q)) return ['wait','choice'];
+  if(/帰り道|別れ|じゃあね|距離|近づ|離れ|名残惜|寂し|深い意味ない|もう少し一緒/.test(q)) return ['distance','choice'];
+  if(/ごめん|謝|決めつけ|言い方|誤解|ちゃんと伝|説明したい|順番/.test(q)) return ['reorder','choice'];
+  if(s.text.length>95 && /でも|だから|というか|待って|いや/.test(q)) return ['interrupt','choice'];
+  return ['choice'];
 }
 
 function renderFirstScene(s,opts){
@@ -1592,46 +1608,41 @@ function render(){
 }
 function applyVars(){document.documentElement.style.cssText+=`;--heart:url(${U['ui/heart_button.png']});--menu:url(${U['ui/menu_button.png']});--name:url(${U['ui/name_plate.png']});--day:url(${U['ui/day_plate.png']});--analyze:url(${U['ui/analyzing_bar.png']});--live:url(${U['ui/live_badge.png']});--aff:url(${U['ui/affection_bar.png']});--scene:url(${U['ui/scene_bar.png']});--dialog:url(${U['ui/dialogue_window.png']})`}
 function renderOp(s,opts,mode){let op=$('#op'); if(!op)return; if(mode==='choice'){op.innerHTML=choiceHtml(opts);return}
-if(mode==='hold'){op.innerHTML=`<div class="panel holdpanel"><div class="holdtitle">💬 返事をひとつ選ぶ</div><div id="holds"></div><div class="holdhint">選んだあと、下のボタンを <b>0.8秒押し続ける</b> と送信されます。</div><button id="send" class="bigbtn holdsend" disabled><span class="holdsendText">この返事を送る</span><span class="holdsendSub">長押しで確定</span><div class="progress"><i></i></div></button></div>`;let sel=null;$('#holds').innerHTML=opts.map((o,i)=>`<button class="opt" data-i="${i}">${esc(o.text)}</button>`).join('');document.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{document.querySelectorAll('.opt').forEach(x=>x.classList.remove('sel'));b.classList.add('sel');sel=opts[+b.dataset.i];$('#send').disabled=false;$('.holdhint').innerHTML='この返事でいい？ 下のボタンを <b>0.8秒長押し</b> で送信。'});let t;let b=$('#send'),bar=b.querySelector('i');let start=()=>{if(!sel)return;b.classList.add('pressing');bar.style.transition='width .8s linear';bar.style.width='100%';t=setTimeout(()=>go(sel.to,sel.text),800)};let stop=()=>{clearTimeout(t);b.classList.remove('pressing');bar.style.transition='none';bar.style.width='0'};b.onpointerdown=start;b.onpointerup=stop;b.onpointerleave=stop;b.onpointercancel=stop;return}
-if(mode==='wait'){op.innerHTML=`<div class="waitbox">しゅり、まだ入力中…　● ● ●</div>`;setTimeout(()=>{if($('#op'))op.innerHTML=choiceHtml(opts)},1500+Math.random()*1800);return}
-if(mode==='reorder'){
-  let arr=[...opts];
-  let draw=()=>{
-    op.innerHTML=`<div class="reorderHint">話す順番を並び替えて、一番上の返事を送る。</div>
-      <div class="rows">
-        ${arr.map((o,i)=>`<div class="row" data-i="${i}">
-          <span>${esc(o.text)}</span>
-          <div class="rowBtns">
-            <button class="rowUp" type="button" aria-label="上へ">↑</button>
-            <button class="rowDn" type="button" aria-label="下へ">↓</button>
-          </div>
-        </div>`).join('')}
-      </div>
-      <button id="reorderSend" class="bigbtn reorderSend" type="button">一番上の返事を送る</button>`;
-    document.querySelectorAll('.row').forEach((r)=>{
-      const i=+r.dataset.i;
-      const up=r.querySelector('.rowUp');
-      const dn=r.querySelector('.rowDn');
-      up.disabled=i===0;
-      dn.disabled=i===arr.length-1;
-      up.onclick=()=>{ if(i>0){ [arr[i-1],arr[i]]=[arr[i],arr[i-1]]; draw(); } };
-      dn.onclick=()=>{ if(i<arr.length-1){ [arr[i+1],arr[i]]=[arr[i],arr[i+1]]; draw(); } };
-    });
-    $('#reorderSend').onclick=()=>{
-      const top=arr[0];
-      go(top.to,top.text);
-    };
-  };
-  draw();
-  return
+if(mode==='hold'){
+  const base=opts[1]||opts[0];
+  op.innerHTML=`<div class="panel tempoPanel"><div class="opTitle">💗 どのテンポで返す？</div><div class="opExplain">ボタンを押し続けて、送りたいテンポのところで指を離す。</div><div class="tempoMessage">${esc(base.text)}</div><div class="tempoScale"><span>速い</span><span>ふつう</span><span>遅い</span><i id="tempoNeedle"></i></div><button id="tempoSend" class="bigbtn tempoSend" type="button"><b>押している間、時間が進む</b><small>離した瞬間に送信</small></button></div>`;
+  const btn=$('#tempoSend'),needle=$('#tempoNeedle');let started=0,raf=0,active=false;
+  const paint=()=>{if(!active)return;const ms=Math.min(performance.now()-started,2400);needle.style.left=(ms/2400*100)+'%';raf=requestAnimationFrame(paint)};
+  const finish=()=>{if(!active)return;active=false;cancelAnimationFrame(raf);const ms=Math.min(performance.now()-started,2400),idx=ms<750?0:(ms<1600?1:2),tempo=idx===0?'速い':idx===1?'ふつう':'遅い',target=opts[idx]||base;go(target.to,base.text+'［'+tempo+'テンポ］')};
+  btn.onpointerdown=e=>{e.preventDefault();active=true;started=performance.now();btn.classList.add('pressing');paint()};btn.onpointerup=finish;btn.onpointercancel=finish;btn.onpointerleave=()=>{if(active)finish()};return
 }
-if(mode==='distance'){op.innerHTML=`<div class="panel"><div class="labels"><span>そっとする</span><span>そのまま</span><span>踏み込む</span></div><input id="range" class="slider" type="range" min="0" max="100" value="50"><div class="subtle" id="rtext">今の距離を選ぶ。</div><button class="bigbtn" id="rgo" style="margin-top:8px">この距離で返す</button></div>`;$('#rgo').onclick=()=>{let v=+$('#range').value,o=opts[v<34?0:v<67?1:2];go(o.to,o.text)};return}
-if(mode==='swipe'){op.innerHTML=`<div id="sw" class="swipe">今のしゅりに、どう近づく？<br><small>← 少し引く　・　そのまま　・　少し近づく →</small></div><div class="tri"><button>←</button><button>○</button><button>→</button></div>`;let card=$('#sw'),sx=0,dx=0;card.onpointerdown=e=>{sx=e.clientX;dx=0;card.setPointerCapture(e.pointerId)};card.onpointermove=e=>{if(!sx)return;dx=e.clientX-sx;card.style.transform=`translateX(${dx}px) rotate(${dx/20}deg)`};card.onpointerup=()=>{let i=dx<-60?0:dx>60?2:1;go(opts[i].to,opts[i].text)};document.querySelectorAll('.tri button').forEach((b,i)=>b.onclick=()=>go(opts[i].to,opts[i].text));return}
-if(mode==='read'){let start=performance.now();op.innerHTML=`<button class="notify" id="note"><small>しゅりからメッセージ</small><b>「ねえ、ちょっと聞いていい？」</b></button><div class="subtle" style="margin-top:7px">開くタイミングも、そのまま会話になる。</div>`;$('#note').onclick=()=>{let t=(performance.now()-start)/1000,i=t<1.4?0:t<3.6?1:2;go(opts[i].to,'既読タイミング')};return}
+if(mode==='wait'){
+  op.innerHTML=`<div class="panel waitPanel"><div class="opTitle">しゅりが入力中…</div><div class="typingDots"><i></i><i></i><i></i></div><div class="opExplain">まだ返事は来ていない。</div><button id="followUp" class="quietAction" type="button">追いメッセージを送る</button></div>`;
+  let resolved=false;const timer=setTimeout(()=>{if(resolved||!$('#op'))return;resolved=true;op.innerHTML=`<div class="panel waitPanel"><div class="opTitle">しゅりから続きが届いた</div><div class="opExplain">待っていたので、最後まで届いた。</div><button id="waitContinue" class="bigbtn" type="button">続きを読む</button></div>`;$('#waitContinue').onclick=()=>go((opts[1]||opts[0]).to,'しゅりの続きを待った')},2800);
+  $('#followUp').onclick=()=>{if(resolved)return;resolved=true;clearTimeout(timer);go((opts[0]||opts[1]).to,'入力中に追いメッセージを送った')};return
+}
+if(mode==='reorder'){
+  let arr=[...opts];const draw=()=>{op.innerHTML=`<div class="panel orderPanel"><div class="opTitle">💬 伝える順番を決める</div><div class="opExplain">同じ内容でも、どれから言うかで伝わり方が変わる。</div><div class="rows">${arr.map((o,i)=>`<div class="row" data-i="${i}"><span class="orderNo">${i+1}</span><span>${esc(o.text)}</span><div class="rowBtns"><button class="rowUp" type="button">↑</button><button class="rowDn" type="button">↓</button></div></div>`).join('')}</div><button id="reorderSend" class="bigbtn reorderSend" type="button">この順番で伝える</button></div>`;document.querySelectorAll('.row').forEach(r=>{const i=+r.dataset.i,up=r.querySelector('.rowUp'),dn=r.querySelector('.rowDn');up.disabled=i===0;dn.disabled=i===arr.length-1;up.onclick=()=>{if(i>0){[arr[i-1],arr[i]]=[arr[i],arr[i-1]];draw()}};dn.onclick=()=>{if(i<arr.length-1){[arr[i+1],arr[i]]=[arr[i],arr[i+1]];draw()}}});$('#reorderSend').onclick=()=>{const first=arr[0];go(first.to,arr.map(x=>x.text).join(' → '))}};draw();return
+}
+if(mode==='distance'){
+  op.innerHTML=`<div class="panel distancePanel"><div class="opTitle">♡ 今、どこまで近づく？</div><div class="opExplain">返事ではなく、この場面で取る距離を選ぶ。</div><div class="distanceCards"><button type="button" data-i="0"><b>一歩引く</b><small>今は踏み込まず、しゅりに余白を残す</small></button><button type="button" data-i="1"><b>隣にいる</b><small>距離を変えず、そのまま一緒にいる</small></button><button type="button" data-i="2"><b>一歩近づく</b><small>もう少しだけ近い距離で話す</small></button></div></div>`;document.querySelectorAll('.distanceCards button').forEach(b=>{b.onclick=()=>{const i=+b.dataset.i,labels=['一歩引いた','そのまま隣にいた','一歩近づいた'];go((opts[i]||opts[1]).to,labels[i])}});return
+}
+if(mode==='swipe'){renderOp(s,opts,'distance');return}
+if(mode==='read'){
+  const start=performance.now();op.innerHTML=`<div class="panel readPanel"><div class="opTitle">📩 しゅりからメッセージ</div><button class="notify readNotify" id="note" type="button"><small>未読</small><b>タップして開く</b></button><div class="opExplain">タップした瞬間に既読になります。</div></div>`;$('#note').onclick=()=>{const t=(performance.now()-start)/1000,i=t<1.5?0:(t<4?1:2),label=i===0?'即既読':i===1?'少し置いて既読':'ゆっくり既読';go((opts[i]||opts[1]).to,label)};return
+}
 if(mode==='interrupt'){let full=s.text;let d=$('.dialog');d.innerHTML='<span class="speaker">しゅり</span><span id="typed"></span>';op.innerHTML=`<button class="bigbtn" id="intr">待って、そこ聞きたい</button><div class="subtle" style="margin-top:7px">しゅりはまだ喋ってる。</div>`;let i=0,done=false;let timer=setInterval(()=>{i+=2;if($('#typed'))$('#typed').innerHTML=esc(full.slice(0,i));if(i>=full.length){clearInterval(timer);done=true;op.innerHTML=choiceHtml(opts)}},42);$('#intr').onclick=()=>{clearInterval(timer);if($('#typed'))$('#typed').innerHTML=esc(full.slice(0,i));op.innerHTML=`<div class="panel"><b>しゅり「まだ喋ってるwwwwww」</b></div>`+choiceHtml(opts)};return}
-if(mode==='free'){op.innerHTML=`<div class="panel"><textarea id="free" class="free" placeholder="返事を入力…"></textarea><button id="fgo" class="bigbtn" style="margin-top:8px">送る</button><div class="subtle" style="margin-top:7px">文章そのものより、どの返事に近いかで会話が進む。</div></div>`;$('#fgo').onclick=()=>{let q=$('#free').value.trim();if(!q)return;let sim=(a,b)=>{let A=new Set([...a]),B=new Set([...b]);let n=[...A].filter(x=>B.has(x)).length;return n/(A.size+B.size-n||1)};let best=opts.map(o=>[sim(q,o.text),o]).sort((a,b)=>b[0]-a[0])[0][1];go(best.to,q)};return}
+if(mode==='free'){op.innerHTML=choiceHtml(opts);return}
 op.innerHTML=choiceHtml(opts)}
-function renderEnd(s){let key=current.includes('zokkon')?'zokkon_end_card.png':current.includes('mystery')?'mystery_end_card.png':current.includes('true')?'true_end_card.png':current.includes('dislike')||current.includes('analysis')||current.includes('heat')?'bad_end_card.png':'normal_end_card.png';app.innerHTML=`<div class="spark"></div><div class="app"><div class="top"><img class="logo" src="${U['ui/logo_title.png']}"><button class="iconbtn heart" onclick="openLog()"></button><button class="iconbtn menu" onclick="openMenu()"></button></div><div class="stage" style="height:330px"><img class="bg" src="${U[s.bg]}"><div class="veil"></div></div><div class="endcard"><img src="${U['endings/'+key]}"><div class="endtext">${esc(s.text)}</div>${choiceHtml(s.choices)}</div></div>`;applyVars();}
+function renderEnd(s){
+  const isBad=current.includes('dislike')||current.includes('analysis')||current.includes('heat');
+  const title=isBad?'RESULT':'ENDING';
+  const subtitle=isBad?'今回はちょっとすれ違い':'しゅりとの物語';
+  const av=U[avatarMap[isBad?'shy':'good']||avatarMap.normal];
+  app.innerHTML=`<div class="spark"></div><div class="app endApp"><div class="top"><img class="logo" src="${U['ui/logo_title.png']}"><button class="iconbtn heart cleanTopBtn" onclick="openLog()" aria-label="ログ">♡</button><button class="iconbtn menu cleanTopBtn" onclick="openMenu()" aria-label="メニュー">≡</button></div><section class="brightEnd"><div class="endKicker">♡ ${esc(title)}</div><div class="endHero"><img class="endBg" src="${U['backgrounds/18_happy_end.png']}" alt=""><div class="endVeil"></div><img class="endAvatar" src="${av}" alt="しゅり"></div><div class="endBody"><div class="endSubtitle">${esc(subtitle)}</div><div class="endText">${esc(s.text)}</div><div class="endMessage">${isBad?'今回はここまで。また別の選び方でも遊んでみてね♡':'ここまで遊んでくれてありがとう♡'}</div>${choiceHtml(s.choices)}</div></section></div>`;
+  applyVars();
+  window.scrollTo({top:0,behavior:'instant'});
+}
 window.openLog=()=>{let m=$('#modal');$('#modalTitle').textContent='会話ログ';$('#modalBody').innerHTML=log.length?log.map(x=>`<div class="logitem">${esc(x.answer)}</div>`).join(''):'<div class="subtle">まだログはありません。</div>';m.classList.add('open')}
 window.openMenu=()=>{let m=$('#modal');$('#modalTitle').textContent='MENU';$('#modalBody').innerHTML=`<button class="bigbtn" onclick="restart()">最初から</button><button class="bigbtn" style="margin-top:8px;background:#b99ac8" onclick="closeModal()">戻る</button>`;m.classList.add('open')}
 window.closeModal=()=>$('#modal').classList.remove('open');window.restart=()=>{sessionStorage.clear();log=[];current='s1h';closeModal();render()}
