@@ -1323,6 +1323,162 @@ img{
 .nameplate,.dayplate{
   object-fit:contain !important;
 }
+
+/* =========================================================
+   BUGFIX + CLEAN HUD
+   ========================================================= */
+
+/* Glitchy cropped raster UI off */
+.live,.aff,.firstLive,.firstAff{
+  display:none !important;
+}
+
+/* Clean LIVE badge */
+.stage::before,
+.firstStage::before{
+  content:"▣  LIVE";
+  position:absolute;
+  z-index:7;
+  left:11px;
+  top:10px;
+  min-width:72px;
+  height:34px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:0 11px;
+  border-radius:11px;
+  color:white;
+  font-size:10px;
+  font-weight:1000;
+  letter-spacing:.04em;
+  background:linear-gradient(135deg,#ff66ae,#ef76bd);
+  border:1.5px solid rgba(255,255,255,.86);
+  box-shadow:
+    0 5px 12px rgba(206,89,152,.18),
+    inset 0 1px 0 rgba(255,255,255,.42);
+}
+
+/* Clean affection badge */
+.stage .time::before,
+.firstTime::before{
+  content:"";
+}
+.stage .time::after,
+.firstTime::after{
+  content:"♡ 好感度   64%";
+  position:fixed;
+  display:none;
+}
+
+/* Real positioned affection panel */
+.stage > .cleanAff,
+.firstStage > .cleanAff{
+  display:block;
+}
+
+.stage::after{
+  pointer-events:none;
+}
+
+/* Create affection panel using extra pseudo on veil */
+.stage .veil::after,
+.firstStageVeil::after{
+  content:"♡ 好感度        64%\A";
+  white-space:pre;
+  position:absolute;
+  z-index:7;
+  right:10px;
+  top:9px;
+  width:126px;
+  height:42px;
+  padding:7px 10px 0;
+  border-radius:12px;
+  background:
+    linear-gradient(90deg,#ff69b3 0 53%,#b394ef 53% 74%,#eee5ec 74% 100%) left 27px/104px 8px no-repeat,
+    rgba(255,255,255,.92);
+  border:1.5px solid rgba(239,178,208,.95);
+  color:#a04e7d;
+  font-size:8.8px;
+  line-height:1.15;
+  font-weight:1000;
+  box-shadow:0 5px 12px rgba(190,105,150,.12);
+  box-sizing:border-box;
+}
+
+/* Reorder operation clarity */
+.reorderHint{
+  margin:0 1px 7px;
+  font-size:9.5px;
+  line-height:1.35;
+  color:#84667f;
+  font-weight:800;
+}
+.rows{
+  display:grid;
+  gap:5px;
+}
+.row{
+  min-height:44px !important;
+  display:grid !important;
+  grid-template-columns:minmax(0,1fr) auto !important;
+  align-items:center !important;
+  gap:8px !important;
+  padding:7px 8px 7px 11px !important;
+  border:1.6px solid rgba(236,172,205,.90) !important;
+  border-radius:13px !important;
+  background:rgba(255,255,255,.84) !important;
+}
+.row span{
+  font-size:10.2px !important;
+  line-height:1.28 !important;
+  color:#553f52 !important;
+  font-weight:850 !important;
+}
+.rowBtns{
+  display:grid;
+  grid-template-columns:34px 34px;
+  gap:4px;
+}
+.rowBtns button{
+  width:34px !important;
+  height:34px !important;
+  min-height:34px !important;
+  padding:0 !important;
+  border:0 !important;
+  border-radius:10px !important;
+  background:#f4e9f8 !important;
+  color:#81658c !important;
+  font-size:16px !important;
+}
+.rowBtns button:disabled{
+  opacity:.28 !important;
+}
+.reorderSend{
+  margin-top:7px !important;
+  background:linear-gradient(135deg,#ff68ae,#c895eb) !important;
+  color:white !important;
+}
+
+/* Slightly larger Shuri */
+.avatar{
+  height:156% !important;
+  bottom:-46% !important;
+}
+.firstAvatar{
+  height:160% !important;
+  bottom:-47% !important;
+}
+
+/* Keep text readable */
+.dialog,
+.firstDialog p{
+  font-size:12px !important;
+}
+.choice,
+.firstChoiceText{
+  font-size:10.6px !important;
+}
 </style><!-- GitHub Pages / Safari playable build -->
 </head><body><div id="app"></div>
 
@@ -1438,7 +1594,37 @@ function applyVars(){document.documentElement.style.cssText+=`;--heart:url(${U['
 function renderOp(s,opts,mode){let op=$('#op'); if(!op)return; if(mode==='choice'){op.innerHTML=choiceHtml(opts);return}
 if(mode==='hold'){op.innerHTML=`<div class="panel holdpanel"><div class="holdtitle">💬 返事をひとつ選ぶ</div><div id="holds"></div><div class="holdhint">選んだあと、下のボタンを <b>0.8秒押し続ける</b> と送信されます。</div><button id="send" class="bigbtn holdsend" disabled><span class="holdsendText">この返事を送る</span><span class="holdsendSub">長押しで確定</span><div class="progress"><i></i></div></button></div>`;let sel=null;$('#holds').innerHTML=opts.map((o,i)=>`<button class="opt" data-i="${i}">${esc(o.text)}</button>`).join('');document.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{document.querySelectorAll('.opt').forEach(x=>x.classList.remove('sel'));b.classList.add('sel');sel=opts[+b.dataset.i];$('#send').disabled=false;$('.holdhint').innerHTML='この返事でいい？ 下のボタンを <b>0.8秒長押し</b> で送信。'});let t;let b=$('#send'),bar=b.querySelector('i');let start=()=>{if(!sel)return;b.classList.add('pressing');bar.style.transition='width .8s linear';bar.style.width='100%';t=setTimeout(()=>go(sel.to,sel.text),800)};let stop=()=>{clearTimeout(t);b.classList.remove('pressing');bar.style.transition='none';bar.style.width='0'};b.onpointerdown=start;b.onpointerup=stop;b.onpointerleave=stop;b.onpointercancel=stop;return}
 if(mode==='wait'){op.innerHTML=`<div class="waitbox">しゅり、まだ入力中…　● ● ●</div>`;setTimeout(()=>{if($('#op'))op.innerHTML=choiceHtml(opts)},1500+Math.random()*1800);return}
-if(mode==='reorder'){let arr=[...opts];let draw=()=>{op.innerHTML=`<div class="rows">${arr.map((o,i)=>`<div class="row"><span>${esc(o.text)}</span><button onclick="up(${i})">↑</button><button onclick="dn(${i})">↓</button></div>`).join('')}</div><button class="bigbtn" style="margin-top:8px" onclick="pick('${arr[0].to}',${JSON.stringify(arr[0].text)})">一番上から話す</button>`};window.up=i=>{if(i){[arr[i-1],arr[i]]=[arr[i],arr[i-1]];draw()}};window.dn=i=>{if(i<arr.length-1){[arr[i+1],arr[i]]=[arr[i],arr[i+1]];draw()}};draw();return}
+if(mode==='reorder'){
+  let arr=[...opts];
+  let draw=()=>{
+    op.innerHTML=`<div class="reorderHint">話す順番を並び替えて、一番上の返事を送る。</div>
+      <div class="rows">
+        ${arr.map((o,i)=>`<div class="row" data-i="${i}">
+          <span>${esc(o.text)}</span>
+          <div class="rowBtns">
+            <button class="rowUp" type="button" aria-label="上へ">↑</button>
+            <button class="rowDn" type="button" aria-label="下へ">↓</button>
+          </div>
+        </div>`).join('')}
+      </div>
+      <button id="reorderSend" class="bigbtn reorderSend" type="button">一番上の返事を送る</button>`;
+    document.querySelectorAll('.row').forEach((r)=>{
+      const i=+r.dataset.i;
+      const up=r.querySelector('.rowUp');
+      const dn=r.querySelector('.rowDn');
+      up.disabled=i===0;
+      dn.disabled=i===arr.length-1;
+      up.onclick=()=>{ if(i>0){ [arr[i-1],arr[i]]=[arr[i],arr[i-1]]; draw(); } };
+      dn.onclick=()=>{ if(i<arr.length-1){ [arr[i+1],arr[i]]=[arr[i],arr[i+1]]; draw(); } };
+    });
+    $('#reorderSend').onclick=()=>{
+      const top=arr[0];
+      go(top.to,top.text);
+    };
+  };
+  draw();
+  return
+}
 if(mode==='distance'){op.innerHTML=`<div class="panel"><div class="labels"><span>そっとする</span><span>そのまま</span><span>踏み込む</span></div><input id="range" class="slider" type="range" min="0" max="100" value="50"><div class="subtle" id="rtext">今の距離を選ぶ。</div><button class="bigbtn" id="rgo" style="margin-top:8px">この距離で返す</button></div>`;$('#rgo').onclick=()=>{let v=+$('#range').value,o=opts[v<34?0:v<67?1:2];go(o.to,o.text)};return}
 if(mode==='swipe'){op.innerHTML=`<div id="sw" class="swipe">今のしゅりに、どう近づく？<br><small>← 少し引く　・　そのまま　・　少し近づく →</small></div><div class="tri"><button>←</button><button>○</button><button>→</button></div>`;let card=$('#sw'),sx=0,dx=0;card.onpointerdown=e=>{sx=e.clientX;dx=0;card.setPointerCapture(e.pointerId)};card.onpointermove=e=>{if(!sx)return;dx=e.clientX-sx;card.style.transform=`translateX(${dx}px) rotate(${dx/20}deg)`};card.onpointerup=()=>{let i=dx<-60?0:dx>60?2:1;go(opts[i].to,opts[i].text)};document.querySelectorAll('.tri button').forEach((b,i)=>b.onclick=()=>go(opts[i].to,opts[i].text));return}
 if(mode==='read'){let start=performance.now();op.innerHTML=`<button class="notify" id="note"><small>しゅりからメッセージ</small><b>「ねえ、ちょっと聞いていい？」</b></button><div class="subtle" style="margin-top:7px">開くタイミングも、そのまま会話になる。</div>`;$('#note').onclick=()=>{let t=(performance.now()-start)/1000,i=t<1.4?0:t<3.6?1:2;go(opts[i].to,'既読タイミング')};return}
