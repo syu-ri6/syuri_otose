@@ -1537,6 +1537,23 @@ function contextualModes(s){
   return ['choice'];
 }
 
+function modeFor(s){let key='op:'+s.id;let x=sessionStorage.getItem(key);if(x)return x;let pool=contextualModes(s);x=pool[Math.floor(Math.random()*pool.length)];sessionStorage.setItem(key,x);return x}
+function go(id,answer=''){if(!SCENES[id])return;if(answer)log.push({scene:current,answer});current=id;render()}
+function frame(s,reply){return `<div class="spark"></div><div class="app"><div class="top"><img class="logo" src="${U['ui/logo_title.png']}"><button class="iconbtn heart" onclick="openLog()"></button><button class="iconbtn menu" onclick="openMenu()"></button></div><div class="subtop"><div class="nameplate"></div><div class="dayplate"></div></div><div class="system"></div><div class="stage"><img class="bg" src="${U[s.bg]}"><div class="veil"></div><img class="avatar" src="${U[avatarMap[s.expr]||avatarMap.normal]}"><div class="live"></div><div class="aff"></div><div class="time">☾ SCENE ${s.id.toUpperCase()}</div></div><div class="scene"><div class="sceneBar">${esc(s.prologue)}</div><div class="dialog"><span class="speaker">しゅり</span>${esc(s.text)}</div>${reply}</div><div class="footer">♥　SYURI LOVE SIMULATION　♥</div></div>`}
+function esc(x){return String(x||'').replace(/[&<>]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[m])).replace(/\n/g,'<br>')}
+function choiceHtml(opts){return `<div class="choices">${opts.map((o,i)=>`<button class="choice" data-n="${i+1}" onclick='pick(${JSON.stringify(o.to)},${JSON.stringify(o.text)})'>${esc(o.text)}</button>`).join('')}</div>`}
+window.pick=(to,text)=>go(to,text);
+function firstChoiceHtml(opts){
+  return `<div class="firstChoices">${opts.map((o,i)=>`
+    <button class="firstChoice" onclick='pick(${JSON.stringify(o.to)},${JSON.stringify(o.text)})'>
+      <img class="firstChoiceBg" src="asset_e4158dcff994.png" alt="">
+      <span class="firstChoiceNo">${i+1}</span>
+      <span class="firstChoiceText">${esc(o.text)}</span>
+      <span class="firstChoiceHeart">♡</span>
+    </button>`).join('')}</div>`
+}
+
+
 function renderFirstScene(s,opts){
   const av=U[avatarMap[s.expr]||avatarMap.normal];
   app.innerHTML=`
