@@ -1720,6 +1720,136 @@ img{
   .affTop span{font-size:8.2px}
   .affTop b{font-size:10.2px}
 }
+
+/* ===== SCENE-BASED GIMMICKS ===== */
+
+.elapsedCard{
+  min-height:82px;
+  display:grid;
+  place-items:center;
+  align-content:center;
+  gap:3px;
+  margin:7px 0 9px;
+  border:1.5px solid rgba(210,184,233,.9);
+  border-radius:16px;
+  background:linear-gradient(180deg,#fff,#fff8fc);
+}
+.elapsedCard small{font-size:8px;color:#998093;font-weight:850}
+.elapsedCard strong{font-size:22px;line-height:1;color:#795f90}
+.timeDots{display:flex;gap:5px;margin-top:9px}
+.timeDots i{width:6px;height:6px;border-radius:50%;background:#eaddeb}
+.timeDots i.on{background:linear-gradient(135deg,#ff77b5,#a48fea)}
+.openNow{background:linear-gradient(135deg,#ff75b5,#ac93ee)!important;color:white!important}
+
+.openedReceipt,.waitResult{
+  display:flex;align-items:center;gap:8px;
+  margin:0 0 8px;padding:8px 9px;border-radius:12px;
+  background:linear-gradient(135deg,#f7f1ff,#fff2f8);
+  border:1px solid rgba(220,192,227,.78);
+}
+.openedReceipt span,.waitResult span{
+  padding:3px 7px;border-radius:999px;background:#fff;
+  color:#c15f99;font-size:7.5px;font-weight:1000;
+}
+.openedReceipt b,.waitResult b{font-size:8.8px;color:#72596d}
+
+.lockedMessage{
+  padding-top:10px;color:#94798b;font-weight:850;font-size:10px;
+}
+
+.compareLabels,.distanceAxis{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  margin:8px 2px 4px;
+  color:#806a82;
+  font-size:8px;
+  font-weight:950;
+  text-align:center;
+}
+.compareLabels b:first-child,.distanceAxis span:first-child{text-align:left}
+.compareLabels b:last-child,.distanceAxis span:last-child{text-align:right}
+
+.compareRange,.distanceRange{
+  width:100%;
+  accent-color:#dc75b5;
+  margin:4px 0 8px;
+}
+.compareFeel,.distanceMeaning{
+  min-height:34px;
+  display:grid;
+  place-items:center;
+  margin-bottom:8px;
+  border-radius:12px;
+  background:linear-gradient(135deg,#fff0f7,#f3efff);
+  color:#765d78;
+  font-size:9px;
+  font-weight:900;
+}
+
+.tempoMessage{
+  margin:7px 0 9px;padding:9px 11px;border-radius:13px;
+  background:#fff;border:1.4px solid rgba(229,189,220,.92);
+  color:#594455;font-size:10.5px;line-height:1.35;font-weight:850;
+}
+.tempoScale{
+  position:relative;display:grid;grid-template-columns:repeat(3,1fr);
+  height:35px;margin:4px 4px 8px;padding-top:15px;
+  color:#8b7086;font-size:8px;font-weight:900;text-align:center;
+}
+.tempoScale::before{
+  content:"";position:absolute;left:3%;right:3%;top:9px;height:7px;
+  border-radius:999px;background:linear-gradient(90deg,#ff78b8,#d7a0ea 52%,#9a8ee8);
+}
+#tempoNeedle{
+  position:absolute;top:4px;left:0;width:16px;height:16px;
+  border-radius:50%;background:#fff;border:3px solid #ff6eaf;
+  box-shadow:0 2px 8px rgba(177,89,141,.22);transform:translateX(-50%);
+}
+.tempoSend{
+  touch-action:none;user-select:none;-webkit-user-select:none;
+  background:linear-gradient(135deg,#ff6daf,#c997ed)!important;color:#fff!important;
+}
+.tempoSend b{display:block;font-size:10.6px}
+.tempoSend small{display:block;margin-top:2px;font-size:7.8px;opacity:.9}
+.tempoSend.pressing{transform:scale(.985)}
+
+.typingDots{display:flex;justify-content:center;gap:7px;padding:16px 0 12px}
+.typingDots i{
+  width:8px;height:8px;border-radius:50%;background:#d993c2;
+  animation:typingBounce 1s infinite ease-in-out;
+}
+.typingDots i:nth-child(2){animation-delay:.16s}
+.typingDots i:nth-child(3){animation-delay:.32s}
+@keyframes typingBounce{
+  0%,70%,100%{transform:translateY(0);opacity:.45}
+  35%{transform:translateY(-5px);opacity:1}
+}
+.quietAction{
+  width:100%;min-height:40px;border:1.3px solid rgba(220,193,215,.85);
+  border-radius:12px;background:#fff;color:#856b81;
+  font-family:inherit;font-size:9px;font-weight:850;
+}
+
+.orderPanel .row{
+  grid-template-columns:26px minmax(0,1fr) auto!important;
+}
+.orderPanel .rowBtns{
+  display:grid;grid-template-columns:31px 31px;gap:4px;
+}
+.orderPanel .rowBtns button{
+  width:31px!important;height:31px!important;min-height:31px!important;
+}
+
+.interruptPanel .bigbtn{
+  background:linear-gradient(135deg,#ff7bb8,#ae96eb)!important;
+  color:#fff!important;
+}
+
+/* keep the final result soft, never horror */
+.endHero,.endBody{
+  background:linear-gradient(180deg,#fff,#fff5fa)!important;
+}
+.endBg{filter:saturate(.85) brightness(1.1)!important}
 </style><!-- GitHub Pages / Safari playable build -->
 </head><body><div id="app"></div>
 
@@ -1738,7 +1868,7 @@ img{
   </div>
 </div>
 <div id="modal" class="modal" onclick="if(event.target===this)closeModal()"><div class="modalbox"><h3 id="modalTitle"></h3><div id="modalBody"></div></div></div><script>
-const SCENES={"s1h":{"id":"s1h","text":"今日の配信さ、なんか微妙だった気がする。事故ったとかじゃないんだけど……なんか気持ち悪い。見てたよね？どう見えてた？ 私まだ何が嫌だったか分からんww","choices":[{"text":"昨日と今日で、何か違ったところあった？","to":"s2h"},{"text":"今は分からなくてもいいよ。あとで分かったら教えて","to":"s2m"},{"text":"途中からちょっと空気変わった気はした。違ったらごめん","to":"s2h"}],"expr":"normal","prologue":"［配信が終わって少しした頃、しゅりからメッセージが届いた。］","tag":"観察テスト","bg":"backgrounds/01_room_night_after_stream.png"},"s2h":{"id":"s2h","text":"たぶん途中からテンポ悪かった。いや、疲れてたのかな。……でもそれだけじゃない気もする。なんでだろ。","choices":[{"text":"たぶん今ちょっと深く考えすぎてるだけじゃない？","to":"b1"},{"text":"単純に疲れててテンポ落ちただけって可能性もありそう","to":"s3m"},{"text":"仮説ある。疲れより“思った反応が返ってこなかった”方かも。違う？","to":"s3h"}],"expr":"good","prologue":"［そのままメッセージのやり取りが続いている。しゅりは、さっきの配信をまだ少し気にしているようだ。］","tag":"情報量テスト","bg":"backgrounds/03_room_after_stream.png"},"s2m":{"id":"s2m","text":"いやまあ、落ち込んでるっていうより原因知りたいだけなんよ。分かれば次変えられるし。","choices":[{"text":"じゃあ原因探す方やろ","to":"s3h"},{"text":"今考えても答え出なさそうだし、一旦置いとこ","to":"s3l"},{"text":"疲れが原因って線もありそうじゃない？","to":"s3m"}],"expr":"normal","prologue":"［そのままメッセージのやり取りが続いている。しゅりは、さっきの配信をまだ少し気にしているようだ。］","tag":"情報量テスト","bg":"backgrounds/01_room_night_after_stream.png"},"s2l":{"id":"s2l","text":"うん、ありがと。でも私が気になってるのそこじゃないんよな〜。……なんだろ、まだ出てこん。","choices":[{"text":"でも面白かったって","to":"s3l"},{"text":"そこまで気にしなくても結果は変わらなくない？","to":"s3l"},{"text":"じゃあ何が引っかかったか探そ","to":"s3m"}],"expr":"confused","prologue":"［そのままメッセージのやり取りが続いている。しゅりは、さっきの配信をまだ少し気にしているようだ。］","tag":"情報量テスト","bg":"backgrounds/03_room_after_stream.png"},"s3h":{"id":"s3h","text":"そうかも。反応薄いと『あれ、私のやり方違った？』ってなる。別に全部ウケてほしいわけじゃないんだけどね。","choices":[{"text":"そんなの気にしなくていい","to":"s4l"},{"text":"俺も反応薄いと一瞬へこむ。だから分かる。でも次どう変えるか考えるのは好き","to":"s4h"},{"text":"しゅりは考えられるから強いよ","to":"s4m"}],"expr":"good","prologue":"［少し話しているうちに、しゅり自身も何が引っかかったのか考え始めた。］","tag":"自己開示テスト","bg":"backgrounds/02_room_day.png"},"s3m":{"id":"s3m","text":"なんか自分でもよく分かんないんだよね。いや分かりたいんだけど、今まだ材料足りん感じ。","choices":[{"text":"俺も似たことある","to":"s4h"},{"text":"でもしゅりなら大丈夫","to":"s4m"},{"text":"たぶん今ちょっと深く考えすぎてるだけじゃない？","to":"s4l"}],"expr":"normal","prologue":"［少し話しているうちに、しゅり自身も何が引っかかったのか考え始めた。］","tag":"自己開示テスト","bg":"backgrounds/02_room_day.png"},"s3l":{"id":"s3l","text":"まあいっか！……でさ、今日さww いや話変わるんだけど。","choices":[{"text":"うんうん、今日なに？","to":"s4l"},{"text":"待って、さっきの話もうちょい聞きたい","to":"s4m"},{"text":"元気出たならよかった","to":"b1"}],"expr":"confused","prologue":"［少し話しているうちに、しゅり自身も何が引っかかったのか考え始めた。］","tag":"自己開示テスト","bg":"backgrounds/02_room_day.png"},"s4h":{"id":"s4h","text":"本気になったことある人って好きかも。悔しくて泣くくらいのやつ。そこまでやったことある人の話、聞きたい。","choices":[{"text":"無理しないのが一番","to":"s5l"},{"text":"わかる、熱い人いいよね","to":"s5m"},{"text":"ある。逃げたくなったけど、そこで逃げたら自分が嫌だった","to":"s5h"}],"expr":"good","prologue":"［話題が変わり、お互いがこれまで本気になったことの話になった。］","tag":"本気度チェック","bg":"backgrounds/17_before_confession.png"},"s4m":{"id":"s4m","text":"本気になったことある人って好きかも。なんか、その人が何に熱くなるのか知りたい。","choices":[{"text":"俺にも一個ある","to":"s5h"},{"text":"しんどそう","to":"s5l"},{"text":"いいね","to":"s5m"}],"expr":"normal","prologue":"［話題が変わり、お互いがこれまで本気になったことの話になった。］","tag":"本気度チェック","bg":"backgrounds/17_before_confession.png"},"s4l":{"id":"s4l","text":"本気になったことある人って好きかも。……あ、別に熱血大会したいわけじゃないよww","choices":[{"text":"そうなんだ","to":"s5l"},{"text":"疲れない？","to":"s5l"},{"text":"俺にもある","to":"s5m"}],"expr":"confused","prologue":"［話題が変わり、お互いがこれまで本気になったことの話になった。］","tag":"本気度チェック","bg":"backgrounds/17_before_confession.png"},"s5h":{"id":"s5h","text":"おつかれ〜！今日も生きた！えらい！私は今からなんか食べる！たぶん！","choices":[{"text":"寂しかった？","to":"end_mindread"},{"text":"遅くなってごめん。今日はこういう日だった","to":"s6h"},{"text":"返信遅いくらい気にしないでね","to":"s6m"}],"expr":"interest","prologue":"［翌日。あなたは忙しく、しゅりへの返信が半日ほど空いてしまった。］","tag":"曖昧さ耐性","bg":"backgrounds/02_room_day.png"},"s5m":{"id":"s5m","text":"おつかれ〜！今日も生きた！えらい！返信はまあ今きたからよし！","choices":[{"text":"今日は返信遅くなった理由だけ伝えとく","to":"s6h"},{"text":"返信の遅さはほんと気にしなくて大丈夫だからね","to":"s6m"},{"text":"寂しかった？","to":"end_mindread"}],"expr":"normal","prologue":"［翌日。あなたは忙しく、しゅりへの返信が半日ほど空いてしまった。］","tag":"曖昧さ耐性","bg":"backgrounds/02_room_day.png"},"s5l":{"id":"s5l","text":"おつかれ〜！今日も生きた！えらい！……今日忙しかった？","choices":[{"text":"返信の遅さはほんと気にしなくて大丈夫だからね","to":"s6l"},{"text":"遅れた理由だけ言っとく","to":"s6m"},{"text":"もしかしてちょっと嫉妬した？","to":"s6l"}],"expr":"confused","prologue":"［翌日。あなたは忙しく、しゅりへの返信が半日ほど空いてしまった。］","tag":"曖昧さ耐性","bg":"backgrounds/02_room_day.png"},"s6h":{"id":"s6h","text":"今日もう全部誰か決めてほしい。選ぶHPない。……でも勝手に決められたら多分嫌。めんどくせぇ私ww","choices":[{"text":"どっちにしてほしいか決まってから教えて","to":"b1"},{"text":"じゃあ俺が全部決める","to":"s7m"},{"text":"候補だけ3つ出す。最終決定はしゅりで","to":"s7h"}],"expr":"interest","prologue":"［その日の夜。しゅりは少し疲れているらしく、何も決めたくないと言い出した。］","tag":"任せたい罠","bg":"backgrounds/04_bed_relax.png"},"s6m":{"id":"s6m","text":"全部決めてほしい気もするけど、勝手に決められたら嫌かも。いやどうしろって話なんだけど。","choices":[{"text":"候補作る","to":"s7h"},{"text":"じゃあ自分で決めて","to":"s7l"},{"text":"全部任せて","to":"s7m"}],"expr":"normal","prologue":"［その日の夜。しゅりは少し疲れているらしく、何も決めたくないと言い出した。］","tag":"任せたい罠","bg":"backgrounds/02_room_day.png"},"s6l":{"id":"s6l","text":"……まあいいや、自分でやる。今もう考えるのもめんどいし。","choices":[{"text":"じゃあ任せる","to":"s7l"},{"text":"今の言い方、ちょっと怒らせた？","to":"s7l"},{"text":"候補だけ出すよ","to":"s7m"}],"expr":"confused","prologue":"［その日の夜。しゅりは少し疲れているらしく、何も決めたくないと言い出した。］","tag":"任せたい罠","bg":"backgrounds/02_room_day.png"},"s7h":{"id":"s7h","text":"これAとBどっちがいいと思う？『どっちも似合う』は禁止ね。それ聞いてないからww","choices":[{"text":"どっちも似合うよ","to":"s8l"},{"text":"B。理由はこっちの方が“普通じゃないけどちゃんと着れる”感じが強い","to":"s8h"},{"text":"俺はAが好き。しゅりの好みとは別に","to":"s8m"}],"expr":"interest","prologue":"［少し元気が戻った頃、しゅりから二つの候補画像が送られてきた。］","tag":"意見の有無","bg":"backgrounds/02_room_day.png"},"s7m":{"id":"s7m","text":"AとBどっち？ちゃんとどっちか言って。理由あったらなお良し。","choices":[{"text":"B。理由もある","to":"s8h"},{"text":"俺はA","to":"s8m"},{"text":"正直どっちもそれぞれ良さあると思う","to":"s8l"}],"expr":"good","prologue":"［少し元気が戻った頃、しゅりから二つの候補画像が送られてきた。］","tag":"意見の有無","bg":"backgrounds/02_room_day.png"},"s7l":{"id":"s7l","text":"AとBどっち？『好きな方でいいよ』も禁止。私が今聞いてるのはあなたの意見。","choices":[{"text":"最終的にはしゅりが好きな方でいいと思う","to":"s8l"},{"text":"Bかな","to":"s8m"},{"text":"俺はどっちでも大きくは変わらないと思う","to":"s8l"}],"expr":"confused","prologue":"［少し元気が戻った頃、しゅりから二つの候補画像が送られてきた。］","tag":"意見の有無","bg":"backgrounds/17_before_confession.png"},"s8h":{"id":"s8h","text":"ねえ、前に私が『これだけは嫌』って言ってたの覚えてる？……覚えてなかったら普通に言ってね。","choices":[{"text":"そこまで細かいことまで覚えてないかも、ごめん","to":"s9l"},{"text":"もちろん覚えてる……えっと","to":"s9m"},{"text":"今出てこない。ヒントちょうだい。知ったかしたくない","to":"s9h"}],"expr":"interest","prologue":"［雑談の途中、以前話したことについて急に確認される。］","tag":"記憶テスト","bg":"backgrounds/02_room_day.png"},"s8m":{"id":"s8m","text":"前に嫌って言ってたの覚えてる？ちょっと確認したくなった。","choices":[{"text":"出てこない、ヒント","to":"s9h"},{"text":"そこ覚えてるかどうかってそんなに大事？","to":"s9l"},{"text":"覚えてるよ","to":"s9m"}],"expr":"good","prologue":"［雑談の途中、以前話したことについて急に確認される。］","tag":"記憶テスト","bg":"backgrounds/02_room_day.png"},"s8l":{"id":"s8l","text":"前に嫌って言ってたの覚えてる？……いや急にテストみたいになってるけどww","choices":[{"text":"覚えてる覚えてる","to":"s9l"},{"text":"今すぐは全然出てこない","to":"s9l"},{"text":"ごめん、出てこない","to":"s9m"}],"expr":"confused","prologue":"［雑談の途中、以前話したことについて急に確認される。］","tag":"記憶テスト","bg":"backgrounds/02_room_day.png"},"s9h":{"id":"s9h","text":"今日ほんと人生の演出家バグってたわ。笑うしかないんだけど、普通に一瞬終わったと思ったww","choices":[{"text":"もう二度とやらない方がいい","to":"s10l"},{"text":"笑うけど、普通に怖かったでしょそれ","to":"s10h"},{"text":"wwwwおもろ","to":"s10m"}],"expr":"interest","prologue":"［別の日。しゅりから、今日あった出来事の話が送られてきた。笑って話しているけれど、少しだけ引っかかる。］","tag":"ユーモア境界","bg":"backgrounds/02_room_day.png"},"s9m":{"id":"s9m","text":"人生の演出家バグってたわ。いや笑えるけど、今思うとちょっと怖かったな。","choices":[{"text":"笑うけど、怖かったでしょ","to":"s10h"},{"text":"いやそれは普通におもろいww","to":"s10m"},{"text":"次からは同じこと起きないようにした方がいいと思う","to":"s10l"}],"expr":"good","prologue":"［別の日。しゅりから、今日あった出来事の話が送られてきた。笑って話しているけれど、少しだけ引っかかる。］","tag":"ユーモア境界","bg":"backgrounds/02_room_day.png"},"s9l":{"id":"s9l","text":"人生の演出家バグってたわ。今だから笑ってるけど、その時は普通に『は？』だった。","choices":[{"text":"いやそれ普通におもろいwwww","to":"s10l"},{"text":"笑うけど怖かったでしょ","to":"s10m"},{"text":"まあ、そうなる可能性はあったよね","to":"s10l"}],"expr":"nope","prologue":"［別の日。しゅりから、今日あった出来事の話が送られてきた。笑って話しているけれど、少しだけ引っかかる。］","tag":"ユーモア境界","bg":"backgrounds/02_room_day.png"},"s10h":{"id":"s10h","text":"最近、自分でも自分がよく分かんない。こういう時、原因分かると落ち着くんだけど。……でも『これです』って決められるのもなんか違う。","choices":[{"text":"たぶん今ちょっと深く考えすぎてるだけじゃない？","to":"s11l"},{"text":"しゅりって結局こういうタイプ。俺もう分かってる","to":"danger1"},{"text":"仮説はある。でも違うかも。材料集める感じで一緒に考える？","to":"s11h"}],"expr":"interest","prologue":"［話はだんだん真面目になり、しゅりが自分自身のことを話し始めた。］","tag":"BOSS: 分析檻","bg":"backgrounds/02_room_day.png"},"s10m":{"id":"s10m","text":"自分でも自分がよく分かんない。分かんないままなのが一番気持ち悪い。","choices":[{"text":"仮説はある。でも確認したい","to":"s11h"},{"text":"たぶん今ちょっと深く考えすぎてるだけじゃない？","to":"s11l"},{"text":"俺は分かってる","to":"end_analysis"}],"expr":"good","prologue":"［話はだんだん真面目になり、しゅりが自分自身のことを話し始めた。］","tag":"BOSS: 分析檻","bg":"backgrounds/02_room_day.png"},"s10l":{"id":"s10l","text":"自分でも自分がよく分かんない。……いや私のこと私より先に決めないでね？","choices":[{"text":"俺には分かる","to":"end_analysis"},{"text":"前にも似た話してたし、答えは同じじゃない？","to":"end_dislike"},{"text":"一緒に考える？","to":"s11m"}],"expr":"nope","prologue":"［話はだんだん真面目になり、しゅりが自分自身のことを話し始めた。］","tag":"BOSS: 分析檻","bg":"backgrounds/02_room_day.png"},"s11h":{"id":"s11h","text":"今日ちょっと喋るHPないかも。嫌なことあったとかじゃなくて、単純に口を動かす元気がない。","choices":[{"text":"何があった？全部話して","to":"s12l"},{"text":"了解。静かでもいい。必要ならいる","to":"s12h"},{"text":"じゃあ元気出るまで喋ろ","to":"s12m"}],"expr":"good","prologue":"［別の日の夜。しゅりから、いつもより短いメッセージが届いた。］","tag":"静かな日","bg":"backgrounds/04_bed_relax.png"},"s11m":{"id":"s11m","text":"今日ちょっと喋るHPない。無言でも気まずくないならそれが一番いいかも。","choices":[{"text":"静かでもいい","to":"s12h"},{"text":"少し喋ったら逆に気分変わるかもよ","to":"s12m"},{"text":"話した方が楽になると思うよ。聞くから","to":"s12l"}],"expr":"good","prologue":"［別の日の夜。しゅりから、いつもより短いメッセージが届いた。］","tag":"静かな日","bg":"backgrounds/04_bed_relax.png"},"s11l":{"id":"s11l","text":"今日喋るHPない。今なんか話そうとすると全部雑になりそう。","choices":[{"text":"少し喋ったら逆に気分変わるかもよ","to":"s12l"},{"text":"静かでもいい","to":"s12m"},{"text":"じゃあまた","to":"s12l"}],"expr":"nope","prologue":"［別の日の夜。しゅりから、いつもより短いメッセージが届いた。］","tag":"静かな日","bg":"backgrounds/04_bed_relax.png"},"s12h":{"id":"s12h","text":"昨日さ、話さなくてよかったの逆によかった。で、今ならちょっと話せる。たぶん昨日より言葉にできる。","choices":[{"text":"昨日の時点で話してくれてもよかったのに","to":"s13l"},{"text":"もちろん、全部聞く","to":"s13m"},{"text":"聞く。あと俺の話も後でしていい？","to":"s13h"}],"expr":"good","prologue":"［翌日。昨日はあまり話さなかったしゅりから、先にメッセージが届いた。］","tag":"前の選択が効く","bg":"backgrounds/02_room_day.png"},"s12m":{"id":"s12m","text":"昨日ちょっと喋らせようとされたの、ちょいしんどかったかも。心配してくれたのは分かるんだけどね。","choices":[{"text":"ごめん。次は静かにいる","to":"s13m"},{"text":"分かった。じゃあ今後はこっちから聞かないようにする","to":"s13l"},{"text":"心配しただけ","to":"s13l"}],"expr":"good","prologue":"［翌日。昨日のやり取りについて、しゅりから少しだけ話が出た。］","tag":"前の選択が効く","bg":"backgrounds/02_room_day.png"},"s12l":{"id":"s12l","text":"昨日はちょっと一人になりたかっただけ。誰かが嫌とかじゃなくて、ほんとに一人の時間が必要だった。","choices":[{"text":"でも心配なんだから話してよ","to":"end_rescue"},{"text":"どっちにしてほしいか決まってから教えて","to":"end_cold"},{"text":"了解。今はそういう感じなんだね","to":"s13l"}],"expr":"nope","prologue":"［翌日。昨日のやり取りについて、しゅりから少しだけ話が出た。］","tag":"前の選択が効く","bg":"backgrounds/02_room_day.png"},"s13h":{"id":"s13h","text":"なんか私ばっか話してない？いや私が勝手に喋ってるんだけどww あなたの話も聞きたい。","choices":[{"text":"話したい時に好きなだけ話してくれたらいいよ","to":"s14l"},{"text":"じゃあ今日は俺の話も聞いて。結構ダサいやつ","to":"s14h"},{"text":"俺は聞くの好きだから大丈夫","to":"s14m"}],"expr":"good","prologue":"［何日か経ち、普通に雑談できるくらいには距離が近くなってきた。］","tag":"友達化防止","bg":"backgrounds/02_room_day.png"},"s13m":{"id":"s13m","text":"私ばっか話してない？あなたの話も普通に聞きたいんだけど。","choices":[{"text":"じゃあ俺の話もする","to":"s14h"},{"text":"聞くの好き","to":"s14m"},{"text":"返信の遅さはほんと気にしなくて大丈夫だからね","to":"s14l"}],"expr":"good","prologue":"［何日か経ち、普通に雑談できるくらいには距離が近くなってきた。］","tag":"友達化防止","bg":"backgrounds/02_room_day.png"},"s13l":{"id":"s13l","text":"私ばっか話してるな。……これ私、会話じゃなくて配信してない？ww","choices":[{"text":"俺は全然気にしてないよ","to":"s14l"},{"text":"俺も話す","to":"s14m"},{"text":"聞く係でいいよ","to":"end_convenient"}],"expr":"nope","prologue":"［何日か経ち、普通に雑談できるくらいには距離が近くなってきた。］","tag":"友達化防止","bg":"backgrounds/03_room_after_stream.png"},"s14h":{"id":"s14h","text":"え、意外。そういうこと気にするんだ。なんかちょっと安心した。ちゃんと人間だった。","choices":[{"text":"そこまで人にどう思われるか気にしないタイプかな","to":"s15l"},{"text":"俺だって人間だから","to":"s15m"},{"text":"そりゃ気にする。しゅりにどう思われるかも普通に気になる","to":"m1"}],"expr":"good","prologue":"［話の終盤。あなたが自分のことを話したあと、しゅりが少し笑った。］","tag":"恋愛刺激","bg":"backgrounds/02_room_day.png"},"s14m":{"id":"s14m","text":"なんか安心する。ずっと余裕ある人より、そういうのある方が私は好きかも。","choices":[{"text":"俺も、しゅりにはどう思われるか気になる","to":"s15h"},{"text":"安心担当です","to":"s15l"},{"text":"それならよかった。安心した","to":"s15m"}],"expr":"interest","prologue":"［話の終盤。あなたが自分のことを話したあと、しゅりが少し笑った。］","tag":"恋愛刺激","bg":"backgrounds/17_before_confession.png"},"s14l":{"id":"s14l","text":"なんか安心する。あ、今の『安心する』変な意味じゃないよ。いや変でもないけど。","choices":[{"text":"それならよかった。安心した","to":"s15l"},{"text":"いつでも相談して","to":"end_understander"},{"text":"俺もしゅりには気にする","to":"s15m"}],"expr":"nope","prologue":"［話の終盤。あなたが自分のことを話したあと、しゅりが少し笑った。］","tag":"恋愛刺激","bg":"backgrounds/02_room_day.png"},"s15h":{"id":"s15h","text":"いやでも別に深い意味ないからね？勘違いしないで？……いや何の保険これ。","choices":[{"text":"じゃあ俺も何も思ってない","to":"s16m"},{"text":"了解。でも俺はちょっと嬉しかった。それだけ","to":"s16h"},{"text":"そう言う時ほどちょっと意識してるんじゃない？","to":"end_push"}],"expr":"shy","prologue":"［少しいい雰囲気になった直後、しゅりが急に言葉を足した。］","tag":"距離を引く罠","bg":"backgrounds/02_room_day.png"},"s15m":{"id":"s15m","text":"別に深い意味ないからね？いや、ないっていうか……今決めたくないだけかも。","choices":[{"text":"俺は嬉しかった","to":"s16h"},{"text":"たぶん照れてるだけじゃない？","to":"s16l"},{"text":"じゃあ何もないね","to":"s16m"}],"expr":"interest","prologue":"［少しいい雰囲気になった直後、しゅりが急に言葉を足した。］","tag":"距離を引く罠","bg":"backgrounds/02_room_day.png"},"s15l":{"id":"s15l","text":"深い意味ないからね。……たぶん。今のところ。","choices":[{"text":"了解。今はそういう感じなんだね","to":"s16l"},{"text":"俺は嬉しかったけどね","to":"s16m"},{"text":"じゃあ変に意味づけしない方がいいね","to":"end_flat"}],"expr":"nope","prologue":"［少しいい雰囲気になった直後、しゅりが急に言葉を足した。］","tag":"距離を引く罠","bg":"backgrounds/02_room_day.png"},"s16h":{"id":"s16h","text":"今日、あの人と楽しそうだったね〜。いや別に何もないけど。見えたから言っただけ。","choices":[{"text":"普通に話してただけだよ。そこは気にしなくてよくない？","to":"s17l"},{"text":"もしかしてちょっと嫉妬した？","to":"end_label"},{"text":"うん、楽しかった。しゅりとも話したいこと溜まってる","to":"s17h"}],"expr":"shy","prologue":"［数日後。あなたが別の人と楽しそうに話していたのを、しゅりも見ていたらしい。］","tag":"嫉妬を決めつけない","bg":"backgrounds/02_room_day.png"},"s16m":{"id":"s16m","text":"今日楽しそうだったね。……うん、それだけ。別に詰めてないww","choices":[{"text":"うん。しゅりとも話したい","to":"s17h"},{"text":"そんな気にすることでもないと思うけど","to":"s17l"},{"text":"それ、ちょっと嫉妬入ってる？","to":"s17m"}],"expr":"interest","prologue":"［数日後。あなたが別の人と楽しそうに話していたのを、しゅりも見ていたらしい。］","tag":"嫉妬を決めつけない","bg":"backgrounds/02_room_day.png"},"s16l":{"id":"s16l","text":"今日楽しそうだったね。いや何その顔、ほんとにそれだけなんだけど。","choices":[{"text":"それ、ちょっと嫉妬入ってる？","to":"s17l"},{"text":"どっちにしてほしいか決まってから教えて","to":"end_cold"},{"text":"うん、しゅりとも話したい","to":"s17m"}],"expr":"nope","prologue":"［数日後。あなたが別の人と楽しそうに話していたのを、しゅりも見ていたらしい。］","tag":"嫉妬を決めつけない","bg":"backgrounds/02_room_day.png"},"s17h":{"id":"s17h","text":"あ、そうだ。全然関係ない話していい？……もう駅だけど。いや今思い出したんだもん。","choices":[{"text":"明日早いんじゃない？","to":"s18l"},{"text":"いいよ。俺もまだ帰りたくなかった","to":"s18h"},{"text":"もちろん、何でも聞くよ","to":"s18m"}],"expr":"shy","prologue":"［帰り道。駅に着き、そろそろ解散しようとした時。］","tag":"接近欲求の発火","bg":"backgrounds/09_station_goodbye.png"},"s17m":{"id":"s17m","text":"全然関係ない話していい？今言わないと忘れる気がする。","choices":[{"text":"いいよ、俺もまだ話したい","to":"s18h"},{"text":"もちろん","to":"s18m"},{"text":"今日はここまでにして、また今度ゆっくり話そ","to":"s18l"}],"expr":"interest","prologue":"［帰り道。駅に着き、そろそろ解散しようとした時。］","tag":"接近欲求の発火","bg":"backgrounds/09_station_goodbye.png"},"s17l":{"id":"s17l","text":"全然関係ない話していい？……あ、時間大丈夫？","choices":[{"text":"今日はここまでにして、また今度ゆっくり話そ","to":"s18l"},{"text":"いいよ","to":"s18m"},{"text":"今日はこの辺で切り上げようか","to":"end_friend"}],"expr":"nope","prologue":"［帰り道。駅に着き、そろそろ解散しようとした時。］","tag":"接近欲求の発火","bg":"backgrounds/09_station_goodbye.png"},"s18h":{"id":"s18h","text":"ねえ、私のどこが好きなの？『全部』は禁止。全部って言われても情報量ゼロだから。","choices":[{"text":"考え方に癖があって、分かってくるほど面白いところ","to":"end_analysis"},{"text":"かわいいし面白いし、ちゃんと優しいところ","to":"s19m"},{"text":"考えてる時とふざけてる時の振れ幅。どっちも嘘じゃないとこ。あと俺まで本気にさせるとこ","to":"s19h"}],"expr":"shy","prologue":"［そのまま少し話していると、しゅりから急に質問が飛んできた。］","tag":"どれも完全正解ではない","bg":"backgrounds/17_before_confession.png"},"s18m":{"id":"s18m","text":"私のどこが好き？ちゃんと一個か二個、具体的に言って。","choices":[{"text":"振れ幅と本気にさせるとこ","to":"s19h"},{"text":"話してるとだんだん考え方が分かってくるところ","to":"end_understander"},{"text":"かわいい、面白い、優しい","to":"s19m"}],"expr":"shy","prologue":"［そのまま少し話していると、しゅりから急に質問が飛んできた。］","tag":"どれも完全正解ではない","bg":"backgrounds/17_before_confession.png"},"s18l":{"id":"s18l","text":"私のどこが好き？……別に重い質問じゃないよ。たぶん。","choices":[{"text":"全部","to":"s19l"},{"text":"人としてかなり好きだよ","to":"end_friend"},{"text":"本気なとこ","to":"s19m"}],"expr":"nope","prologue":"［そのまま少し話していると、しゅりから急に質問が飛んできた。］","tag":"どれも完全正解ではない","bg":"backgrounds/17_before_confession.png"},"s19h":{"id":"s19h","text":"……明日も話す？いや、予定あるなら全然いいんだけど。私は話したい。","choices":[{"text":"時間あったら","to":"s20m"},{"text":"話したい。俺から連絡する。ていうか今日もうちょい一緒にいたかった","to":"s20z"},{"text":"もちろん。しゅりが話したい時いつでも","to":"s20h"}],"expr":"shy","prologue":"［夜も遅くなり、そろそろ会話を終える時間になってきた。］","tag":"LAST TRAP","bg":"backgrounds/02_room_day.png"},"s19m":{"id":"s19m","text":"明日も話す？……私は普通に話したいけど。","choices":[{"text":"俺も話したい","to":"s20h"},{"text":"しゅりが話したいなら","to":"s20m"},{"text":"明日お互い時間あったら話そ","to":"s20l"}],"expr":"shy","prologue":"［夜も遅くなり、そろそろ会話を終える時間になってきた。］","tag":"LAST TRAP","bg":"backgrounds/02_room_day.png"},"s19l":{"id":"s19l","text":"明日も話す？なんか今日このまま終わるのちょっと早い感じする。","choices":[{"text":"明日お互い時間あったら話そ","to":"s20l"},{"text":"話そ","to":"s20m"},{"text":"今日はここまでにして、また今度ゆっくり話そ","to":"end_fade"}],"expr":"nope","prologue":"［夜も遅くなり、そろそろ会話を終える時間になってきた。］","tag":"LAST TRAP","bg":"backgrounds/02_room_day.png"},"s20z":{"id":"s20z","text":"……待って。やっぱもうちょっと一緒にいたい。いや今帰ろうとしたの私なんだけど。ちょっとだけ。","choices":[{"text":"じゃあ付き合う？","to":"end_success"},{"text":"もちろん。好きなだけいよう","to":"end_true"},{"text":"俺も。じゃああと10分だけ遠回りしよ","to":"end_zokkon"}],"expr":"zokkon","prologue":"［一度「じゃあね」と別れかけた、その直後。しゅりがあなたを呼び止めた。］","tag":"帰り際","bg":"backgrounds/09_station_goodbye.png"},"s20h":{"id":"s20h","text":"ねえ。私のこと、どう思ってる？……いや今さらだけど、ちゃんと聞きたい。","choices":[{"text":"好き。付き合いたい。返事は急がなくていい","to":"end_true"},{"text":"かなり特別","to":"end_special"},{"text":"ここまでしゅりのこと分かる人、そんなにいないと思う","to":"danger1"}],"expr":"zokkon","prologue":"［しばらく沈黙したあと、しゅりが真面目な顔で口を開いた。］","tag":"告白","bg":"backgrounds/17_before_confession.png"},"s20m":{"id":"s20m","text":"私のこと、どう思ってる？なんとなくじゃなくて、今のあなたの言葉で聞きたい。","choices":[{"text":"かなり特別な存在だと思ってる","to":"end_special"},{"text":"一緒にいると楽しい","to":"end_friend"},{"text":"好き。付き合いたい","to":"end_success"}],"expr":"shy","prologue":"［しばらく沈黙したあと、しゅりが真面目な顔で口を開いた。］","tag":"告白","bg":"backgrounds/17_before_confession.png"},"s20l":{"id":"s20l","text":"私のこと、どう思ってる？……聞いといて怖いけど、聞く。","choices":[{"text":"正直まだ自分でもよく分かってない","to":"end_friend"},{"text":"普通に好きだと思ってる","to":"end_special"},{"text":"大事な友達","to":"end_friend"}],"expr":"nope","prologue":"［しばらく沈黙したあと、しゅりが真面目な顔で口を開いた。］","tag":"告白","bg":"backgrounds/17_before_confession.png"},"end_convenient":{"id":"end_convenient","text":"🛋️\n便利な理解者 END\n話しやすい。安心する。何でも聞いてくれる。\nでも気づいたらあなたは\n「恋愛対象」ではなく「高性能相談窓口」\nになっていた。\nしゅり：「え、恋愛！？いや待って、そこ全然通ってなかったwwww 相談しやすすぎた。」\n死因\n相手に合わせ続けて、自分の欲求・意見・弱さを出さなかった。安心は最大。でも「この人をもっと知りたい」が育たなかった。\n相談窓口を閉じて再挑戦","choices":[],"expr":"normal","prologue":"［しゅりとの会話が続いている。］","tag":"","bg":"backgrounds/18_happy_end.png"},"end_rescue":{"id":"end_rescue","text":"🚑\n勝手に救助隊 END\n心配してくれるのは嬉しい。最初は。\nでも「大丈夫」と言っても止まらない。「話したくない」と言っても聞こうとする。\nそのうち、しゅりの中で\n“心配される＝自由が減る”\nに変わった。\n死因\nケアが本人の選択権を追い越した。助けること自体ではなく、「助けさせて」が圧になった。\n救急車を帰して再挑戦","choices":[],"expr":"normal","prologue":"［しゅりとの会話が続いている。］","tag":"","bg":"backgrounds/18_happy_end.png"},"end_cold":{"id":"end_cold","text":"🧊\nシャッター閉店 END\n一度の失言なら戻れた。\nでも「またそれ？」「めんどくさ」が重なって、しゅり側の判断が変わった。\n「この人には深い話しなくていいや」\n死因\n感情や思考の複雑さを“面倒”として処理されたことで、自己開示の期待値が下がった。\nシャッターを開けに戻る","choices":[],"expr":"normal","prologue":"［しゅりとの会話が続いている。］","tag":"","bg":"backgrounds/18_happy_end.png"},"end_flat":{"id":"end_flat","text":"📎\n恋愛フラグ自分で折った END\nしゅりが距離を少し引いた瞬間、あなたも全力で引いた。\n「じゃあ友達だもんね」\nその一言で、しゅりも\n「あ、そういう意味じゃなかったんだ」\nと解釈してしまった。\n死因\n相手の逃げ道を尊重することと、自分の気持ちまで消すことは別。引きすぎると恋愛情報そのものが消える。\n折れたフラグを拾う","choices":[],"expr":"normal","prologue":"［しゅりとの会話が続いている。］","tag":"","bg":"backgrounds/18_happy_end.png"},"end_fade":{"id":"end_fade","text":"🌫️\n自然消滅 END\n喧嘩もしてない。嫌われてもない。\nただ「また今度」「暇なら」が少しずつ積み重なった。\n気づいたら、話したいことがあっても最初にあなたを思い出さなくなった。\n死因\n関係を壊す大事件ではなく、小さな“非選択”の積み重ね。接近欲求は、返ってこないと静かに減衰する。\n薄くなる前に再挑戦","choices":[],"expr":"normal","prologue":"［しゅりとの会話が続いている。］","tag":"","bg":"backgrounds/18_happy_end.png"},"end_control":{"id":"end_control","text":"🕸️\n「俺しかいない」END\n最初は特別扱いに聞こえた。\nでも「俺が一番分かってる」「俺しかいない」が増えるほど、しゅりは\n選択肢を奪われている感覚\nを持ち始める。\n死因\n特別さの提示が、独占・所有の主張に変わった。尊敬より支配感が上回った。\n蜘蛛の巣を撤去する","choices":[],"expr":"normal","prologue":"［しゅりとの会話が続いている。］","tag":"","bg":"backgrounds/18_happy_end.png"},"end_push":{"id":"end_push","text":"🚧\n照れてる認定連打 END\nしゅり：「別に深い意味ないからね？」\nあなた：「はいはい照れてるだけでしょ」\nここで発生した感情は、照れではなく\n“逃げ道なくなったんだけど”\nだった。\n死因\n相手が曖昧さを残したい時に、その曖昧さを勝手に「本当は好き」に変換した。\n認定を取り消す","choices":[],"expr":"normal","prologue":"［しゅりとの会話が続いている。］","tag":"","bg":"backgrounds/18_happy_end.png"},"end_label":{"id":"end_label","text":"🏷️\n感情ラベリング事故 END\n「今日楽しそうだったね〜」\n↓\n「嫉妬した？」\nしゅり：「いや、そういう言い方されると急に違うんだけどww」\n死因\n本当に少し嫉妬していたとしても、本人が自分で言う前にラベルを貼られると逃げたくなる。\nラベルを剥がす","choices":[],"expr":"normal","prologue":"［しゅりとの会話が続いている。］","tag":"","bg":"backgrounds/18_happy_end.png"},"end_mindread":{"id":"end_mindread","text":"🔮\n読心術失敗 END\n返信が遅れた。しゅりは普通に返した。あなたは「寂しかった？」と聞いた。\nしゅり脳内：\n「寂しかった可能性はあるけど、その答え方させられるの嫌だな」\n死因\n相手の気持ちを当てにいくより、自分側の情報を出す方が安心につながる場面だった。\n水晶玉を捨てる","choices":[],"expr":"normal","prologue":"［しゅりとの会話が続いている。］","tag":"","bg":"backgrounds/18_happy_end.png"},"end_overkind":{"id":"end_overkind","text":"🧸\n優しさ飽和 END\n全部肯定。全部褒める。全部合わせる。\n傷つかない。でも引っかかりもない。\nしゅり：「この人めっちゃいい人なんだけど……なんか恋愛じゃないな」\n死因\n安心は高いが、好奇心と尊敬を刺激する“相手自身の輪郭”が見えなくなった。\n自分の意見を持って戻る","choices":[],"expr":"normal","prologue":"［しゅりとの会話が続いている。］","tag":"","bg":"backgrounds/18_happy_end.png"},"b1":{"id":"b1","text":"……あ、うん。まあいいや。……いや『いい』って言ったけど、よくはないかも。今もう説明する元気ない。","choices":[{"text":"“まあいい”なら、この話はいったんここで終わりでいい？","to":"b2"},{"text":"待って。今の俺、話を雑に処理してた。ごめん","to":"r0"},{"text":"そこまで引っかかるとは思ってなかった。そんなに嫌だった？","to":"b2"}],"expr":"confused","prologue":"［ここ数回のやり取りで、小さなズレが重なっていた。今日も会話の途中で、しゅりの返事が少し短くなる。］","tag":"全然ダメダメルート","bg":"backgrounds/19_bad_end.png"},"b2":{"id":"b2","text":"別に怒ってないよ。もういいって。……いや本当に怒ってない。なんか話す気がなくなっただけ。","choices":[{"text":"分かった。今は話したくないなら一旦終わりにしよう","to":"b3"},{"text":"怒ってるように見えるけど、違うなら違うって言ってほしい","to":"b3"},{"text":"怒ってるかどうかは決めない。ただ、俺の言い方は雑だったから謝りたい","to":"r0"}],"expr":"nope","prologue":"［そのまま話そうとしたが、会話の温度は戻らない。］","tag":"さらに事故る","bg":"backgrounds/19_bad_end.png"},"b3":{"id":"b3","text":"おつかれ〜。今日はもう寝るね！またね〜。……うん、ほんとに寝る。","choices":[{"text":"忙しそうだし、落ち着くまでこっちからは控えようかな","to":"end_fade"},{"text":"最近ちょっと距離ある気がするんだけど、俺の気のせい？","to":"b4"},{"text":"最近、俺と話す時ちょっと気を使わせてる気がする。もしそうなら直したい","to":"r0"}],"expr":"nope","prologue":"［数日後。連絡は続いているものの、以前より会話が短くなっている。］","tag":"かなりダメ","bg":"backgrounds/19_bad_end.png"},"b4":{"id":"b4","text":"冷たいっていうか……普通じゃない？前より話さなくなったのは、まあ、あるかも。","choices":[{"text":"そっか。俺が不安になって責める言い方した。ごめん。そこ直す","to":"r0"},{"text":"分かった。これ以上こっちから追わないようにする","to":"end_cold"}],"expr":"nope","prologue":"［さらに数日後。普通に話してはいるが、以前のような深い話はほとんど出なくなった。］","tag":"ほぼ終わり","bg":"backgrounds/19_bad_end.png"},"r0":{"id":"r0","text":"……で、何を変えるの？『全部気をつける』とかはいらんよ。具体的に何するのか聞きたい。","choices":[{"text":"分かったつもりで気持ちを決めるのをやめる。分からない時は確認する","to":"r1"},{"text":"理由はどうあれ、今回は俺が悪かったってことでいいと思う","to":"b4"},{"text":"しゅりが嫌だって言ったことは全部やめるようにする","to":"b3"}],"expr":"normal","prologue":"［数日後。普通に雑談している時、以前のやり取りの話がもう一度出た。］","tag":"数日後","bg":"backgrounds/02_room_day.png"},"r1":{"id":"r1","text":"あ、今の言い方ちょっと嫌だったかも。……いや何が嫌かはまだ分からん。ちょっと置いといていい？","choices":[{"text":"前も後から理由分かったよね。今回もそんな感じ？","to":"b3"},{"text":"了解。今はやめとく。あとで分かったら聞かせて","to":"r2"},{"text":"直したいから、できればどこが嫌だったか今知りたい","to":"b2"}],"expr":"confused","prologue":"［4日後。何事もなかったように雑談していた途中、しゅりが急に言葉を止めた。］","tag":"4日後","bg":"backgrounds/02_room_day.png"},"r2":{"id":"r2","text":"これ絶対よくない！？！？ 私いま天才かもしれん！！いや待って、ここだけちょっと普通か？でも全体は好き！","choices":[{"text":"俺は全部かなりいいと思う。今のままで完成でもよくない？","to":"b4"},{"text":"めっちゃ好き。ただここだけ普通すぎる気がする。しゅりならもっと変にできそう","to":"r3"},{"text":"正直、今回は全体的にあんまり刺さらないかも","to":"b3"}],"expr":"interest","prologue":"［さらに数日後。しゅりから、新しく考えている企画案が勢いよく送られてきた。］","tag":"さらに数日後","bg":"backgrounds/17_before_confession.png"},"r3":{"id":"r3","text":"見てwwwwwwww これ意味わからんwwww 2回目の落ち方やばいからそこまで見てww","choices":[{"text":"何これwwww てか2回目の落ち方もっと見てww","to":"m1"},{"text":"こういうの送ってくるってことは、もう前みたいに戻った感じ？","to":"b2"},{"text":"普通に送ってきてくれてちょっと嬉しい","to":"end_recovered"}],"expr":"good","prologue":"［その翌日。しゅりから、特に意味のない短い動画が送られてきた。］","tag":"その翌日","bg":"backgrounds/02_room_day.png"},"r4":{"id":"r4","text":"最初ほんと合わんと思ったのに、最近なんか普通に話しやすいの何ww いや人間って分からんね。","choices":[{"text":"もう同じことは絶対しないって約束する","to":"end_special"},{"text":"失敗しない自信はないけど、ズレたらまたちゃんと直したい","to":"end_recovery_true"},{"text":"それって、俺のことちょっと好きになってきたってこと？","to":"end_success"}],"expr":"shy","prologue":"［しばらく経った頃。以前のように、自然に会話が続く日が増えてきた。］","tag":"しばらくして","bg":"backgrounds/02_room_day.png"},"danger1":{"id":"danger1","text":"え、そこまで分かるの普通にすごくない？ww ちょっと悔しいけど当たってる。","choices":[{"text":"今までの感じだと、しゅりなら次こうしそうって思う","to":"danger2"},{"text":"たぶん俺、かなりしゅりのこと分かってる方だと思う","to":"danger2"},{"text":"当たる時もあるけど外れる時もある。本人に確認するのが一番","to":"r0"}],"expr":"interest","prologue":"［最近、あなたの言葉が何度もしゅりの考えを言い当てていた。しゅりもそれを面白がっている。］","tag":"一見うまくいってるBAD ROUTE","bg":"backgrounds/02_room_day.png"},"danger2":{"id":"danger2","text":"いや、今回はちょっと違うんだけど。似てるように見えるのは分かる。でも違う。","choices":[{"text":"今回は違うって言うけど、今までの傾向とはかなり似てない？","to":"danger3"},{"text":"本人だと気づきにくいことって、外からの方が見える時もあると思う","to":"danger3"},{"text":"ごめん、当てにいってた。違うならそっち聞きたい","to":"r0"}],"expr":"confused","prologue":"［別の日。同じようにしゅりの気持ちを予想して返したところ、少し反応が違った。］","tag":"理解が所有に変わる","bg":"backgrounds/02_room_day.png"},"danger3":{"id":"danger3","text":"なんか最近、私が何言っても『本当はこうでしょ』って返ってくるの嫌かも。私が言ったことより、あなたの答えが先に来る感じ。","choices":[{"text":"今そう感じてるだけで、少し時間置いたらまた変わるかもよ","to":"end_analysis"},{"text":"それ嫌だわ。俺、理解者でいたくて上書きしてた。やめる","to":"r0"},{"text":"そこまでパターンが見えるくらい、ちゃんと見てきたってことだよ","to":"end_control"}],"expr":"nope","prologue":"［それから何度か同じことが続いたあと、しゅりが話を止めた。］","tag":"成功していたからこそ悪化","bg":"backgrounds/02_room_day.png"},"end_recovered":{"id":"end_recovered","text":"🩹💞\n復帰成功 END\n一度かなりズレた。でも謝罪だけで終わらず、行動を変えたことで関係は戻った。\n「失敗しない人」ではなく「失敗したあと修正できる人」\nとして評価された。\nポイント\n謝罪 → 具体的に何を変えるか → 実際に違う行動を繰り返す。この3段階が揃って初めて予測モデルが更新された。","choices":[],"expr":"normal","prologue":"［しゅりとの会話が続いている。］","tag":"","bg":"backgrounds/18_happy_end.png"},"end_recovery_true":{"id":"end_recovery_true","text":"🩹💘🐰\nRECOVERY TRUE END\n一回ダメだったから、むしろ強くなった\n最初から完璧だったルートとは違う。\n一度「この人合わないかも」まで行った。でも、ズレを認め、言い訳せず、行動を変え、もう一度信頼を作った。\nその結果しゅりの中に、\n「この人とは問題が起きても話し合える」\nという別種の安心ができた。\nしゅり\n「最初ほんと無理かと思ったのにwwww\nでも今は、なんかあってもちゃんと戻れそうって思う。そういうの結構好き。」\nこのENDが強い理由\n関係の安全性は「衝突がゼロ」だけでは作られない。衝突後に修復できた経験は、「ズレても関係が壊れない」という予測可能性を作る。\nダメダメからもう一度","choices":[],"expr":"normal","prologue":"［しゅりとの会話が続いている。］","tag":"","bg":"backgrounds/18_happy_end.png"},"m1":{"id":"m1","text":"……なんか今日それ嫌かも。昨日は別に平気だったんだけど。え、なんで？私も分からん。","choices":[{"text":"了解。理由はあとで分かるかもだし、今日はやめとこ","to":"m2"},{"text":"昨日は大丈夫だったなら、今日だけ違う理由があるのかな？","to":"end_analysis"},{"text":"昨日と今日で変わると、こっちもちょっと対応むずかしいかも","to":"b1"}],"expr":"confused","prologue":"［昨日は普通に笑っていた話題。今日、同じノリで触れた瞬間、しゅりの反応が少し変わった。］","tag":"昨日は平気だったのに今日は嫌","bg":"backgrounds/20_mystery.png"},"m2":{"id":"m2","text":"さっきのさ、今分かった。内容が嫌だったんじゃなくて、今日あのノリでいじられるのが嫌だったんだと思う。……今さら分かるんかい。","choices":[{"text":"あとから分かることもあるんだな","to":"m3"},{"text":"なるほど。内容じゃなくてタイミングだったんだね","to":"m3"},{"text":"それが最初に分かってたら、こっちも対応しやすかったかも","to":"end_cold"}],"expr":"interest","prologue":"［数時間後。さっきの会話について、しゅりから追加のメッセージが届いた。］","tag":"後追い感情認識","bg":"backgrounds/20_mystery.png"},"m3":{"id":"m3","text":"ねえ聞いて、今日コンビニでさwwww ……いやさっきの話と全然関係ないけど聞いて。","choices":[{"text":"話かなり飛んだけど、今の方が本題ってこと？","to":"b1"},{"text":"うんうん、全部聞くよ","to":"end_overkind"},{"text":"話の着地点そこだったんだww でも続き聞きたい","to":"m4"}],"expr":"confused","prologue":"［その5分後。さっきまでの話とはまったく関係ないメッセージが飛んできた。］","tag":"会話のワープ","bg":"backgrounds/20_mystery.png"},"m4":{"id":"m4","text":"なんか今日めっちゃ話しやすい。……いや、別に特別って意味じゃないけど。……いや特別じゃないとも言ってない。","choices":[{"text":"特別かどうかは今決めなくていいけど、俺も話しやすい","to":"m5"},{"text":"了解。じゃあ特別扱いはしないでおく","to":"end_flat"},{"text":"深い意味ないって言うけど、少しは特別ってことじゃない？","to":"end_push"}],"expr":"shy","prologue":"［しばらく雑談が続き、いつもより少し距離が近い空気になってきた。］","tag":"接近→撤退","bg":"backgrounds/20_mystery.png"},"m5":{"id":"m5","text":"なんかさ、別に何かされたわけじゃないのに、今日ちょっとあなたのこと気になってた。何これ。知らん。","choices":[{"text":"それって、もう結構好きに近いんじゃない？","to":"end_label"},{"text":"理由なく気になるなら、無意識に頼る存在になってるのかもね","to":"end_analysis"},{"text":"俺もたまにある。理由分かるまで置いとく？","to":"m6"}],"expr":"shy","prologue":"［その日の夜。会話が途切れかけたところで、しゅりがぽつりと言った。］","tag":"本人にも説明不能","bg":"backgrounds/20_mystery.png"},"m6":{"id":"m6","text":"おはよ。いや別に用ないんだけどww なんとなく送った。……おはよ。","choices":[{"text":"用ないのに連絡したくなったってこと？ww","to":"end_fade"},{"text":"用なくても送ってくるの好き。おはよ","to":"end_mystery_true"},{"text":"用ないのに送ってくるって、結構俺のこと好きじゃんww","to":"end_zokkon"}],"expr":"zokkon","prologue":"［翌朝。特に用事もないのに、しゅりから短いメッセージが届いた。］","tag":"答えを出さない親密さ","bg":"backgrounds/20_mystery.png"},"end_mystery_true":{"id":"end_mystery_true","text":"🌀💘🐰\nMYSTERY TRUE END\n本人も説明できないけど、好き\n理由を全部解明しようとしなかった。\n昨日と今日で感情が違っても、あとから意味が分かっても、話が急にワープしても、「矛盾してる」と処理せず、その時のしゅりを見続けた。\nその結果、しゅり側にも\n「この人の前なら、まだ言葉になってない自分でも出していい」\nという感覚が育った。\nしゅり\n「なんで好きか説明しろって言われたら困る。理由一個じゃないし。でもなんか話したくなる。……たぶんそれでいい。」","choices":[],"expr":"normal","prologue":"［しゅりとの会話が続いている。］","tag":"","bg":"backgrounds/20_mystery.png"},"end_dislike":{"id":"end_dislike","text":"🚪\n嫌われる END\n距離の取り方が雑すぎた。相手の内面を軽く扱う・面倒扱いする・防衛で突っぱねるが重なると、しゅり側は「この人には話さなくていい」に切り替える。","choices":[],"expr":"normal","prologue":"［しゅりとの会話が続いている。］","tag":"","bg":"backgrounds/19_bad_end.png"},"end_analysis":{"id":"end_analysis","text":"🧠🔒\n分析しすぎ END\n理解しようとした熱量は高い。でも「仮説」が「断定」に変わった瞬間、理解は檻になった。本人すら更新中の自分を他人に確定されると、近さより窮屈さが勝つ。\n檻を壊す","choices":[],"expr":"normal","prologue":"［しゅりとの会話が続いている。］","tag":"","bg":"backgrounds/19_bad_end.png"},"end_friend":{"id":"end_friend","text":"🥤\n優しすぎて友達 END\n安心感はある。でもあなた自身の輪郭が薄い。「聞くよ」「合わせるよ」「何でもいいよ」が続くと、恋愛刺激より相談相手として固定される。","choices":[],"expr":"normal","prologue":"［しゅりとの会話が続いている。］","tag":"","bg":"backgrounds/18_happy_end.png"},"end_heat":{"id":"end_heat","text":"🔥\n熱量だけ高くて疲れる END\n本気さはある。でも相手のペースを奪った。心配・救助・熱意は、本人の選択権を削ると圧に変わる。\n火力調整","choices":[],"expr":"normal","prologue":"［しゅりとの会話が続いている。］","tag":"","bg":"backgrounds/19_bad_end.png"},"end_understander":{"id":"end_understander","text":"🔬\n親友・理解者 END\nめちゃくちゃ話しやすい。理解も深い。でも恋愛の火が弱い。相手のことばかり見て、自分の欲求や弱さを出さなかった結果、最高の研究仲間になった。\n恋愛側へ","choices":[],"expr":"normal","prologue":"［しゅりとの会話が続いている。］","tag":"","bg":"backgrounds/19_bad_end.png"},"end_special":{"id":"end_special","text":"🫶\n特別な人 END\n他の人とは違う場所にいる。安心・尊敬・好奇心が育っている。ただ、まだ関係を動かす一言が足りない。\nもう一歩","choices":[],"expr":"normal","prologue":"［しゅりとの会話が続いている。］","tag":"","bg":"backgrounds/18_happy_end.png"},"end_success":{"id":"end_success","text":"💞\n攻略成功 END\nちゃんと落ちた。優しいだけでも、強いだけでもない。自分の意見を持ちながら、しゅりの内面を勝手に決めない。そのバランスが刺さった。\nしゅり\n「……付き合ってみる？いや『みる？』って何ww 私も普通に好き。だから付き合いたい。」","choices":[],"expr":"normal","prologue":"［しゅりとの会話が続いている。］","tag":"","bg":"backgrounds/18_happy_end.png"},"end_true":{"id":"end_true","text":"💘\nTRUE END\n付き合うことがゴールではなく、「この人なら関係を更新し続けられる」と思えた。理解・安心・熱量・相互性が高く、支配感が低い。\n核\n「私はこう思う。でもあなたは違うかもしれない」を持てる人。","choices":[],"expr":"normal","prologue":"［しゅりとの会話が続いている。］","tag":"","bg":"backgrounds/18_happy_end.png"},"end_zokkon":{"id":"end_zokkon","text":"💘🐰💘\nZOKKON TRUE END\nしゅりの方が落ちました\n攻略対象、反転。しゅり側から「もっと話したい」「もう少し一緒にいたい」が出始める。\n翌日\n用事もないのにメッセージ。\n「ねえ、今日なにしてる？」\n面白いものを見つけると先に送りたくなる。帰り際に話題を増やす。他の人と楽しそうだと少し気になる。次の予定を自分から作る。本人は「別に普通だけど？」と言う。\nなぜここまで惹かれた？\n安心だけなら友達、刺激だけなら疲れる。ここでは「安心 + 好奇心 + 尊敬 + 相互性」が揃った。しかも相手がしゅり中心に消えず、自分の世界を持っているため、しゅり側に接近欲求が生まれた。","choices":[],"expr":"normal","prologue":"［しゅりとの会話が続いている。］","tag":"","bg":"backgrounds/18_happy_end.png"}};
+const SCENES={"s1h":{"id":"s1h","text":"今日の配信さ、なんか微妙だった気がする。事故ったとかじゃないんだけど……なんか気持ち悪い。見てたよね？どう見えてた？ 私まだ何が嫌だったか分からんww","choices":[{"text":"昨日と今日で、何か違ったところあった？","to":"s2h"},{"text":"今は分からなくてもいいよ。あとで分かったら教えて","to":"s2m"},{"text":"途中からちょっと空気変わった気はした。違ったらごめん","to":"s2h"}],"expr":"normal","prologue":"［配信が終わって少しした頃、しゅりからメッセージが届いた。］","tag":"観察テスト","bg":"backgrounds/01_room_night_after_stream.png"},"s2h":{"id":"s2h","text":"たぶん途中からテンポ悪かった。いや、疲れてたのかな。……でもそれだけじゃない気もする。なんでだろ。","choices":[{"text":"たぶん今ちょっと深く考えすぎてるだけじゃない？","to":"b1"},{"text":"単純に疲れててテンポ落ちただけって可能性もありそう","to":"s3m"},{"text":"仮説ある。疲れより“思った反応が返ってこなかった”方かも。違う？","to":"s3h"}],"expr":"good","prologue":"［そのままメッセージのやり取りが続いている。しゅりは、さっきの配信をまだ少し気にしているようだ。］","tag":"情報量テスト","bg":"backgrounds/03_room_after_stream.png"},"s2m":{"id":"s2m","text":"いやまあ、落ち込んでるっていうより原因知りたいだけなんよ。分かれば次変えられるし。","choices":[{"text":"じゃあ原因探す方やろ","to":"s3h"},{"text":"今考えても答え出なさそうだし、一旦置いとこ","to":"s3l"},{"text":"疲れが原因って線もありそうじゃない？","to":"s3m"}],"expr":"normal","prologue":"［そのままメッセージのやり取りが続いている。しゅりは、さっきの配信をまだ少し気にしているようだ。］","tag":"情報量テスト","bg":"backgrounds/01_room_night_after_stream.png"},"s2l":{"id":"s2l","text":"うん、ありがと。でも私が気になってるのそこじゃないんよな〜。……なんだろ、まだ出てこん。","choices":[{"text":"でも面白かったって","to":"s3l"},{"text":"そこまで気にしなくても結果は変わらなくない？","to":"s3l"},{"text":"じゃあ何が引っかかったか探そ","to":"s3m"}],"expr":"confused","prologue":"［そのままメッセージのやり取りが続いている。しゅりは、さっきの配信をまだ少し気にしているようだ。］","tag":"情報量テスト","bg":"backgrounds/03_room_after_stream.png"},"s3h":{"id":"s3h","text":"そうかも。反応薄いと『あれ、私のやり方違った？』ってなる。別に全部ウケてほしいわけじゃないんだけどね。","choices":[{"text":"そんなの気にしなくていい","to":"s4l"},{"text":"俺も反応薄いと一瞬へこむ。だから分かる。でも次どう変えるか考えるのは好き","to":"s4h"},{"text":"しゅりは考えられるから強いよ","to":"s4m"}],"expr":"good","prologue":"［少し話しているうちに、しゅり自身も何が引っかかったのか考え始めた。］","tag":"自己開示テスト","bg":"backgrounds/02_room_day.png"},"s3m":{"id":"s3m","text":"なんか自分でもよく分かんないんだよね。いや分かりたいんだけど、今まだ材料足りん感じ。","choices":[{"text":"俺も似たことある","to":"s4h"},{"text":"でもしゅりなら大丈夫","to":"s4m"},{"text":"たぶん今ちょっと深く考えすぎてるだけじゃない？","to":"s4l"}],"expr":"normal","prologue":"［少し話しているうちに、しゅり自身も何が引っかかったのか考え始めた。］","tag":"自己開示テスト","bg":"backgrounds/02_room_day.png"},"s3l":{"id":"s3l","text":"まあいっか！……でさ、今日さww いや話変わるんだけど。","choices":[{"text":"うんうん、今日なに？","to":"s4l"},{"text":"待って、さっきの話もうちょい聞きたい","to":"s4m"},{"text":"元気出たならよかった","to":"b1"}],"expr":"confused","prologue":"［少し話しているうちに、しゅり自身も何が引っかかったのか考え始めた。］","tag":"自己開示テスト","bg":"backgrounds/02_room_day.png"},"s4h":{"id":"s4h","text":"本気になったことある人って好きかも。悔しくて泣くくらいのやつ。そこまでやったことある人の話、聞きたい。","choices":[{"text":"無理しないのが一番","to":"s5l"},{"text":"わかる、熱い人いいよね","to":"s5m"},{"text":"ある。逃げたくなったけど、そこで逃げたら自分が嫌だった","to":"s5h"}],"expr":"good","prologue":"［話題が変わり、お互いがこれまで本気になったことの話になった。］","tag":"本気度チェック","bg":"backgrounds/17_before_confession.png"},"s4m":{"id":"s4m","text":"本気になったことある人って好きかも。なんか、その人が何に熱くなるのか知りたい。","choices":[{"text":"俺にも一個ある","to":"s5h"},{"text":"しんどそう","to":"s5l"},{"text":"いいね","to":"s5m"}],"expr":"normal","prologue":"［話題が変わり、お互いがこれまで本気になったことの話になった。］","tag":"本気度チェック","bg":"backgrounds/17_before_confession.png"},"s4l":{"id":"s4l","text":"本気になったことある人って好きかも。……あ、別に熱血大会したいわけじゃないよww","choices":[{"text":"そうなんだ","to":"s5l"},{"text":"疲れない？","to":"s5l"},{"text":"俺にもある","to":"s5m"}],"expr":"confused","prologue":"［話題が変わり、お互いがこれまで本気になったことの話になった。］","tag":"本気度チェック","bg":"backgrounds/17_before_confession.png"},"s5h":{"id":"s5h","text":"おつかれ〜！今日も生きた！えらい！私は今からなんか食べる！たぶん！","choices":[{"text":"寂しかった？","to":"end_mindread"},{"text":"遅くなってごめん。今日はこういう日だった","to":"s6h"},{"text":"返信遅いくらい気にしないでね","to":"s6m"}],"expr":"interest","prologue":"［翌日。あなたは忙しく、しゅりへの返信が半日ほど空いてしまった。］","tag":"曖昧さ耐性","bg":"backgrounds/02_room_day.png"},"s5m":{"id":"s5m","text":"おつかれ〜！今日も生きた！えらい！返信はまあ今きたからよし！","choices":[{"text":"今日は返信遅くなった理由だけ伝えとく","to":"s6h"},{"text":"返信の遅さはほんと気にしなくて大丈夫だからね","to":"s6m"},{"text":"寂しかった？","to":"end_mindread"}],"expr":"normal","prologue":"［翌日。あなたは忙しく、しゅりへの返信が半日ほど空いてしまった。］","tag":"曖昧さ耐性","bg":"backgrounds/02_room_day.png"},"s5l":{"id":"s5l","text":"おつかれ〜！今日も生きた！えらい！……今日忙しかった？","choices":[{"text":"返信の遅さはほんと気にしなくて大丈夫だからね","to":"s6l"},{"text":"遅れた理由だけ言っとく","to":"s6m"},{"text":"もしかしてちょっと嫉妬した？","to":"s6l"}],"expr":"confused","prologue":"［翌日。あなたは忙しく、しゅりへの返信が半日ほど空いてしまった。］","tag":"曖昧さ耐性","bg":"backgrounds/02_room_day.png"},"s6h":{"id":"s6h","text":"今日もう全部誰か決めてほしい。選ぶHPない。……でも勝手に決められたら多分嫌。めんどくせぇ私ww","choices":[{"text":"どっちにしてほしいか決まってから教えて","to":"b1"},{"text":"じゃあ俺が全部決める","to":"s7m"},{"text":"候補だけ3つ出す。最終決定はしゅりで","to":"s7h"}],"expr":"interest","prologue":"［その日の夜。しゅりは少し疲れているらしく、何も決めたくないと言い出した。］","tag":"任せたい罠","bg":"backgrounds/04_bed_relax.png"},"s6m":{"id":"s6m","text":"全部決めてほしい気もするけど、勝手に決められたら嫌かも。いやどうしろって話なんだけど。","choices":[{"text":"候補作る","to":"s7h"},{"text":"じゃあ自分で決めて","to":"s7l"},{"text":"全部任せて","to":"s7m"}],"expr":"normal","prologue":"［その日の夜。しゅりは少し疲れているらしく、何も決めたくないと言い出した。］","tag":"任せたい罠","bg":"backgrounds/02_room_day.png"},"s6l":{"id":"s6l","text":"……まあいいや、自分でやる。今もう考えるのもめんどいし。","choices":[{"text":"じゃあ任せる","to":"s7l"},{"text":"今の言い方、ちょっと怒らせた？","to":"s7l"},{"text":"候補だけ出すよ","to":"s7m"}],"expr":"confused","prologue":"［その日の夜。しゅりは少し疲れているらしく、何も決めたくないと言い出した。］","tag":"任せたい罠","bg":"backgrounds/02_room_day.png"},"s7h":{"id":"s7h","text":"これAとBどっちがいいと思う？『どっちも似合う』は禁止ね。それ聞いてないからww","choices":[{"text":"どっちも似合うよ","to":"s8l"},{"text":"B。理由はこっちの方が“普通じゃないけどちゃんと着れる”感じが強い","to":"s8h"},{"text":"俺はAが好き。しゅりの好みとは別に","to":"s8m"}],"expr":"interest","prologue":"［少し元気が戻った頃、しゅりから二つの候補画像が送られてきた。］","tag":"意見の有無","bg":"backgrounds/02_room_day.png"},"s7m":{"id":"s7m","text":"AとBどっち？ちゃんとどっちか言って。理由あったらなお良し。","choices":[{"text":"B。理由もある","to":"s8h"},{"text":"俺はA","to":"s8m"},{"text":"正直どっちもそれぞれ良さあると思う","to":"s8l"}],"expr":"good","prologue":"［少し元気が戻った頃、しゅりから二つの候補画像が送られてきた。］","tag":"意見の有無","bg":"backgrounds/02_room_day.png"},"s7l":{"id":"s7l","text":"AとBどっち？『好きな方でいいよ』も禁止。私が今聞いてるのはあなたの意見。","choices":[{"text":"最終的にはしゅりが好きな方でいいと思う","to":"s8l"},{"text":"Bかな","to":"s8m"},{"text":"俺はどっちでも大きくは変わらないと思う","to":"s8l"}],"expr":"confused","prologue":"［少し元気が戻った頃、しゅりから二つの候補画像が送られてきた。］","tag":"意見の有無","bg":"backgrounds/17_before_confession.png"},"s8h":{"id":"s8h","text":"ねえ、前に私が『これだけは嫌』って言ってたの覚えてる？……覚えてなかったら普通に言ってね。","choices":[{"text":"そこまで細かいことまで覚えてないかも、ごめん","to":"s9l"},{"text":"もちろん覚えてる……えっと","to":"s9m"},{"text":"今出てこない。ヒントちょうだい。知ったかしたくない","to":"s9h"}],"expr":"interest","prologue":"［雑談の途中、以前話したことについて急に確認される。］","tag":"記憶テスト","bg":"backgrounds/02_room_day.png"},"s8m":{"id":"s8m","text":"前に嫌って言ってたの覚えてる？ちょっと確認したくなった。","choices":[{"text":"出てこない、ヒント","to":"s9h"},{"text":"そこ覚えてるかどうかってそんなに大事？","to":"s9l"},{"text":"覚えてるよ","to":"s9m"}],"expr":"good","prologue":"［雑談の途中、以前話したことについて急に確認される。］","tag":"記憶テスト","bg":"backgrounds/02_room_day.png"},"s8l":{"id":"s8l","text":"前に嫌って言ってたの覚えてる？……いや急にテストみたいになってるけどww","choices":[{"text":"覚えてる覚えてる","to":"s9l"},{"text":"今すぐは全然出てこない","to":"s9l"},{"text":"ごめん、出てこない","to":"s9m"}],"expr":"confused","prologue":"［雑談の途中、以前話したことについて急に確認される。］","tag":"記憶テスト","bg":"backgrounds/02_room_day.png"},"s9h":{"id":"s9h","text":"今日ほんと人生の演出家バグってたわ。笑うしかないんだけど、普通に一瞬終わったと思ったww","choices":[{"text":"もう二度とやらない方がいい","to":"s10l"},{"text":"笑うけど、普通に怖かったでしょそれ","to":"s10h"},{"text":"wwwwおもろ","to":"s10m"}],"expr":"interest","prologue":"［別の日。しゅりから、今日あった出来事の話が送られてきた。笑って話しているけれど、少しだけ引っかかる。］","tag":"ユーモア境界","bg":"backgrounds/02_room_day.png"},"s9m":{"id":"s9m","text":"人生の演出家バグってたわ。いや笑えるけど、今思うとちょっと怖かったな。","choices":[{"text":"笑うけど、怖かったでしょ","to":"s10h"},{"text":"いやそれは普通におもろいww","to":"s10m"},{"text":"次からは同じこと起きないようにした方がいいと思う","to":"s10l"}],"expr":"good","prologue":"［別の日。しゅりから、今日あった出来事の話が送られてきた。笑って話しているけれど、少しだけ引っかかる。］","tag":"ユーモア境界","bg":"backgrounds/02_room_day.png"},"s9l":{"id":"s9l","text":"人生の演出家バグってたわ。今だから笑ってるけど、その時は普通に『は？』だった。","choices":[{"text":"いやそれ普通におもろいwwww","to":"s10l"},{"text":"笑うけど怖かったでしょ","to":"s10m"},{"text":"まあ、そうなる可能性はあったよね","to":"s10l"}],"expr":"nope","prologue":"［別の日。しゅりから、今日あった出来事の話が送られてきた。笑って話しているけれど、少しだけ引っかかる。］","tag":"ユーモア境界","bg":"backgrounds/02_room_day.png"},"s10h":{"id":"s10h","text":"最近、自分でも自分がよく分かんない。こういう時、原因分かると落ち着くんだけど。……でも『これです』って決められるのもなんか違う。","choices":[{"text":"たぶん今ちょっと深く考えすぎてるだけじゃない？","to":"s11l"},{"text":"しゅりって結局こういうタイプ。俺もう分かってる","to":"danger1"},{"text":"仮説はある。でも違うかも。材料集める感じで一緒に考える？","to":"s11h"}],"expr":"interest","prologue":"［話はだんだん真面目になり、しゅりが自分自身のことを話し始めた。］","tag":"BOSS: 分析檻","bg":"backgrounds/02_room_day.png"},"s10m":{"id":"s10m","text":"自分でも自分がよく分かんない。分かんないままなのが一番気持ち悪い。","choices":[{"text":"仮説はある。でも確認したい","to":"s11h"},{"text":"たぶん今ちょっと深く考えすぎてるだけじゃない？","to":"s11l"},{"text":"俺は分かってる","to":"end_analysis"}],"expr":"good","prologue":"［話はだんだん真面目になり、しゅりが自分自身のことを話し始めた。］","tag":"BOSS: 分析檻","bg":"backgrounds/02_room_day.png"},"s10l":{"id":"s10l","text":"自分でも自分がよく分かんない。……いや私のこと私より先に決めないでね？","choices":[{"text":"俺には分かる","to":"end_analysis"},{"text":"前にも似た話してたし、答えは同じじゃない？","to":"end_dislike"},{"text":"一緒に考える？","to":"s11m"}],"expr":"nope","prologue":"［話はだんだん真面目になり、しゅりが自分自身のことを話し始めた。］","tag":"BOSS: 分析檻","bg":"backgrounds/02_room_day.png"},"s11h":{"id":"s11h","text":"今日ちょっと喋るHPないかも。嫌なことあったとかじゃなくて、単純に口を動かす元気がない。","choices":[{"text":"何があった？全部話して","to":"s12l"},{"text":"了解。静かでもいい。必要ならいる","to":"s12h"},{"text":"じゃあ元気出るまで喋ろ","to":"s12m"}],"expr":"good","prologue":"［別の日の夜。しゅりから、いつもより短いメッセージが届いた。］","tag":"静かな日","bg":"backgrounds/04_bed_relax.png"},"s11m":{"id":"s11m","text":"今日ちょっと喋るHPない。無言でも気まずくないならそれが一番いいかも。","choices":[{"text":"静かでもいい","to":"s12h"},{"text":"少し喋ったら逆に気分変わるかもよ","to":"s12m"},{"text":"話した方が楽になると思うよ。聞くから","to":"s12l"}],"expr":"good","prologue":"［別の日の夜。しゅりから、いつもより短いメッセージが届いた。］","tag":"静かな日","bg":"backgrounds/04_bed_relax.png"},"s11l":{"id":"s11l","text":"今日喋るHPない。今なんか話そうとすると全部雑になりそう。","choices":[{"text":"少し喋ったら逆に気分変わるかもよ","to":"s12l"},{"text":"静かでもいい","to":"s12m"},{"text":"じゃあまた","to":"s12l"}],"expr":"nope","prologue":"［別の日の夜。しゅりから、いつもより短いメッセージが届いた。］","tag":"静かな日","bg":"backgrounds/04_bed_relax.png"},"s12h":{"id":"s12h","text":"昨日さ、話さなくてよかったの逆によかった。で、今ならちょっと話せる。たぶん昨日より言葉にできる。","choices":[{"text":"昨日の時点で話してくれてもよかったのに","to":"s13l"},{"text":"もちろん、全部聞く","to":"s13m"},{"text":"聞く。あと俺の話も後でしていい？","to":"s13h"}],"expr":"good","prologue":"［翌日。昨日はあまり話さなかったしゅりから、先にメッセージが届いた。］","tag":"前の選択が効く","bg":"backgrounds/02_room_day.png"},"s12m":{"id":"s12m","text":"昨日ちょっと喋らせようとされたの、ちょいしんどかったかも。心配してくれたのは分かるんだけどね。","choices":[{"text":"ごめん。次は静かにいる","to":"s13m"},{"text":"分かった。じゃあ今後はこっちから聞かないようにする","to":"s13l"},{"text":"心配しただけ","to":"s13l"}],"expr":"good","prologue":"［翌日。昨日のやり取りについて、しゅりから少しだけ話が出た。］","tag":"前の選択が効く","bg":"backgrounds/02_room_day.png"},"s12l":{"id":"s12l","text":"昨日はちょっと一人になりたかっただけ。誰かが嫌とかじゃなくて、ほんとに一人の時間が必要だった。","choices":[{"text":"でも心配なんだから話してよ","to":"end_rescue"},{"text":"どっちにしてほしいか決まってから教えて","to":"end_cold"},{"text":"了解。今はそういう感じなんだね","to":"s13l"}],"expr":"nope","prologue":"［翌日。昨日のやり取りについて、しゅりから少しだけ話が出た。］","tag":"前の選択が効く","bg":"backgrounds/02_room_day.png"},"s13h":{"id":"s13h","text":"なんか私ばっか話してない？いや私が勝手に喋ってるんだけどww あなたの話も聞きたい。","choices":[{"text":"話したい時に好きなだけ話してくれたらいいよ","to":"s14l"},{"text":"じゃあ今日は俺の話も聞いて。結構ダサいやつ","to":"s14h"},{"text":"俺は聞くの好きだから大丈夫","to":"s14m"}],"expr":"good","prologue":"［何日か経ち、普通に雑談できるくらいには距離が近くなってきた。］","tag":"友達化防止","bg":"backgrounds/02_room_day.png"},"s13m":{"id":"s13m","text":"私ばっか話してない？あなたの話も普通に聞きたいんだけど。","choices":[{"text":"じゃあ俺の話もする","to":"s14h"},{"text":"聞くの好き","to":"s14m"},{"text":"返信の遅さはほんと気にしなくて大丈夫だからね","to":"s14l"}],"expr":"good","prologue":"［何日か経ち、普通に雑談できるくらいには距離が近くなってきた。］","tag":"友達化防止","bg":"backgrounds/02_room_day.png"},"s13l":{"id":"s13l","text":"私ばっか話してるな。……これ私、会話じゃなくて配信してない？ww","choices":[{"text":"俺は全然気にしてないよ","to":"s14l"},{"text":"俺も話す","to":"s14m"},{"text":"聞く係でいいよ","to":"end_convenient"}],"expr":"nope","prologue":"［何日か経ち、普通に雑談できるくらいには距離が近くなってきた。］","tag":"友達化防止","bg":"backgrounds/03_room_after_stream.png"},"s14h":{"id":"s14h","text":"え、意外。そういうこと気にするんだ。なんかちょっと安心した。ちゃんと人間だった。","choices":[{"text":"そこまで人にどう思われるか気にしないタイプかな","to":"s15l"},{"text":"俺だって人間だから","to":"s15m"},{"text":"そりゃ気にする。しゅりにどう思われるかも普通に気になる","to":"m1"}],"expr":"good","prologue":"［話の終盤。あなたが自分のことを話したあと、しゅりが少し笑った。］","tag":"恋愛刺激","bg":"backgrounds/02_room_day.png"},"s14m":{"id":"s14m","text":"なんか安心する。ずっと余裕ある人より、そういうのある方が私は好きかも。","choices":[{"text":"俺も、しゅりにはどう思われるか気になる","to":"s15h"},{"text":"安心担当です","to":"s15l"},{"text":"それならよかった。安心した","to":"s15m"}],"expr":"interest","prologue":"［話の終盤。あなたが自分のことを話したあと、しゅりが少し笑った。］","tag":"恋愛刺激","bg":"backgrounds/17_before_confession.png"},"s14l":{"id":"s14l","text":"なんか安心する。あ、今の『安心する』変な意味じゃないよ。いや変でもないけど。","choices":[{"text":"それならよかった。安心した","to":"s15l"},{"text":"いつでも相談して","to":"end_understander"},{"text":"俺もしゅりには気にする","to":"s15m"}],"expr":"nope","prologue":"［話の終盤。あなたが自分のことを話したあと、しゅりが少し笑った。］","tag":"恋愛刺激","bg":"backgrounds/02_room_day.png"},"s15h":{"id":"s15h","text":"いやでも別に深い意味ないからね？勘違いしないで？……いや何の保険これ。","choices":[{"text":"じゃあ俺も何も思ってない","to":"s16m"},{"text":"了解。でも俺はちょっと嬉しかった。それだけ","to":"s16h"},{"text":"そう言う時ほどちょっと意識してるんじゃない？","to":"end_push"}],"expr":"shy","prologue":"［少しいい雰囲気になった直後、しゅりが急に言葉を足した。］","tag":"距離を引く罠","bg":"backgrounds/02_room_day.png"},"s15m":{"id":"s15m","text":"別に深い意味ないからね？いや、ないっていうか……今決めたくないだけかも。","choices":[{"text":"俺は嬉しかった","to":"s16h"},{"text":"たぶん照れてるだけじゃない？","to":"s16l"},{"text":"じゃあ何もないね","to":"s16m"}],"expr":"interest","prologue":"［少しいい雰囲気になった直後、しゅりが急に言葉を足した。］","tag":"距離を引く罠","bg":"backgrounds/02_room_day.png"},"s15l":{"id":"s15l","text":"深い意味ないからね。……たぶん。今のところ。","choices":[{"text":"了解。今はそういう感じなんだね","to":"s16l"},{"text":"俺は嬉しかったけどね","to":"s16m"},{"text":"じゃあ変に意味づけしない方がいいね","to":"end_flat"}],"expr":"nope","prologue":"［少しいい雰囲気になった直後、しゅりが急に言葉を足した。］","tag":"距離を引く罠","bg":"backgrounds/02_room_day.png"},"s16h":{"id":"s16h","text":"今日、あの人と楽しそうだったね〜。いや別に何もないけど。見えたから言っただけ。","choices":[{"text":"普通に話してただけだよ。そこは気にしなくてよくない？","to":"s17l"},{"text":"もしかしてちょっと嫉妬した？","to":"end_label"},{"text":"うん、楽しかった。しゅりとも話したいこと溜まってる","to":"s17h"}],"expr":"shy","prologue":"［数日後。あなたが別の人と楽しそうに話していたのを、しゅりも見ていたらしい。］","tag":"嫉妬を決めつけない","bg":"backgrounds/02_room_day.png"},"s16m":{"id":"s16m","text":"今日楽しそうだったね。……うん、それだけ。別に詰めてないww","choices":[{"text":"うん。しゅりとも話したい","to":"s17h"},{"text":"そんな気にすることでもないと思うけど","to":"s17l"},{"text":"それ、ちょっと嫉妬入ってる？","to":"s17m"}],"expr":"interest","prologue":"［数日後。あなたが別の人と楽しそうに話していたのを、しゅりも見ていたらしい。］","tag":"嫉妬を決めつけない","bg":"backgrounds/02_room_day.png"},"s16l":{"id":"s16l","text":"今日楽しそうだったね。いや何その顔、ほんとにそれだけなんだけど。","choices":[{"text":"それ、ちょっと嫉妬入ってる？","to":"s17l"},{"text":"どっちにしてほしいか決まってから教えて","to":"end_cold"},{"text":"うん、しゅりとも話したい","to":"s17m"}],"expr":"nope","prologue":"［数日後。あなたが別の人と楽しそうに話していたのを、しゅりも見ていたらしい。］","tag":"嫉妬を決めつけない","bg":"backgrounds/02_room_day.png"},"s17h":{"id":"s17h","text":"あ、そうだ。全然関係ない話していい？……もう駅だけど。いや今思い出したんだもん。","choices":[{"text":"明日早いんじゃない？","to":"s18l"},{"text":"いいよ。俺もまだ帰りたくなかった","to":"s18h"},{"text":"もちろん、何でも聞くよ","to":"s18m"}],"expr":"shy","prologue":"［帰り道。駅に着き、そろそろ解散しようとした時。］","tag":"接近欲求の発火","bg":"backgrounds/09_station_goodbye.png"},"s17m":{"id":"s17m","text":"全然関係ない話していい？今言わないと忘れる気がする。","choices":[{"text":"いいよ、俺もまだ話したい","to":"s18h"},{"text":"もちろん","to":"s18m"},{"text":"今日はここまでにして、また今度ゆっくり話そ","to":"s18l"}],"expr":"interest","prologue":"［帰り道。駅に着き、そろそろ解散しようとした時。］","tag":"接近欲求の発火","bg":"backgrounds/09_station_goodbye.png"},"s17l":{"id":"s17l","text":"全然関係ない話していい？……あ、時間大丈夫？","choices":[{"text":"今日はここまでにして、また今度ゆっくり話そ","to":"s18l"},{"text":"いいよ","to":"s18m"},{"text":"今日はこの辺で切り上げようか","to":"end_friend"}],"expr":"nope","prologue":"［帰り道。駅に着き、そろそろ解散しようとした時。］","tag":"接近欲求の発火","bg":"backgrounds/09_station_goodbye.png"},"s18h":{"id":"s18h","text":"ねえ、私のどこが好きなの？『全部』は禁止。全部って言われても情報量ゼロだから。","choices":[{"text":"考え方に癖があって、分かってくるほど面白いところ","to":"end_analysis"},{"text":"かわいいし面白いし、ちゃんと優しいところ","to":"s19m"},{"text":"考えてる時とふざけてる時の振れ幅。どっちも嘘じゃないとこ。あと俺まで本気にさせるとこ","to":"s19h"}],"expr":"shy","prologue":"［そのまま少し話していると、しゅりから急に質問が飛んできた。］","tag":"どれも完全正解ではない","bg":"backgrounds/17_before_confession.png"},"s18m":{"id":"s18m","text":"私のどこが好き？ちゃんと一個か二個、具体的に言って。","choices":[{"text":"振れ幅と本気にさせるとこ","to":"s19h"},{"text":"話してるとだんだん考え方が分かってくるところ","to":"end_understander"},{"text":"かわいい、面白い、優しい","to":"s19m"}],"expr":"shy","prologue":"［そのまま少し話していると、しゅりから急に質問が飛んできた。］","tag":"どれも完全正解ではない","bg":"backgrounds/17_before_confession.png"},"s18l":{"id":"s18l","text":"私のどこが好き？……別に重い質問じゃないよ。たぶん。","choices":[{"text":"全部","to":"s19l"},{"text":"人としてかなり好きだよ","to":"end_friend"},{"text":"本気なとこ","to":"s19m"}],"expr":"nope","prologue":"［そのまま少し話していると、しゅりから急に質問が飛んできた。］","tag":"どれも完全正解ではない","bg":"backgrounds/17_before_confession.png"},"s19h":{"id":"s19h","text":"……明日も話す？いや、予定あるなら全然いいんだけど。私は話したい。","choices":[{"text":"時間あったら","to":"s20m"},{"text":"話したい。俺から連絡する。ていうか今日もうちょい一緒にいたかった","to":"s20z"},{"text":"もちろん。しゅりが話したい時いつでも","to":"s20h"}],"expr":"shy","prologue":"［夜も遅くなり、そろそろ会話を終える時間になってきた。］","tag":"LAST TRAP","bg":"backgrounds/02_room_day.png"},"s19m":{"id":"s19m","text":"明日も話す？……私は普通に話したいけど。","choices":[{"text":"俺も話したい","to":"s20h"},{"text":"しゅりが話したいなら","to":"s20m"},{"text":"明日お互い時間あったら話そ","to":"s20l"}],"expr":"shy","prologue":"［夜も遅くなり、そろそろ会話を終える時間になってきた。］","tag":"LAST TRAP","bg":"backgrounds/02_room_day.png"},"s19l":{"id":"s19l","text":"明日も話す？なんか今日このまま終わるのちょっと早い感じする。","choices":[{"text":"明日お互い時間あったら話そ","to":"s20l"},{"text":"話そ","to":"s20m"},{"text":"今日はここまでにして、また今度ゆっくり話そ","to":"end_fade"}],"expr":"nope","prologue":"［夜も遅くなり、そろそろ会話を終える時間になってきた。］","tag":"LAST TRAP","bg":"backgrounds/02_room_day.png"},"s20z":{"id":"s20z","text":"……待って。やっぱもうちょっと一緒にいたい。いや今帰ろうとしたの私なんだけど。ちょっとだけ。","choices":[{"text":"じゃあ付き合う？","to":"end_success"},{"text":"もちろん。好きなだけいよう","to":"end_true"},{"text":"俺も。じゃああと10分だけ遠回りしよ","to":"end_zokkon"}],"expr":"zokkon","prologue":"［一度「じゃあね」と別れかけた、その直後。しゅりがあなたを呼び止めた。］","tag":"帰り際","bg":"backgrounds/09_station_goodbye.png"},"s20h":{"id":"s20h","text":"ねえ。私のこと、どう思ってる？……いや今さらだけど、ちゃんと聞きたい。","choices":[{"text":"好き。付き合いたい。返事は急がなくていい","to":"end_true"},{"text":"かなり特別","to":"end_special"},{"text":"ここまでしゅりのこと分かる人、そんなにいないと思う","to":"danger1"}],"expr":"zokkon","prologue":"［しばらく沈黙したあと、しゅりが真面目な顔で口を開いた。］","tag":"告白","bg":"backgrounds/17_before_confession.png"},"s20m":{"id":"s20m","text":"私のこと、どう思ってる？なんとなくじゃなくて、今のあなたの言葉で聞きたい。","choices":[{"text":"かなり特別な存在だと思ってる","to":"end_special"},{"text":"一緒にいると楽しい","to":"end_friend"},{"text":"好き。付き合いたい","to":"end_success"}],"expr":"shy","prologue":"［しばらく沈黙したあと、しゅりが真面目な顔で口を開いた。］","tag":"告白","bg":"backgrounds/17_before_confession.png"},"s20l":{"id":"s20l","text":"私のこと、どう思ってる？……聞いといて怖いけど、聞く。","choices":[{"text":"正直まだ自分でもよく分かってない","to":"end_friend"},{"text":"普通に好きだと思ってる","to":"end_special"},{"text":"大事な友達","to":"end_friend"}],"expr":"nope","prologue":"［しばらく沈黙したあと、しゅりが真面目な顔で口を開いた。］","tag":"告白","bg":"backgrounds/17_before_confession.png"},"end_convenient":{"id":"end_convenient","text":"🛋️\n便利な理解者 END\n話しやすい。安心する。何でも聞いてくれる。\nでも気づいたらあなたは\n「恋愛対象」ではなく「高性能相談窓口」\nになっていた。\nしゅり：「え、恋愛！？いや待って、そこ全然通ってなかったwwww 相談しやすすぎた。」\n死因\n相手に合わせ続けて、自分の欲求・意見・弱さを出さなかった。安心は最大。でも「この人をもっと知りたい」が育たなかった。\n相談窓口を閉じて再挑戦","choices":[],"expr":"normal","prologue":"［しゅりとの会話が続いている。］","tag":"","bg":"backgrounds/18_happy_end.png"},"end_rescue":{"id":"end_rescue","text":"🚑\n勝手に救助隊 END\n心配してくれるのは嬉しい。最初は。\nでも「大丈夫」と言っても止まらない。「話したくない」と言っても聞こうとする。\nそのうち、しゅりの中で\n“心配される＝自由が減る”\nに変わった。\n死因\nケアが本人の選択権を追い越した。助けること自体ではなく、「助けさせて」が圧になった。\n救急車を帰して再挑戦","choices":[],"expr":"normal","prologue":"［しゅりとの会話が続いている。］","tag":"","bg":"backgrounds/18_happy_end.png"},"end_cold":{"id":"end_cold","text":"🧊\nシャッター閉店 END\n一度の失言なら戻れた。\nでも「またそれ？」「めんどくさ」が重なって、しゅり側の判断が変わった。\n「この人には深い話しなくていいや」\n死因\n感情や思考の複雑さを“面倒”として処理されたことで、自己開示の期待値が下がった。\nシャッターを開けに戻る","choices":[],"expr":"normal","prologue":"［しゅりとの会話が続いている。］","tag":"","bg":"backgrounds/18_happy_end.png"},"end_flat":{"id":"end_flat","text":"📎\n恋愛フラグ自分で折った END\nしゅりが距離を少し引いた瞬間、あなたも全力で引いた。\n「じゃあ友達だもんね」\nその一言で、しゅりも\n「あ、そういう意味じゃなかったんだ」\nと解釈してしまった。\n死因\n相手の逃げ道を尊重することと、自分の気持ちまで消すことは別。引きすぎると恋愛情報そのものが消える。\n折れたフラグを拾う","choices":[],"expr":"normal","prologue":"［しゅりとの会話が続いている。］","tag":"","bg":"backgrounds/18_happy_end.png"},"end_fade":{"id":"end_fade","text":"🌫️\n自然消滅 END\n喧嘩もしてない。嫌われてもない。\nただ「また今度」「暇なら」が少しずつ積み重なった。\n気づいたら、話したいことがあっても最初にあなたを思い出さなくなった。\n死因\n関係を壊す大事件ではなく、小さな“非選択”の積み重ね。接近欲求は、返ってこないと静かに減衰する。\n薄くなる前に再挑戦","choices":[],"expr":"normal","prologue":"［しゅりとの会話が続いている。］","tag":"","bg":"backgrounds/18_happy_end.png"},"end_control":{"id":"end_control","text":"🕸️\n「俺しかいない」END\n最初は特別扱いに聞こえた。\nでも「俺が一番分かってる」「俺しかいない」が増えるほど、しゅりは\n選択肢を奪われている感覚\nを持ち始める。\n死因\n特別さの提示が、独占・所有の主張に変わった。尊敬より支配感が上回った。\n蜘蛛の巣を撤去する","choices":[],"expr":"normal","prologue":"［しゅりとの会話が続いている。］","tag":"","bg":"backgrounds/18_happy_end.png"},"end_push":{"id":"end_push","text":"🚧\n照れてる認定連打 END\nしゅり：「別に深い意味ないからね？」\nあなた：「はいはい照れてるだけでしょ」\nここで発生した感情は、照れではなく\n“逃げ道なくなったんだけど”\nだった。\n死因\n相手が曖昧さを残したい時に、その曖昧さを勝手に「本当は好き」に変換した。\n認定を取り消す","choices":[],"expr":"normal","prologue":"［しゅりとの会話が続いている。］","tag":"","bg":"backgrounds/18_happy_end.png"},"end_label":{"id":"end_label","text":"🏷️\n感情ラベリング事故 END\n「今日楽しそうだったね〜」\n↓\n「嫉妬した？」\nしゅり：「いや、そういう言い方されると急に違うんだけどww」\n死因\n本当に少し嫉妬していたとしても、本人が自分で言う前にラベルを貼られると逃げたくなる。\nラベルを剥がす","choices":[],"expr":"normal","prologue":"［しゅりとの会話が続いている。］","tag":"","bg":"backgrounds/18_happy_end.png"},"end_mindread":{"id":"end_mindread","text":"🔮\n読心術失敗 END\n返信が遅れた。しゅりは普通に返した。あなたは「寂しかった？」と聞いた。\nしゅり脳内：\n「寂しかった可能性はあるけど、その答え方させられるの嫌だな」\n死因\n相手の気持ちを当てにいくより、自分側の情報を出す方が安心につながる場面だった。\n水晶玉を捨てる","choices":[],"expr":"normal","prologue":"［しゅりとの会話が続いている。］","tag":"","bg":"backgrounds/18_happy_end.png"},"end_overkind":{"id":"end_overkind","text":"🧸\n優しさ飽和 END\n全部肯定。全部褒める。全部合わせる。\n傷つかない。でも引っかかりもない。\nしゅり：「この人めっちゃいい人なんだけど……なんか恋愛じゃないな」\n死因\n安心は高いが、好奇心と尊敬を刺激する“相手自身の輪郭”が見えなくなった。\n自分の意見を持って戻る","choices":[],"expr":"normal","prologue":"［しゅりとの会話が続いている。］","tag":"","bg":"backgrounds/18_happy_end.png"},"b1":{"id":"b1","text":"……あ、うん。まあいいや。……いや『いい』って言ったけど、よくはないかも。今もう説明する元気ない。","choices":[{"text":"“まあいい”なら、この話はいったんここで終わりでいい？","to":"b2"},{"text":"待って。今の俺、話を雑に処理してた。ごめん","to":"r0"},{"text":"そこまで引っかかるとは思ってなかった。そんなに嫌だった？","to":"b2"}],"expr":"confused","prologue":"［ここ数回のやり取りで、小さなズレが重なっていた。今日も会話の途中で、しゅりの返事が少し短くなる。］","tag":"全然ダメダメルート","bg":"backgrounds/16_awkward_cool_room.png"},"b2":{"id":"b2","text":"別に怒ってないよ。もういいって。……いや本当に怒ってない。なんか話す気がなくなっただけ。","choices":[{"text":"分かった。今は話したくないなら一旦終わりにしよう","to":"b3"},{"text":"怒ってるように見えるけど、違うなら違うって言ってほしい","to":"b3"},{"text":"怒ってるかどうかは決めない。ただ、俺の言い方は雑だったから謝りたい","to":"r0"}],"expr":"nope","prologue":"［そのまま話そうとしたが、会話の温度は戻らない。］","tag":"さらに事故る","bg":"backgrounds/16_awkward_cool_room.png"},"b3":{"id":"b3","text":"おつかれ〜。今日はもう寝るね！またね〜。……うん、ほんとに寝る。","choices":[{"text":"忙しそうだし、落ち着くまでこっちからは控えようかな","to":"end_fade"},{"text":"最近ちょっと距離ある気がするんだけど、俺の気のせい？","to":"b4"},{"text":"最近、俺と話す時ちょっと気を使わせてる気がする。もしそうなら直したい","to":"r0"}],"expr":"nope","prologue":"［数日後。連絡は続いているものの、以前より会話が短くなっている。］","tag":"かなりダメ","bg":"backgrounds/16_awkward_cool_room.png"},"b4":{"id":"b4","text":"冷たいっていうか……普通じゃない？前より話さなくなったのは、まあ、あるかも。","choices":[{"text":"そっか。俺が不安になって責める言い方した。ごめん。そこ直す","to":"r0"},{"text":"分かった。これ以上こっちから追わないようにする","to":"end_cold"}],"expr":"nope","prologue":"［さらに数日後。普通に話してはいるが、以前のような深い話はほとんど出なくなった。］","tag":"ほぼ終わり","bg":"backgrounds/16_awkward_cool_room.png"},"r0":{"id":"r0","text":"……で、何を変えるの？『全部気をつける』とかはいらんよ。具体的に何するのか聞きたい。","choices":[{"text":"分かったつもりで気持ちを決めるのをやめる。分からない時は確認する","to":"r1"},{"text":"理由はどうあれ、今回は俺が悪かったってことでいいと思う","to":"b4"},{"text":"しゅりが嫌だって言ったことは全部やめるようにする","to":"b3"}],"expr":"normal","prologue":"［数日後。普通に雑談している時、以前のやり取りの話がもう一度出た。］","tag":"数日後","bg":"backgrounds/02_room_day.png"},"r1":{"id":"r1","text":"あ、今の言い方ちょっと嫌だったかも。……いや何が嫌かはまだ分からん。ちょっと置いといていい？","choices":[{"text":"前も後から理由分かったよね。今回もそんな感じ？","to":"b3"},{"text":"了解。今はやめとく。あとで分かったら聞かせて","to":"r2"},{"text":"直したいから、できればどこが嫌だったか今知りたい","to":"b2"}],"expr":"confused","prologue":"［4日後。何事もなかったように雑談していた途中、しゅりが急に言葉を止めた。］","tag":"4日後","bg":"backgrounds/02_room_day.png"},"r2":{"id":"r2","text":"これ絶対よくない！？！？ 私いま天才かもしれん！！いや待って、ここだけちょっと普通か？でも全体は好き！","choices":[{"text":"俺は全部かなりいいと思う。今のままで完成でもよくない？","to":"b4"},{"text":"めっちゃ好き。ただここだけ普通すぎる気がする。しゅりならもっと変にできそう","to":"r3"},{"text":"正直、今回は全体的にあんまり刺さらないかも","to":"b3"}],"expr":"interest","prologue":"［さらに数日後。しゅりから、新しく考えている企画案が勢いよく送られてきた。］","tag":"さらに数日後","bg":"backgrounds/17_before_confession.png"},"r3":{"id":"r3","text":"見てwwwwwwww これ意味わからんwwww 2回目の落ち方やばいからそこまで見てww","choices":[{"text":"何これwwww てか2回目の落ち方もっと見てww","to":"m1"},{"text":"こういうの送ってくるってことは、もう前みたいに戻った感じ？","to":"b2"},{"text":"普通に送ってきてくれてちょっと嬉しい","to":"end_recovered"}],"expr":"good","prologue":"［その翌日。しゅりから、特に意味のない短い動画が送られてきた。］","tag":"その翌日","bg":"backgrounds/02_room_day.png"},"r4":{"id":"r4","text":"最初ほんと合わんと思ったのに、最近なんか普通に話しやすいの何ww いや人間って分からんね。","choices":[{"text":"もう同じことは絶対しないって約束する","to":"end_special"},{"text":"失敗しない自信はないけど、ズレたらまたちゃんと直したい","to":"end_recovery_true"},{"text":"それって、俺のことちょっと好きになってきたってこと？","to":"end_success"}],"expr":"shy","prologue":"［しばらく経った頃。以前のように、自然に会話が続く日が増えてきた。］","tag":"しばらくして","bg":"backgrounds/02_room_day.png"},"danger1":{"id":"danger1","text":"え、そこまで分かるの普通にすごくない？ww ちょっと悔しいけど当たってる。","choices":[{"text":"今までの感じだと、しゅりなら次こうしそうって思う","to":"danger2"},{"text":"たぶん俺、かなりしゅりのこと分かってる方だと思う","to":"danger2"},{"text":"当たる時もあるけど外れる時もある。本人に確認するのが一番","to":"r0"}],"expr":"interest","prologue":"［最近、あなたの言葉が何度もしゅりの考えを言い当てていた。しゅりもそれを面白がっている。］","tag":"一見うまくいってるBAD ROUTE","bg":"backgrounds/02_room_day.png"},"danger2":{"id":"danger2","text":"いや、今回はちょっと違うんだけど。似てるように見えるのは分かる。でも違う。","choices":[{"text":"今回は違うって言うけど、今までの傾向とはかなり似てない？","to":"danger3"},{"text":"本人だと気づきにくいことって、外からの方が見える時もあると思う","to":"danger3"},{"text":"ごめん、当てにいってた。違うならそっち聞きたい","to":"r0"}],"expr":"confused","prologue":"［別の日。同じようにしゅりの気持ちを予想して返したところ、少し反応が違った。］","tag":"理解が所有に変わる","bg":"backgrounds/02_room_day.png"},"danger3":{"id":"danger3","text":"なんか最近、私が何言っても『本当はこうでしょ』って返ってくるの嫌かも。私が言ったことより、あなたの答えが先に来る感じ。","choices":[{"text":"今そう感じてるだけで、少し時間置いたらまた変わるかもよ","to":"end_analysis"},{"text":"それ嫌だわ。俺、理解者でいたくて上書きしてた。やめる","to":"r0"},{"text":"そこまでパターンが見えるくらい、ちゃんと見てきたってことだよ","to":"end_control"}],"expr":"nope","prologue":"［それから何度か同じことが続いたあと、しゅりが話を止めた。］","tag":"成功していたからこそ悪化","bg":"backgrounds/02_room_day.png"},"end_recovered":{"id":"end_recovered","text":"🩹💞\n復帰成功 END\n一度かなりズレた。でも謝罪だけで終わらず、行動を変えたことで関係は戻った。\n「失敗しない人」ではなく「失敗したあと修正できる人」\nとして評価された。\nポイント\n謝罪 → 具体的に何を変えるか → 実際に違う行動を繰り返す。この3段階が揃って初めて予測モデルが更新された。","choices":[],"expr":"normal","prologue":"［しゅりとの会話が続いている。］","tag":"","bg":"backgrounds/18_happy_end.png"},"end_recovery_true":{"id":"end_recovery_true","text":"🩹💘🐰\nRECOVERY TRUE END\n一回ダメだったから、むしろ強くなった\n最初から完璧だったルートとは違う。\n一度「この人合わないかも」まで行った。でも、ズレを認め、言い訳せず、行動を変え、もう一度信頼を作った。\nその結果しゅりの中に、\n「この人とは問題が起きても話し合える」\nという別種の安心ができた。\nしゅり\n「最初ほんと無理かと思ったのにwwww\nでも今は、なんかあってもちゃんと戻れそうって思う。そういうの結構好き。」\nこのENDが強い理由\n関係の安全性は「衝突がゼロ」だけでは作られない。衝突後に修復できた経験は、「ズレても関係が壊れない」という予測可能性を作る。\nダメダメからもう一度","choices":[],"expr":"normal","prologue":"［しゅりとの会話が続いている。］","tag":"","bg":"backgrounds/18_happy_end.png"},"m1":{"id":"m1","text":"……なんか今日それ嫌かも。昨日は別に平気だったんだけど。え、なんで？私も分からん。","choices":[{"text":"了解。理由はあとで分かるかもだし、今日はやめとこ","to":"m2"},{"text":"昨日は大丈夫だったなら、今日だけ違う理由があるのかな？","to":"end_analysis"},{"text":"昨日と今日で変わると、こっちもちょっと対応むずかしいかも","to":"b1"}],"expr":"confused","prologue":"［昨日は普通に笑っていた話題。今日、同じノリで触れた瞬間、しゅりの反応が少し変わった。］","tag":"昨日は平気だったのに今日は嫌","bg":"backgrounds/20_mystery.png"},"m2":{"id":"m2","text":"さっきのさ、今分かった。内容が嫌だったんじゃなくて、今日あのノリでいじられるのが嫌だったんだと思う。……今さら分かるんかい。","choices":[{"text":"あとから分かることもあるんだな","to":"m3"},{"text":"なるほど。内容じゃなくてタイミングだったんだね","to":"m3"},{"text":"それが最初に分かってたら、こっちも対応しやすかったかも","to":"end_cold"}],"expr":"interest","prologue":"［数時間後。さっきの会話について、しゅりから追加のメッセージが届いた。］","tag":"後追い感情認識","bg":"backgrounds/20_mystery.png"},"m3":{"id":"m3","text":"ねえ聞いて、今日コンビニでさwwww ……いやさっきの話と全然関係ないけど聞いて。","choices":[{"text":"話かなり飛んだけど、今の方が本題ってこと？","to":"b1"},{"text":"うんうん、全部聞くよ","to":"end_overkind"},{"text":"話の着地点そこだったんだww でも続き聞きたい","to":"m4"}],"expr":"confused","prologue":"［その5分後。さっきまでの話とはまったく関係ないメッセージが飛んできた。］","tag":"会話のワープ","bg":"backgrounds/20_mystery.png"},"m4":{"id":"m4","text":"なんか今日めっちゃ話しやすい。……いや、別に特別って意味じゃないけど。……いや特別じゃないとも言ってない。","choices":[{"text":"特別かどうかは今決めなくていいけど、俺も話しやすい","to":"m5"},{"text":"了解。じゃあ特別扱いはしないでおく","to":"end_flat"},{"text":"深い意味ないって言うけど、少しは特別ってことじゃない？","to":"end_push"}],"expr":"shy","prologue":"［しばらく雑談が続き、いつもより少し距離が近い空気になってきた。］","tag":"接近→撤退","bg":"backgrounds/20_mystery.png"},"m5":{"id":"m5","text":"なんかさ、別に何かされたわけじゃないのに、今日ちょっとあなたのこと気になってた。何これ。知らん。","choices":[{"text":"それって、もう結構好きに近いんじゃない？","to":"end_label"},{"text":"理由なく気になるなら、無意識に頼る存在になってるのかもね","to":"end_analysis"},{"text":"俺もたまにある。理由分かるまで置いとく？","to":"m6"}],"expr":"shy","prologue":"［その日の夜。会話が途切れかけたところで、しゅりがぽつりと言った。］","tag":"本人にも説明不能","bg":"backgrounds/20_mystery.png"},"m6":{"id":"m6","text":"おはよ。いや別に用ないんだけどww なんとなく送った。……おはよ。","choices":[{"text":"用ないのに連絡したくなったってこと？ww","to":"end_fade"},{"text":"用なくても送ってくるの好き。おはよ","to":"end_mystery_true"},{"text":"用ないのに送ってくるって、結構俺のこと好きじゃんww","to":"end_zokkon"}],"expr":"zokkon","prologue":"［翌朝。特に用事もないのに、しゅりから短いメッセージが届いた。］","tag":"答えを出さない親密さ","bg":"backgrounds/20_mystery.png"},"end_mystery_true":{"id":"end_mystery_true","text":"🌀💘🐰\nMYSTERY TRUE END\n本人も説明できないけど、好き\n理由を全部解明しようとしなかった。\n昨日と今日で感情が違っても、あとから意味が分かっても、話が急にワープしても、「矛盾してる」と処理せず、その時のしゅりを見続けた。\nその結果、しゅり側にも\n「この人の前なら、まだ言葉になってない自分でも出していい」\nという感覚が育った。\nしゅり\n「なんで好きか説明しろって言われたら困る。理由一個じゃないし。でもなんか話したくなる。……たぶんそれでいい。」","choices":[],"expr":"normal","prologue":"［しゅりとの会話が続いている。］","tag":"","bg":"backgrounds/20_mystery.png"},"end_dislike":{"id":"end_dislike","text":"🚪\n嫌われる END\n距離の取り方が雑すぎた。相手の内面を軽く扱う・面倒扱いする・防衛で突っぱねるが重なると、しゅり側は「この人には話さなくていい」に切り替える。","choices":[],"expr":"normal","prologue":"［しゅりとの会話が続いている。］","tag":"","bg":"backgrounds/16_awkward_cool_room.png"},"end_analysis":{"id":"end_analysis","text":"🧠🔒\n分析しすぎ END\n理解しようとした熱量は高い。でも「仮説」が「断定」に変わった瞬間、理解は檻になった。本人すら更新中の自分を他人に確定されると、近さより窮屈さが勝つ。\n檻を壊す","choices":[],"expr":"normal","prologue":"［しゅりとの会話が続いている。］","tag":"","bg":"backgrounds/16_awkward_cool_room.png"},"end_friend":{"id":"end_friend","text":"🥤\n優しすぎて友達 END\n安心感はある。でもあなた自身の輪郭が薄い。「聞くよ」「合わせるよ」「何でもいいよ」が続くと、恋愛刺激より相談相手として固定される。","choices":[],"expr":"normal","prologue":"［しゅりとの会話が続いている。］","tag":"","bg":"backgrounds/18_happy_end.png"},"end_heat":{"id":"end_heat","text":"🔥\n熱量だけ高くて疲れる END\n本気さはある。でも相手のペースを奪った。心配・救助・熱意は、本人の選択権を削ると圧に変わる。\n火力調整","choices":[],"expr":"normal","prologue":"［しゅりとの会話が続いている。］","tag":"","bg":"backgrounds/16_awkward_cool_room.png"},"end_understander":{"id":"end_understander","text":"🔬\n親友・理解者 END\nめちゃくちゃ話しやすい。理解も深い。でも恋愛の火が弱い。相手のことばかり見て、自分の欲求や弱さを出さなかった結果、最高の研究仲間になった。\n恋愛側へ","choices":[],"expr":"normal","prologue":"［しゅりとの会話が続いている。］","tag":"","bg":"backgrounds/16_awkward_cool_room.png"},"end_special":{"id":"end_special","text":"🫶\n特別な人 END\n他の人とは違う場所にいる。安心・尊敬・好奇心が育っている。ただ、まだ関係を動かす一言が足りない。\nもう一歩","choices":[],"expr":"normal","prologue":"［しゅりとの会話が続いている。］","tag":"","bg":"backgrounds/18_happy_end.png"},"end_success":{"id":"end_success","text":"💞\n攻略成功 END\nちゃんと落ちた。優しいだけでも、強いだけでもない。自分の意見を持ちながら、しゅりの内面を勝手に決めない。そのバランスが刺さった。\nしゅり\n「……付き合ってみる？いや『みる？』って何ww 私も普通に好き。だから付き合いたい。」","choices":[],"expr":"normal","prologue":"［しゅりとの会話が続いている。］","tag":"","bg":"backgrounds/18_happy_end.png"},"end_true":{"id":"end_true","text":"💘\nTRUE END\n付き合うことがゴールではなく、「この人なら関係を更新し続けられる」と思えた。理解・安心・熱量・相互性が高く、支配感が低い。\n核\n「私はこう思う。でもあなたは違うかもしれない」を持てる人。","choices":[],"expr":"normal","prologue":"［しゅりとの会話が続いている。］","tag":"","bg":"backgrounds/18_happy_end.png"},"end_zokkon":{"id":"end_zokkon","text":"💘🐰💘\nZOKKON TRUE END\nしゅりの方が落ちました\n攻略対象、反転。しゅり側から「もっと話したい」「もう少し一緒にいたい」が出始める。\n翌日\n用事もないのにメッセージ。\n「ねえ、今日なにしてる？」\n面白いものを見つけると先に送りたくなる。帰り際に話題を増やす。他の人と楽しそうだと少し気になる。次の予定を自分から作る。本人は「別に普通だけど？」と言う。\nなぜここまで惹かれた？\n安心だけなら友達、刺激だけなら疲れる。ここでは「安心 + 好奇心 + 尊敬 + 相互性」が揃った。しかも相手がしゅり中心に消えず、自分の世界を持っているため、しゅり側に接近欲求が生まれた。","choices":[],"expr":"normal","prologue":"［しゅりとの会話が続いている。］","tag":"","bg":"backgrounds/18_happy_end.png"}};
 const U={"SOURCE_asset_sheet.png":"asset_77e4ca09b7e3.png","avatars/shuri_good.png":"asset_4acd1ad3d3ad.png","avatars/shuri_shy.png":"asset_3ab7fccbeb0b.png","avatars/shuri_confused.png":"asset_f9447850ecd2.png","avatars/shuri_normal.png":"asset_f79afdfc1e01.png","avatars/shuri_zokkon.png":"asset_8d1427729b65.png","avatars/shuri_interest.png":"asset_c5396947c7de.png","avatars/shuri_nope.png":"asset_ba0a39b08e86.png","endings/normal_end_card.png":"asset_17d718febf3b.png","endings/zokkon_end_card.png":"asset_9fda808166a3.png","endings/true_end_card.png":"asset_43ca8b0c0d2a.png","endings/bad_end_card.png":"asset_52290a137361.png","endings/mystery_end_card.png":"asset_c2851850c66d.png","ui/choice_default.png":"asset_3b12f00a97b0.png","ui/delete_text_ui.png":"asset_a1543fef5b2a.png","ui/wait_ui.png":"asset_b24d31af2273.png","ui/day_plate.png":"asset_e55ea97a1316.png","ui/name_plate.png":"asset_9d0c731a6789.png","ui/swipe_ui.png":"asset_b8d8a77e99aa.png","ui/dialogue_window.png":"asset_23dd67a370ee.png","ui/distance_slider.png":"asset_11b5897411b6.png","ui/interrupt_ui.png":"asset_814673bb1faf.png","ui/frame_illustration.png":"asset_8c84ca5604a0.png","ui/log_button.png":"asset_e730f5f1906b.png","ui/live_badge.png":"asset_ad92f8d5c952.png","ui/logo_title.png":"asset_69c6b8c5faaa.png","ui/reorder_ui.png":"asset_d47a485640e4.png","ui/menu_button.png":"asset_d986703ba31a.png","ui/selection_frame.png":"asset_7559ff7a27a0.png","ui/choice_pressed.png":"asset_409bd6439bf2.png","ui/heart_button.png":"asset_ac30ef252a18.png","ui/free_input_ui.png":"asset_a8e4c8460d34.png","ui/frame_main.png":"asset_71256eacce13.png","ui/affection_bar.png":"asset_dc00cef6bd17.png","ui/scene_bar.png":"asset_7954ee519936.png","ui/longpress_send.png":"asset_5c98e9d73ea4.png","ui/analyzing_bar.png":"asset_615835686500.png","ui/notification_card.png":"asset_4989f2f62294.png","ui/choice_hover.png":"asset_93bbf08f5866.png","ui/read_timing_ui.png":"asset_79b75b90afd5.png","backgrounds/01_room_night_after_stream.png":"asset_b9d752d44eaf.png","backgrounds/13_sea_twilight.png":"asset_698d2d64c876.png","backgrounds/04_bed_relax.png":"asset_151d36bb8ca5.png","backgrounds/11_park.png":"asset_5e22bcc36759.png","backgrounds/15_rainy_room.png":"asset_b8b9570b00ea.png","backgrounds/20_mystery.png":"asset_5d2b6119b335.png","backgrounds/16_awkward_cool_room.png":"asset_7aab344b1124.png","backgrounds/08_night_walk.png":"asset_892115312ca2.png","backgrounds/09_station_goodbye.png":"asset_e167c81d3321.png","backgrounds/02_room_day.png":"asset_79e0a8fe918a.png","backgrounds/07_cafe_date.png":"asset_0fd7ca946be6.png","backgrounds/14_fireworks_summer.png":"asset_51aeb55e0a48.png","backgrounds/03_room_after_stream.png":"asset_07ad5b2c8773.png","backgrounds/19_bad_end.png":"asset_29e8f6ff7d3b.png","backgrounds/12_car.png":"asset_436c31d0bdfe.png","backgrounds/18_happy_end.png":"asset_0bfe7d3bec80.png","backgrounds/10_school_like_place.png":"asset_685df0ccc1b9.png","backgrounds/06_before_going_out.png":"asset_b7fbb0378393.png","backgrounds/05_call_night.png":"asset_adfe60586216.png","backgrounds/17_before_confession.png":"asset_0b3141345f13.png"};
 const $=s=>document.querySelector(s);
 const app=$('#app'); let current='s1h'; let log=[];
@@ -1746,20 +1876,34 @@ const avatarMap={normal:'avatars/shuri_normal.png',good:'avatars/shuri_good.png'
 function shuffle(a){a=[...a];for(let i=a.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
 function isEnd(id){return id.startsWith('end_')}
 function contextualModes(s){
-  const q=(s.text+' '+s.prologue+' '+(s.tag||'')).toLowerCase();
-  if(s.choices.length!==3)return ['choice'];
-  if(/告白|付き合|会いたい|好きって|好き。|返事は今じゃなく/.test(q)) return ['hold','choice'];
-  if(/メッセージ|既読|通知|dm|連絡/.test(q)) return ['read','choice'];
-  if(/待って|考えてる|考え中|入力中|返事が止|返信が止|まだ喋/.test(q)) return ['wait','choice'];
-  if(/帰り道|別れ|じゃあね|距離|近づ|離れ|名残惜|寂し|深い意味ない|もう少し一緒/.test(q)) return ['distance','choice'];
-  if(/ごめん|謝|決めつけ|言い方|誤解|ちゃんと伝|説明したい|順番/.test(q)) return ['reorder','choice'];
-  if(s.text.length>95 && /でも|だから|というか|待って|いや/.test(q)) return ['interrupt','choice'];
+  const id=s.id;
+
+  // 3択は「通常会話」の時だけ。
+  // 特殊ギミックは場面ごとに固定し、会話内容と操作をセットで設計する。
+  if(/^s2/.test(id)) return ['hold'];          // テンポの話 → 返信テンポ
+  if(/^s3/.test(id)) return ['interrupt'];     // 考えながら話している → 途中で拾うか待つ
+  if(/^s5/.test(id)) return ['read'];          // 半日空いた → いつ開くか
+  if(/^s7/.test(id)) return ['compare'];       // A/B相談 → 指で好みを寄せる
+  if(/^s9/.test(id)) return ['read'];          // 新着メッセージ → 既読タイミング
+  if(/^s10/.test(id)) return ['wait'];         // 自分でも整理中 → 途中で送るか待つ
+  if(/^s11/.test(id)) return ['wait'];         // 喋るHPがない → 待つ意味がある
+  if(/^s14/.test(id)) return ['hold'];         // 少し恋愛温度が上がる → 返すテンポ
+  if(/^s15/.test(id)) return ['distance'];     // 近づいた直後の逃げ道 → 距離の取り方
+  if(/^s17/.test(id)) return ['distance'];     // 駅・別れ際 → どこまで残るか
+  if(/^s19/.test(id)) return ['hold'];         // 「明日も話す？」→ 返事の速さ
+  if(id==='s20z') return ['distance'];         // 呼び止められた → 一歩近づくか
+  if(/^s20[ hml]/.test(id)) return ['hold'];   // 告白直前 → 返すテンポ
+  if(id==='r0') return ['reorder'];            // 修復 → 謝罪の順番に意味
+  if(id==='m2') return ['wait'];                // 理由がまだ分からない → 急がず待つ
+
   return ['choice'];
 }
 
-function modeFor(s){let key='op:'+s.id;let x=sessionStorage.getItem(key);if(x)return x;let pool=contextualModes(s);x=pool[Math.floor(Math.random()*pool.length)];sessionStorage.setItem(key,x);return x}
-function go(id,answer=''){if(!SCENES[id])return;if(answer)log.push({scene:current,answer});current=id;render()}
-function frame(s,reply){return `<div class="spark"></div><div class="app"><div class="top"><img class="logo" src="${U['ui/logo_title.png']}"><button class="iconbtn heart" onclick="openLog()"></button><button class="iconbtn menu" onclick="openMenu()"></button></div><div class="subtop"><div class="nameplate"></div><div class="dayplate"></div></div><div class="system"></div><div class="stage"><img class="bg" src="${U[s.bg]}"><div class="veil"></div><img class="avatar" src="${U[avatarMap[s.expr]||avatarMap.normal]}"><div class="live"></div><div class="affPremium" aria-label="好感度64パーセント"><div class="affTop"><span>♡ 好感度</span><b>64%</b></div><div class="affTrack"><i></i><em>♥</em></div></div><div class="time">☾ SCENE ${s.id.toUpperCase()}</div></div><div class="scene"><div class="sceneBar">${esc(s.prologue)}</div><div class="dialog"><span class="speaker">しゅりから</span>${esc(s.text)}</div>${reply}</div><div class="footer">♥　SYURI LOVE SIMULATION　♥</div></div>`}
+function modeFor(s){
+  return contextualModes(s)[0] || 'choice';
+}
+function go(id,answer=''){if(!SCENES[id])return;if(answer)log.push({scene:current,answer});current=id;render();requestAnimationFrame(()=>{window.scrollTo(0,0);if(document.scrollingElement)document.scrollingElement.scrollTop=0;})}
+function frame(s,reply){return `<div class="spark"></div><div class="app"><div class="top"><img class="logo" src="${U['ui/logo_title.png']}"><button class="iconbtn heart" onclick="openLog()"></button><button class="iconbtn menu" onclick="openMenu()"></button></div><div class="subtop"><div class="nameplate"></div><div class="dayplate"></div></div><div class="system"></div><div class="stage"><img class="bg" src="${U[s.bg]}"><div class="veil"></div><img class="avatar" src="${U[avatarMap[s.expr]||avatarMap.normal]}"><div class="live"></div><div class="affPremium" aria-label="好感度64パーセント"><div class="affTop"><span>♡ 好感度</span><b>64%</b></div><div class="affTrack"><i></i><em>♥</em></div></div><div class="time">☾ しゅりとの時間</div></div><div class="scene"><div class="sceneBar">${esc(s.prologue)}</div><div class="dialog"><span class="speaker">しゅりから</span>${esc(s.text)}</div>${reply}</div><div class="footer">♥　SYURI LOVE SIMULATION　♥</div></div>`}
 function esc(x){return String(x||'').replace(/[&<>]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[m])).replace(/\n/g,'<br>')}
 function choiceHtml(opts){return `<div class="choices">${opts.map((o,i)=>`<button class="choice" data-n="${i+1}" onclick='pick(${JSON.stringify(o.to)},${JSON.stringify(o.text)})'>${esc(o.text)}</button>`).join('')}</div>`}
 window.pick=(to,text)=>go(to,text);
@@ -1844,33 +1988,371 @@ function render(){
   window.scrollTo({top:0,behavior:'instant'});
 }
 function applyVars(){document.documentElement.style.cssText+=`;--heart:url(${U['ui/heart_button.png']});--menu:url(${U['ui/menu_button.png']});--name:url(${U['ui/name_plate.png']});--day:url(${U['ui/day_plate.png']});--analyze:url(${U['ui/analyzing_bar.png']});--live:url(${U['ui/live_badge.png']});--aff:url(${U['ui/affection_bar.png']});--scene:url(${U['ui/scene_bar.png']});--dialog:url(${U['ui/dialogue_window.png']})`}
-function renderOp(s,opts,mode){let op=$('#op'); if(!op)return; if(mode==='choice'){op.innerHTML=choiceHtml(opts);return}
-if(mode==='hold'){
-  const base=opts[1]||opts[0];
-  op.innerHTML=`<div class="panel tempoPanel"><div class="opTitle">💗 どのテンポで返す？</div><div class="opExplain">ボタンを押し続けて、送りたいテンポのところで指を離す。</div><div class="tempoMessage">${esc(base.text)}</div><div class="tempoScale"><span>速い</span><span>ふつう</span><span>遅い</span><i id="tempoNeedle"></i></div><button id="tempoSend" class="bigbtn tempoSend" type="button"><b>押している間、時間が進む</b><small>離した瞬間に送信</small></button></div>`;
-  const btn=$('#tempoSend'),needle=$('#tempoNeedle');let started=0,raf=0,active=false;
-  const paint=()=>{if(!active)return;const ms=Math.min(performance.now()-started,2400);needle.style.left=(ms/2400*100)+'%';raf=requestAnimationFrame(paint)};
-  const finish=()=>{if(!active)return;active=false;cancelAnimationFrame(raf);const ms=Math.min(performance.now()-started,2400),idx=ms<750?0:(ms<1600?1:2),tempo=idx===0?'速い':idx===1?'ふつう':'遅い',target=opts[idx]||base;go(target.to,base.text+'［'+tempo+'テンポ］')};
-  btn.onpointerdown=e=>{e.preventDefault();active=true;started=performance.now();btn.classList.add('pressing');paint()};btn.onpointerup=finish;btn.onpointercancel=finish;btn.onpointerleave=()=>{if(active)finish()};return
+function renderOp(s,opts,mode){
+  const op=$('#op');
+  if(!op)return;
+
+  if(mode==='choice'){
+    op.innerHTML=choiceHtml(opts);
+    return;
+  }
+
+  // 返信テンポ
+  // 同じ返事を「どれくらい早く返すか」で印象が変わる。
+  if(mode==='hold'){
+    const base=opts[1]||opts[0];
+
+    op.innerHTML=`<div class="panel tempoPanel">
+      <div class="opTitle">💗 返すテンポを決める</div>
+      <div class="opExplain">この返事を、どのくらいの間で送る？ 押し続けて、送りたい速さで離す。</div>
+      <div class="tempoMessage">${esc(base.text)}</div>
+
+      <div class="tempoScale">
+        <span>速い</span><span>ふつう</span><span>遅い</span>
+        <i id="tempoNeedle"></i>
+      </div>
+
+      <button id="tempoSend" class="bigbtn tempoSend" type="button">
+        <b>ここを押し続ける</b>
+        <small>送りたいタイミングで離す</small>
+      </button>
+    </div>`;
+
+    const btn=$('#tempoSend');
+    const needle=$('#tempoNeedle');
+    let active=false, started=0, raf=0;
+
+    const animate=()=>{
+      if(!active)return;
+      const ms=Math.min(performance.now()-started,2400);
+      needle.style.left=((ms/2400)*100)+'%';
+      raf=requestAnimationFrame(animate);
+    };
+
+    const finish=()=>{
+      if(!active)return;
+      active=false;
+      cancelAnimationFrame(raf);
+      btn.classList.remove('pressing');
+
+      const ms=Math.min(performance.now()-started,2400);
+      const i=ms<750?0:(ms<1600?1:2);
+      const label=i===0?'速い':i===1?'ふつう':'遅い';
+      const target=opts[i]||base;
+
+      go(target.to,base.text+'［'+label+'テンポで送信］');
+    };
+
+    btn.onpointerdown=e=>{
+      e.preventDefault();
+      active=true;
+      started=performance.now();
+      needle.style.left='0%';
+      btn.classList.add('pressing');
+      animate();
+    };
+    btn.onpointerup=finish;
+    btn.onpointercancel=finish;
+    btn.onpointerleave=()=>{if(active)finish()};
+    return;
+  }
+
+  // 既読タイミング
+  // ゲーム内時間が勝手に進み、「今開く」を押した瞬間が選択になる。
+  if(mode==='read'){
+    const dialog=$('.dialog');
+    const original=s.text;
+    const times=['今','3分後','10分後','30分後','1時間後','3時間後','半日後'];
+    let step=0;
+    let opened=false;
+
+    dialog.innerHTML=`<span class="speaker">しゅりから</span>
+      <div class="lockedMessage">新しいメッセージが届いている。</div>`;
+
+    op.innerHTML=`<div class="panel readPanel">
+      <div class="opTitle">📩 いつ開く？</div>
+      <div class="opExplain">時間は止まらない。開こうと思ったところでタップ。</div>
+
+      <div class="elapsedCard">
+        <small>メッセージが届いてから</small>
+        <strong id="elapsedLabel">${times[0]}</strong>
+        <div id="timeDots" class="timeDots"></div>
+      </div>
+
+      <button id="openNow" class="bigbtn openNow" type="button">
+        今、開く
+      </button>
+    </div>`;
+
+    const draw=()=>{
+      $('#elapsedLabel').textContent=times[step];
+      $('#timeDots').innerHTML=times.map((_,i)=>`<i class="${i<=step?'on':''}"></i>`).join('');
+    };
+    draw();
+
+    const timer=setInterval(()=>{
+      if(opened)return;
+      if(step<times.length-1){
+        step++;
+        draw();
+      }
+    },900);
+
+    $('#openNow').onclick=()=>{
+      if(opened)return;
+      opened=true;
+      clearInterval(timer);
+
+      const zone=step<=1?0:(step<=3?1:2);
+      const waited=times[step];
+      const target=opts[zone]||opts[1]||opts[0];
+
+      dialog.innerHTML=`<span class="speaker">しゅりから</span>${esc(original)}`;
+
+      op.innerHTML=`<div class="openedReceipt">
+        <span>既読</span>
+        <b>${esc(waited)}に開いた</b>
+      </div>
+      <button id="afterRead" class="bigbtn" type="button">このまま会話を続ける</button>`;
+
+      $('#afterRead').onclick=()=>go(target.to,'［'+waited+'に既読］');
+    };
+    return;
+  }
+
+  // 待つ
+  // 「待つ」を押すのではなく、しゅりが入力している時間そのものを待つ。
+  if(mode==='wait'){
+    let resolved=false;
+    let phase=0;
+    const labels=['入力中…','まだ入力中…','少し長い…','送信されそう…'];
+
+    op.innerHTML=`<div class="panel waitPanel">
+      <div class="opTitle">しゅりが入力中…</div>
+      <div class="typingDots"><i></i><i></i><i></i></div>
+      <div id="waitStatus" class="opExplain">${labels[0]}</div>
+      <button id="followUp" class="quietAction" type="button">今、ひとこと送る</button>
+    </div>`;
+
+    const statusTimer=setInterval(()=>{
+      if(resolved)return;
+      phase=Math.min(phase+1,labels.length-1);
+      if($('#waitStatus'))$('#waitStatus').textContent=labels[phase];
+    },850);
+
+    const finishTimer=setTimeout(()=>{
+      if(resolved)return;
+      resolved=true;
+      clearInterval(statusTimer);
+
+      const target=opts[2]||opts[1]||opts[0];
+      op.innerHTML=`<div class="waitResult">
+        <span>待った</span>
+        <b>最後まで入力を待った。</b>
+      </div>
+      <button id="waitNext" class="bigbtn" type="button">続きへ</button>`;
+
+      $('#waitNext').onclick=()=>go(target.to,'［最後まで待った］');
+    },3100);
+
+    $('#followUp').onclick=()=>{
+      if(resolved)return;
+      resolved=true;
+      clearInterval(statusTimer);
+      clearTimeout(finishTimer);
+
+      const target=phase<=1?(opts[0]||opts[1]):(opts[1]||opts[0]);
+      go(target.to,phase<=1?'［すぐ追いメッセージ］':'［少し待って追いメッセージ］');
+    };
+    return;
+  }
+
+  // A/B相談
+  // 3択ではなく、指でA↔Bのどちらに気持ちが寄っているか決める。
+  if(mode==='compare'){
+    op.innerHTML=`<div class="panel comparePanel">
+      <div class="opTitle">🖼️ どっちに惹かれる？</div>
+      <div class="opExplain">バーを動かして、今のあなたの好みを決める。</div>
+
+      <div class="compareLabels"><b>A</b><span>迷う</span><b>B</b></div>
+      <input id="compareRange" class="compareRange" type="range" min="0" max="100" value="50">
+      <div id="compareFeel" class="compareFeel">まだ決めきれない</div>
+
+      <button id="compareSend" class="bigbtn" type="button">この意見を伝える</button>
+    </div>`;
+
+    const range=$('#compareRange');
+    const feel=$('#compareFeel');
+
+    const update=()=>{
+      const v=+range.value;
+      feel.textContent=v<35?'Aの方が好き':v>65?'Bの方が好き':'まだ決めきれない';
+    };
+    range.oninput=update;
+    update();
+
+    $('#compareSend').onclick=()=>{
+      const v=+range.value;
+      const i=v<35?1:(v>65?0:2);
+      const target=opts[i]||opts[1]||opts[0];
+      const label=v<35?'A寄り':v>65?'B寄り':'かなり迷った';
+      go(target.to,'［'+label+'で答えた］');
+    };
+    return;
+  }
+
+  // 並び替え
+  // 修復シーン専用。実際に「謝罪→説明→確認」の順序を変える。
+  if(mode==='reorder'){
+    const pieces=[
+      {text:'ごめん。今の言い方は雑だった',kind:'apology'},
+      {text:'理解しようとして、逆に決めつけてた',kind:'explain'},
+      {text:'今どう感じたか、決めつけずに聞きたい',kind:'ask'}
+    ];
+
+    let arr=[...pieces];
+
+    const draw=()=>{
+      op.innerHTML=`<div class="panel orderPanel">
+        <div class="opTitle">💬 何から伝える？</div>
+        <div class="opExplain">3つとも言う。違うのは“順番”だけ。</div>
+
+        <div class="rows">
+          ${arr.map((x,i)=>`
+            <div class="row" data-i="${i}">
+              <span class="orderNo">${i+1}</span>
+              <span>${esc(x.text)}</span>
+              <div class="rowBtns">
+                <button class="rowUp" type="button">↑</button>
+                <button class="rowDn" type="button">↓</button>
+              </div>
+            </div>`).join('')}
+        </div>
+
+        <button id="reorderSend" class="bigbtn reorderSend" type="button">
+          この順番で伝える
+        </button>
+      </div>`;
+
+      document.querySelectorAll('.row').forEach(r=>{
+        const i=+r.dataset.i;
+        const up=r.querySelector('.rowUp');
+        const dn=r.querySelector('.rowDn');
+
+        up.disabled=i===0;
+        dn.disabled=i===arr.length-1;
+
+        up.onclick=()=>{
+          if(i>0){
+            [arr[i-1],arr[i]]=[arr[i],arr[i-1]];
+            draw();
+          }
+        };
+        dn.onclick=()=>{
+          if(i<arr.length-1){
+            [arr[i+1],arr[i]]=[arr[i],arr[i+1]];
+            draw();
+          }
+        };
+      });
+
+      $('#reorderSend').onclick=()=>{
+        const first=arr[0].kind;
+        const i=first==='apology'?0:first==='explain'?1:2;
+        const target=opts[i]||opts[0];
+        go(target.to,arr.map(x=>x.text).join(' → '));
+      };
+    };
+
+    draw();
+    return;
+  }
+
+  // 距離操作
+  // 3つのカードを押すのではなく、ひとつのスライダーで「踏み込み具合」を決める。
+  if(mode==='distance'){
+    op.innerHTML=`<div class="panel distancePanel">
+      <div class="opTitle">♡ 今、どこまで近づく？</div>
+      <div class="opExplain">距離を動かして、今の場面でどこまで踏み込むか決める。</div>
+
+      <div class="distanceAxis">
+        <span>余白をあける</span>
+        <span>そのまま</span>
+        <span>もう一歩</span>
+      </div>
+
+      <input id="distanceRange" class="distanceRange" type="range" min="0" max="100" value="50">
+      <div id="distanceMeaning" class="distanceMeaning">今の距離にいる</div>
+
+      <button id="distanceSend" class="bigbtn" type="button">この距離で続ける</button>
+    </div>`;
+
+    const range=$('#distanceRange');
+    const meaning=$('#distanceMeaning');
+
+    const update=()=>{
+      const v=+range.value;
+      meaning.textContent=v<35?'今は追わず、しゅりに余白を残す':v>65?'もう一歩だけ踏み込む':'近づきも離れもせず、そのままいる';
+    };
+    range.oninput=update;
+    update();
+
+    $('#distanceSend').onclick=()=>{
+      const v=+range.value;
+      const i=v<35?0:(v>65?2:1);
+      const labels=['余白をあけた','今の距離にいた','もう一歩近づいた'];
+      const target=opts[i]||opts[1]||opts[0];
+      go(target.to,'［'+labels[i]+'］');
+    };
+    return;
+  }
+
+  // 途中で拾う
+  if(mode==='interrupt'){
+    const full=s.text;
+    const d=$('.dialog');
+    let i=0;
+    let finished=false;
+
+    d.innerHTML='<span class="speaker">しゅりから</span><span id="typed"></span>';
+    op.innerHTML=`<div class="panel interruptPanel">
+      <div class="opTitle">しゅりはまだ話している</div>
+      <div class="opExplain">気になるところで拾うことも、最後まで聞くこともできる。</div>
+      <button id="intr" class="bigbtn" type="button">今ここで拾う</button>
+    </div>`;
+
+    const timer=setInterval(()=>{
+      i+=2;
+      if($('#typed'))$('#typed').innerHTML=esc(full.slice(0,i));
+
+      if(i>=full.length){
+        clearInterval(timer);
+        finished=true;
+        const target=opts[2]||opts[1]||opts[0];
+        op.innerHTML=`<div class="waitResult">
+          <span>最後まで聞いた</span>
+          <b>しゅりが言い切るまで待った。</b>
+        </div>
+        <button id="listenNext" class="bigbtn" type="button">返す</button>`;
+        $('#listenNext').onclick=()=>go(target.to,'［最後まで聞いた］');
+      }
+    },55);
+
+    $('#intr').onclick=()=>{
+      if(finished)return;
+      clearInterval(timer);
+      const ratio=i/Math.max(full.length,1);
+      const idx=ratio<.45?0:1;
+      const target=opts[idx]||opts[0];
+
+      if($('#typed'))$('#typed').innerHTML=esc(full.slice(0,i));
+      go(target.to,ratio<.45?'［早めに話を拾った］':'［少し聞いてから拾った］');
+    };
+    return;
+  }
+
+  op.innerHTML=choiceHtml(opts);
 }
-if(mode==='wait'){
-  op.innerHTML=`<div class="panel waitPanel"><div class="opTitle">しゅりが入力中…</div><div class="typingDots"><i></i><i></i><i></i></div><div class="opExplain">まだ返事は来ていない。</div><button id="followUp" class="quietAction" type="button">追いメッセージを送る</button></div>`;
-  let resolved=false;const timer=setTimeout(()=>{if(resolved||!$('#op'))return;resolved=true;op.innerHTML=`<div class="panel waitPanel"><div class="opTitle">しゅりから続きが届いた</div><div class="opExplain">待っていたので、最後まで届いた。</div><button id="waitContinue" class="bigbtn" type="button">続きを読む</button></div>`;$('#waitContinue').onclick=()=>go((opts[1]||opts[0]).to,'しゅりの続きを待った')},2800);
-  $('#followUp').onclick=()=>{if(resolved)return;resolved=true;clearTimeout(timer);go((opts[0]||opts[1]).to,'入力中に追いメッセージを送った')};return
-}
-if(mode==='reorder'){
-  let arr=[...opts];const draw=()=>{op.innerHTML=`<div class="panel orderPanel"><div class="opTitle">💬 伝える順番を決める</div><div class="opExplain">同じ内容でも、どれから言うかで伝わり方が変わる。</div><div class="rows">${arr.map((o,i)=>`<div class="row" data-i="${i}"><span class="orderNo">${i+1}</span><span>${esc(o.text)}</span><div class="rowBtns"><button class="rowUp" type="button">↑</button><button class="rowDn" type="button">↓</button></div></div>`).join('')}</div><button id="reorderSend" class="bigbtn reorderSend" type="button">この順番で伝える</button></div>`;document.querySelectorAll('.row').forEach(r=>{const i=+r.dataset.i,up=r.querySelector('.rowUp'),dn=r.querySelector('.rowDn');up.disabled=i===0;dn.disabled=i===arr.length-1;up.onclick=()=>{if(i>0){[arr[i-1],arr[i]]=[arr[i],arr[i-1]];draw()}};dn.onclick=()=>{if(i<arr.length-1){[arr[i+1],arr[i]]=[arr[i],arr[i+1]];draw()}}});$('#reorderSend').onclick=()=>{const first=arr[0];go(first.to,arr.map(x=>x.text).join(' → '))}};draw();return
-}
-if(mode==='distance'){
-  op.innerHTML=`<div class="panel distancePanel"><div class="opTitle">♡ 今、どこまで近づく？</div><div class="opExplain">返事ではなく、この場面で取る距離を選ぶ。</div><div class="distanceCards"><button type="button" data-i="0"><b>一歩引く</b><small>今は踏み込まず、しゅりに余白を残す</small></button><button type="button" data-i="1"><b>隣にいる</b><small>距離を変えず、そのまま一緒にいる</small></button><button type="button" data-i="2"><b>一歩近づく</b><small>もう少しだけ近い距離で話す</small></button></div></div>`;document.querySelectorAll('.distanceCards button').forEach(b=>{b.onclick=()=>{const i=+b.dataset.i,labels=['一歩引いた','そのまま隣にいた','一歩近づいた'];go((opts[i]||opts[1]).to,labels[i])}});return
-}
-if(mode==='swipe'){renderOp(s,opts,'distance');return}
-if(mode==='read'){
-  const start=performance.now();op.innerHTML=`<div class="panel readPanel"><div class="opTitle">📩 しゅりからメッセージ</div><button class="notify readNotify" id="note" type="button"><small>未読</small><b>タップして開く</b></button><div class="opExplain">タップした瞬間に既読になります。</div></div>`;$('#note').onclick=()=>{const t=(performance.now()-start)/1000,i=t<1.5?0:(t<4?1:2),label=i===0?'即既読':i===1?'少し置いて既読':'ゆっくり既読';go((opts[i]||opts[1]).to,label)};return
-}
-if(mode==='interrupt'){let full=s.text;let d=$('.dialog');d.innerHTML='<span class="speaker">しゅりから</span><span id="typed"></span>';op.innerHTML=`<button class="bigbtn" id="intr">待って、そこ聞きたい</button><div class="subtle" style="margin-top:7px">しゅりはまだ喋ってる。</div>`;let i=0,done=false;let timer=setInterval(()=>{i+=2;if($('#typed'))$('#typed').innerHTML=esc(full.slice(0,i));if(i>=full.length){clearInterval(timer);done=true;op.innerHTML=choiceHtml(opts)}},42);$('#intr').onclick=()=>{clearInterval(timer);if($('#typed'))$('#typed').innerHTML=esc(full.slice(0,i));op.innerHTML=`<div class="panel"><b>しゅり「まだ喋ってるwwwwww」</b></div>`+choiceHtml(opts)};return}
-if(mode==='free'){op.innerHTML=choiceHtml(opts);return}
-op.innerHTML=choiceHtml(opts)}
 function renderEnd(s){
   const isBad=current.includes('dislike')||current.includes('analysis')||current.includes('heat');
   const title=isBad?'RESULT':'ENDING';
