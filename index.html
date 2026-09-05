@@ -1850,6 +1850,24 @@ img{
   background:linear-gradient(180deg,#fff,#fff5fa)!important;
 }
 .endBg{filter:saturate(.85) brightness(1.1)!important}
+
+/* reply-flow refinements */
+.avatar,.firstAvatar,.endAvatar{
+  filter:drop-shadow(0 0 1px rgba(255,255,255,1)) drop-shadow(0 0 4px rgba(255,255,255,.88)) drop-shadow(0 8px 12px rgba(84,45,70,.14)) !important;
+}
+.avatar{height:88% !important;bottom:-1% !important;max-width:92% !important}
+.firstAvatar{height:90% !important;bottom:-1% !important;max-width:90% !important}
+.specialChoiceGuide{
+  margin:6px 0 8px;
+  padding:8px 10px;
+  border-radius:12px;
+  background:linear-gradient(135deg,#fff7fb,#f5f0ff);
+  border:1px solid rgba(221,192,233,.9);
+  color:#8a6882;
+  font-size:8.8px;
+  font-weight:950;
+}
+.interruptPanel .opExplain,.waitPanel .opExplain,.readPanel .opExplain{line-height:1.45}
 </style><!-- GitHub Pages / Safari playable build -->
 </head><body><div id="app"></div>
 
@@ -1906,7 +1924,7 @@ function go(id,answer=''){if(!SCENES[id])return;if(answer)log.push({scene:curren
 function frame(s,reply){return `<div class="spark"></div><div class="app"><div class="top"><img class="logo" src="${U['ui/logo_title.png']}"><button class="iconbtn heart" onclick="openLog()"></button><button class="iconbtn menu" onclick="openMenu()"></button></div><div class="subtop"><div class="nameplate"></div><div class="dayplate"></div></div><div class="system"></div><div class="stage"><img class="bg" src="${U[s.bg]}"><div class="veil"></div><img class="avatar" src="${U[avatarMap[s.expr]||avatarMap.normal]}"><div class="live"></div><div class="affPremium" aria-label="好感度64パーセント"><div class="affTop"><span>♡ 好感度</span><b>64%</b></div><div class="affTrack"><i></i><em>♥</em></div></div><div class="time">☾ しゅりとの時間</div></div><div class="scene"><div class="sceneBar">${esc(s.prologue)}</div><div class="dialog"><span class="speaker">しゅりから</span>${esc(s.text)}</div>${reply}</div><div class="footer">♥　SYURI LOVE SIMULATION　♥</div></div>`}
 function esc(x){return String(x||'').replace(/[&<>]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[m])).replace(/\n/g,'<br>')}
 function choiceHtml(opts){return `<div class="choices">${opts.map((o,i)=>`<button class="choice" data-n="${i+1}" onclick='pick(${JSON.stringify(o.to)},${JSON.stringify(o.text)})'>${esc(o.text)}</button>`).join('')}</div>`}
-window.pick=(to,text)=>go(to,text);
+window.pick=(to,text)=>go(to,text);window.pickWithMeta=(to,text,note='')=>go(to, (note?note+' ':'') + text);
 function firstChoiceHtml(opts){
   return `<div class="firstChoices">${opts.map((o,i)=>`
     <button class="firstChoice" onclick='pick(${JSON.stringify(o.to)},${JSON.stringify(o.text)})'>
@@ -1991,6 +2009,8 @@ function applyVars(){document.documentElement.style.cssText+=`;--heart:url(${U['
 function renderOp(s,opts,mode){
   const op=$('#op');
   if(!op)return;
+
+  const metaChoices=(note,title='このあと、どう返す？')=>`<div class="specialChoiceGuide">${title}</div><div class="choices">${opts.map((o,i)=>`<button class="choice" data-n="${i+1}" onclick='pickWithMeta(${JSON.stringify(o.to)},${JSON.stringify(o.text)},${JSON.stringify(note)})'>${esc(o.text)}</button>`).join('')}</div>`;
 
   if(mode==='choice'){
     op.innerHTML=choiceHtml(opts);
@@ -2096,64 +2116,56 @@ function renderOp(s,opts,mode){
         step++;
         draw();
       }
-    },900);
+    },950);
 
     $('#openNow').onclick=()=>{
       if(opened)return;
       opened=true;
       clearInterval(timer);
 
-      const zone=step<=1?0:(step<=3?1:2);
       const waited=times[step];
-      const target=opts[zone]||opts[1]||opts[0];
-
+      const note='［'+waited+'に開いた］';
       dialog.innerHTML=`<span class="speaker">しゅりから</span>${esc(original)}`;
 
       op.innerHTML=`<div class="openedReceipt">
         <span>既読</span>
         <b>${esc(waited)}に開いた</b>
-      </div>
-      <button id="afterRead" class="bigbtn" type="button">このまま会話を続ける</button>`;
-
-      $('#afterRead').onclick=()=>go(target.to,'［'+waited+'に既読］');
+      </div>${metaChoices(note,'開いたあと、どう返す？')}`;
     };
     return;
   }
 
   // 待つ
-  // 「待つ」を押すのではなく、しゅりが入力している時間そのものを待つ。
+  // 「待つ」を押すのではなく、しゅりが入力し終わるまでの時間そのものを待つ。
   if(mode==='wait'){
     let resolved=false;
     let phase=0;
-    const labels=['入力中…','まだ入力中…','少し長い…','送信されそう…'];
+    const labels=['入力しかけてる…','少し考えてる…','打っては消してる…','まだ迷ってる…','もう少しで言い切りそう…'];
 
     op.innerHTML=`<div class="panel waitPanel">
       <div class="opTitle">しゅりが入力中…</div>
       <div class="typingDots"><i></i><i></i><i></i></div>
       <div id="waitStatus" class="opExplain">${labels[0]}</div>
-      <button id="followUp" class="quietAction" type="button">今、ひとこと送る</button>
+      <button id="followUp" class="quietAction" type="button">待たずに返す</button>
     </div>`;
 
     const statusTimer=setInterval(()=>{
       if(resolved)return;
       phase=Math.min(phase+1,labels.length-1);
       if($('#waitStatus'))$('#waitStatus').textContent=labels[phase];
-    },850);
+    },1200);
 
     const finishTimer=setTimeout(()=>{
       if(resolved)return;
       resolved=true;
       clearInterval(statusTimer);
 
-      const target=opts[2]||opts[1]||opts[0];
+      const note='［最後まで言い切るのを待った］';
       op.innerHTML=`<div class="waitResult">
         <span>待った</span>
-        <b>最後まで入力を待った。</b>
-      </div>
-      <button id="waitNext" class="bigbtn" type="button">続きへ</button>`;
-
-      $('#waitNext').onclick=()=>go(target.to,'［最後まで待った］');
-    },3100);
+        <b>しゅりが言い切るまで、ゆっくり待った。</b>
+      </div>${metaChoices(note,'言い切ったあと、どう返す？')}`;
+    },6200);
 
     $('#followUp').onclick=()=>{
       if(resolved)return;
@@ -2161,8 +2173,11 @@ function renderOp(s,opts,mode){
       clearInterval(statusTimer);
       clearTimeout(finishTimer);
 
-      const target=phase<=1?(opts[0]||opts[1]):(opts[1]||opts[0]);
-      go(target.to,phase<=1?'［すぐ追いメッセージ］':'［少し待って追いメッセージ］');
+      const note=phase<=1?'［まだ打ち終わる前に返した］':'［少し待ってから先に返した］';
+      op.innerHTML=`<div class="openedReceipt">
+        <span>途中</span>
+        <b>${phase<=1?'早めに返した':'少し待って返した'}</b>
+      </div>${metaChoices(note,'このタイミングで、どう返す？')}`;
     };
     return;
   }
@@ -2317,36 +2332,38 @@ function renderOp(s,opts,mode){
     d.innerHTML='<span class="speaker">しゅりから</span><span id="typed"></span>';
     op.innerHTML=`<div class="panel interruptPanel">
       <div class="opTitle">しゅりはまだ話している</div>
-      <div class="opExplain">気になるところで拾うことも、最後まで聞くこともできる。</div>
+      <div class="opExplain">わざと少し間を作っている。途中で拾うか、最後まで聞くか選べる。</div>
       <button id="intr" class="bigbtn" type="button">今ここで拾う</button>
     </div>`;
 
-    const timer=setInterval(()=>{
-      i+=2;
+    const tick=()=>{
+      if(finished)return;
+      i+=1;
       if($('#typed'))$('#typed').innerHTML=esc(full.slice(0,i));
-
       if(i>=full.length){
-        clearInterval(timer);
         finished=true;
-        const target=opts[2]||opts[1]||opts[0];
         op.innerHTML=`<div class="waitResult">
           <span>最後まで聞いた</span>
           <b>しゅりが言い切るまで待った。</b>
-        </div>
-        <button id="listenNext" class="bigbtn" type="button">返す</button>`;
-        $('#listenNext').onclick=()=>go(target.to,'［最後まで聞いた］');
+        </div>${metaChoices('［最後まで聞いた］','最後まで聞いたあと、どう返す？')}`;
+        return;
       }
-    },55);
+      const ch=full[i-1]||'';
+      const delay=/[。．！？…]/.test(ch)?220:90;
+      setTimeout(tick,delay);
+    };
+    setTimeout(tick,260);
 
     $('#intr').onclick=()=>{
       if(finished)return;
-      clearInterval(timer);
+      finished=true;
       const ratio=i/Math.max(full.length,1);
-      const idx=ratio<.45?0:1;
-      const target=opts[idx]||opts[0];
-
+      const note=ratio<.45?'［早めに話を拾った］':'［少し聞いてから話を拾った］';
       if($('#typed'))$('#typed').innerHTML=esc(full.slice(0,i));
-      go(target.to,ratio<.45?'［早めに話を拾った］':'［少し聞いてから拾った］');
+      op.innerHTML=`<div class="openedReceipt">
+        <span>割り込み</span>
+        <b>${ratio<.45?'早めに拾った':'少し聞いてから拾った'}</b>
+      </div>${metaChoices(note,'ここから、どう返す？')}`;
     };
     return;
   }
