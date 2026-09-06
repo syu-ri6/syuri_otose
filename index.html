@@ -2360,6 +2360,52 @@ html,body,button,input,textarea,select,.app,.firstPage,.storyPrologue,.endApp{
   .storyEndingPart.final p{font-size:9.7px!important}
 }
 
+
+
+/* ===== HOTFIX: remove unintended see-through / stray divider lines ===== */
+.storyKicker{
+  background:#fffafc!important;
+  border:1.5px solid rgba(238,191,215,.96)!important;
+  box-shadow:0 6px 14px rgba(184,112,154,.12)!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+  opacity:1!important;
+}
+.storyLine,
+.storySystem,
+.storyViewer,
+.storyLive{
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+}
+
+/* The approved title overlay image contains a thin dark seam. Hide it with UI-colored masks. */
+.title-v4-canvas::before{
+  content:"";
+  position:absolute;
+  z-index:7;
+  left:50%;
+  top:82.4%;
+  width:0.55%;
+  height:10.8%;
+  transform:translateX(-50%);
+  background:linear-gradient(180deg,rgba(244,227,238,.98),rgba(241,221,234,.98));
+  pointer-events:none;
+}
+.title-v4-canvas::after{
+  content:"";
+  position:absolute;
+  z-index:7;
+  left:18.2%;
+  top:82.95%;
+  width:63.6%;
+  height:0.68%;
+  border-radius:999px;
+  background:linear-gradient(90deg,rgba(244,227,238,.98),rgba(241,221,234,.98));
+  box-shadow:0 0 0 1px rgba(255,255,255,.18);
+  pointer-events:none;
+}
+
 </style><!-- GitHub Pages / Safari playable build -->
 </head><body><div id="app"></div>
 
