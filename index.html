@@ -2277,6 +2277,38 @@ html,body{height:100%;overflow:hidden}
   color:#fff!important;
   z-index:auto!important;
 }
+
+/* ===== Story ending + portrait visibility + font consistency pass ===== */
+html,body,button,input,textarea,select{
+  font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN",-apple-system,BlinkMacSystemFont,"Yu Gothic",Meiryo,sans-serif!important;
+}
+*::before,*::after{font-family:inherit}
+.avatar,.storyAvatar,.endAvatar,.title-v4-avatar{
+  opacity:1!important;
+  visibility:visible!important;
+  mix-blend-mode:normal!important;
+  filter:drop-shadow(0 0 2px rgba(255,255,255,.98)) drop-shadow(0 0 7px rgba(255,255,255,.72)) drop-shadow(0 9px 14px rgba(84,45,70,.16))!important;
+}
+.stage .avatar{z-index:4!important}
+.endHero{height:275px!important;background:#fff6fb}
+.endAvatar{height:128%!important;bottom:-15%!important;max-width:96%!important;z-index:3!important}
+.endVeil{z-index:2!important;background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,231,244,.08))!important;pointer-events:none}
+.endBg{z-index:1!important}
+.endBody{padding:16px!important}
+.relationLevel{margin-bottom:10px!important}
+.endDialogue{margin:8px 0 10px!important}
+.storyEnding{display:grid;gap:10px;margin-top:10px}
+.storyEndingPart{padding:13px 14px;border-radius:16px;background:#fff;border:1.7px solid #efc1d8;box-shadow:0 5px 0 rgba(239,193,216,.25)}
+.storyEndingPart small{display:block;margin-bottom:5px;color:#bd6d99;font-size:8px;font-weight:1000;letter-spacing:.12em}
+.storyEndingPart p{margin:0;color:#5c4356;font-size:12px;line-height:1.8;font-weight:780}
+.storyEndingPart.final{background:linear-gradient(135deg,#fff4fa,#f6efff);border-color:#dfb8ec}
+.storyEndingPart.final p{font-size:13px;font-weight:900;color:#6f4566}
+.endMessage{font-size:10.5px!important;line-height:1.65!important;text-align:center}
+@media(max-width:390px){
+  .endHero{height:245px!important}
+  .endAvatar{height:124%!important;bottom:-13%!important}
+  .storyEndingPart p{font-size:11.5px}
+}
 </style><!-- GitHub Pages / Safari playable build -->
 </head><body><div id="app"></div>
 
@@ -2679,6 +2711,36 @@ function renderOp(s,opts,mode){
   }
   op.innerHTML=choiceHtml(opts);
 }
+function endingStoryMeta(id,e){
+  const immediateByLv={
+    0:'そのやり取りを境に、会話はそこで止まった。しゅりから次の話題が送られてくることもなかった。',
+    1:'その場では会話を続けた。でも、しゅりは少しだけ言葉を選ぶようになった。前までなら話していたことを、飲み込む瞬間が増えていく。',
+    2:'やり取りは普通に続いた。笑うこともあるし、返信も来る。ただ、どちらからも一歩踏み込む理由は生まれなかった。',
+    3:'会話は自然に続いていった。困った時には話せるし、一緒に笑える。でも、その安心はまだ恋とは少し違っていた。',
+    4:'少しずつ、しゅりの方から話しかける回数が増えた。用事がなくても、あなたの反応を見たくなる瞬間が生まれ始めた。',
+    5:'その日から、ふたりの距離ははっきり変わった。しゅりはあなたとの時間を「楽しい」だけじゃなく、特別なものとして意識し始めた。',
+    6:'しゅりの方から連絡が来るのが、珍しいことではなくなった。面白かったものも、どうでもいい話も、最初にあなたへ送りたくなる。',
+    7:'いつの間にか、待つ側と追う側が逆転していた。しゅりは理由もなくあなたを探し、話せない日を少し物足りなく感じるようになった。'
+  };
+  const finalByLv={
+    0:'ふたりの関係は、ここで終わった。',
+    1:'関係は切れなかった。でも、しゅりはあなたとの間に一歩分の距離を置くようになった。',
+    2:'ふたりは「たまに話す人」のまま。近づきもしないし、嫌いにもならない距離に落ち着いた。',
+    3:'ふたりは友達になった。安心はある。でも、恋愛の扉はまだ開かなかった。',
+    4:'あなたは、しゅりにとって「ちょっと気になる人」になった。ここから先は、まだ始まっていない。',
+    5:'しゅりはあなたを好きになった。ふたりは、恋愛として次に進める距離までたどり着いた。',
+    6:'しゅりの気持ちは、もうかなりあなた側に傾いている。話したい、会いたいを、しゅりの方から言う関係になった。',
+    7:'攻略完了。しゅりの方があなたを追いかける関係になった。'
+  };
+  let immediate=immediateByLv[e.lv]||immediateByLv[3];
+  let final=finalByLv[e.lv]||finalByLv[3];
+  if(id==='end_rescue') immediate='あなたの優しさはちゃんと伝わった。でも、その優しさが少し先回りしすぎて、しゅりは「そこまでしなくて大丈夫」と一歩引いた。';
+  if(id==='end_mindread'||id==='end_analysis'||id==='end_label') immediate='気持ちを分かってもらえる安心より先に、「私の気持ちを決められたかも」という引っかかりが残った。しゅりは少しずつ、説明する言葉を減らしていった。';
+  if(id==='end_overkind') immediate='優しくしてもらえることは嬉しかった。だからこそ、しゅりはあなたを安心できる人として大切にした。ただ、その安心は恋愛の熱には変わらなかった。';
+  if(id==='end_zokkon') final='攻略対象、完全反転。しゅりの方から「今日話せる？」「会いたい」が飛んでくる関係になった。';
+  return {immediate,after:e.after,final};
+}
+
 function renderEnd(s){
   const endingById={
     end_dislike:{lv:0,title:'関係終了',expr:'nope',line:'……あんまり話したくないかも。',after:'それから、しゅりから連絡が来なくなった。'},
@@ -2707,7 +2769,8 @@ function renderEnd(s){
   const e=endingById[current]||{lv:3,title:'友達',expr:'good',line:'また話そ。',after:'ふたりの関係は、そのまま続いていった。'};
   const av=U[avatarMap[e.expr]||avatarMap.normal];
   const hearts='♥'.repeat(Math.max(1,e.lv));
-  app.innerHTML=`<div class="spark"></div><div class="app endApp"><div class="top"><img class="logo" src="${U['ui/logo_title.png']}"><button class="iconbtn heart cleanTopBtn" onclick="openLog()" aria-label="ログ">♡</button><button class="iconbtn menu cleanTopBtn" onclick="openMenu()" aria-label="メニュー">≡</button></div><section class="brightEnd relationEnd"><div class="endKicker">♡ RELATION RESULT</div><div class="endHero"><img class="endBg" src="${U['backgrounds/18_happy_end.png']}" alt=""><div class="endVeil"></div><img class="endAvatar" src="${av}" alt="しゅり"></div><div class="endBody"><div class="relationLevel"><small>RELATIONSHIP</small><b>Lv.${e.lv}　${esc(e.title)}</b><span>${hearts}</span></div><div class="endDialogue"><span>しゅり</span><b>${esc(e.line)}</b></div><div class="afterStory">${esc(e.after)}</div><div class="endMessage">ふたりの関係は、あなたの選び方で変わる。</div><button class="bigbtn endReplay" onclick="restart()">もう一度、最初から</button></div></section></div>`;
+  const story=endingStoryMeta(current,e);
+  app.innerHTML=`<div class="spark"></div><div class="app endApp"><div class="top"><img class="logo" src="${U['ui/logo_title.png']}"><button class="iconbtn heart cleanTopBtn" onclick="openLog()" aria-label="ログ">♡</button><button class="iconbtn menu cleanTopBtn" onclick="openMenu()" aria-label="メニュー">≡</button></div><section class="brightEnd relationEnd"><div class="endKicker">♡ RELATION RESULT</div><div class="endHero"><img class="endBg" src="${U['backgrounds/18_happy_end.png']}" alt=""><div class="endVeil"></div><img class="endAvatar" src="${av}" alt="しゅり"></div><div class="endBody"><div class="relationLevel"><small>RELATIONSHIP</small><b>Lv.${e.lv}　${esc(e.title)}</b><span>${hearts}</span></div><div class="endDialogue"><span>しゅり</span><b>${esc(e.line)}</b></div><div class="storyEnding"><div class="storyEndingPart"><small>その時</small><p>${esc(story.immediate)}</p></div><div class="storyEndingPart"><small>その後</small><p>${esc(story.after)}</p></div><div class="storyEndingPart final"><small>ふたりの結末</small><p>${esc(story.final)}</p></div></div><div class="endMessage">選んだ言葉は、その場だけじゃなく、その後の距離まで変えていく。</div><button class="bigbtn endReplay" onclick="restart()">もう一度、最初から</button></div></section></div>`;
   applyVars();
   window.scrollTo({top:0,behavior:'instant'});
 }
