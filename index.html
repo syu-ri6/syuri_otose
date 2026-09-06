@@ -2261,6 +2261,22 @@ html,body{height:100%;overflow:hidden}
 
 /* Relationship ending: show what Shuri actually does, not a personality diagnosis. */
 .relationEnd .endBody{padding-top:14px}.relationLevel{display:grid;gap:4px;margin-bottom:12px;padding:12px 14px;border:2px solid #efbdd7;border-radius:18px;background:linear-gradient(135deg,#fff,#fff4fa)}.relationLevel small{font-size:8px;letter-spacing:.14em;color:#a67b95;font-weight:1000}.relationLevel b{font-size:20px;color:#ad4e7f;line-height:1.2}.relationLevel span{font-size:12px;letter-spacing:.08em;color:#ec6eac}.endDialogue{position:relative;margin:10px 0 12px;padding:30px 14px 15px;border-radius:18px;background:#fff;border:2px solid #efbdd7;box-shadow:0 6px 0 #efc8da66}.endDialogue span{position:absolute;left:12px;top:8px;padding:3px 9px;border-radius:999px;background:#ec75b5;color:#fff;font-size:9px;font-weight:1000}.endDialogue b{display:block;font-size:15px;line-height:1.55;color:#52394b}.afterStory{white-space:pre-wrap;padding:14px;border-radius:16px;background:#fff8fc;color:#654c5f;font-size:12px;line-height:1.75;font-weight:850}.endReplay{margin-top:12px}
+
+/* ===== final dialogue label fix ===== */
+.dialog{padding-top:10px!important;}
+.dialog .speaker{
+  position:static!important;
+  display:block!important;
+  width:max-content!important;
+  min-height:22px!important;
+  margin:0 0 8px 0!important;
+  padding:4px 10px!important;
+  line-height:1.1!important;
+  border-radius:999px!important;
+  background:linear-gradient(135deg,#ef77bf,#c48bea)!important;
+  color:#fff!important;
+  z-index:auto!important;
+}
 </style><!-- GitHub Pages / Safari playable build -->
 </head><body><div id="app"></div>
 
@@ -2372,7 +2388,7 @@ function firstChoiceHtml(opts){
 
 function renderPrologueScene(s){
   let step=0,locked=false;
-  const normal=U[avatarMap.normal], confused=U[avatarMap.confused];
+  const normal=U[avatarMap.normal], good=U[avatarMap.good], confused=U[avatarMap.confused], nope=U[avatarMap.nope];
   app.innerHTML=`
     <div class="storyPrologue" id="storyPrologue">
       <div class="prologueSky"></div>
@@ -2402,10 +2418,11 @@ function renderPrologueScene(s){
     step++;
     if(step===1){
       kicker.textContent='配信終了まで、あと少し。';
+      av.src=good;
       showLine('しゅり','次も回復しましょ！あっぷっぷ！ばいび！');
       next.textContent='配信を終わる';
     }else if(step===2){
-      line.hidden=true; kicker.textContent=''; live.style.opacity='0'; viewer.style.opacity='0';
+      line.hidden=true; kicker.textContent=''; live.style.opacity='0'; viewer.style.opacity='0'; av.src=normal;
       showSystem('配信を終了しました。','closed');
       next.textContent='……';
     }else if(step===3){
@@ -2421,6 +2438,7 @@ function renderPrologueScene(s){
       },1150);
     }else if(step===4){
       kicker.className='storyKicker anomalyTitle'; kicker.textContent='視聴者数：1　／　LIVE：継続中';
+      av.src=nope;
       showLine('しゅり','てか私も終われないんだけどww 何これ？？？');
       showSystem('接続解除条件：対象プレイヤーとの関係値を上昇させてください。','error');
       next.textContent='本編へ';
