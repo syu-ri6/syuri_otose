@@ -2440,6 +2440,40 @@ html,body,button,input,textarea,select,.app,.firstPage,.storyPrologue,.endApp{
   .endingCinematic .storyAvatar{height:147%!important;bottom:-37%}
 }
 
+
+/* ===== VISUAL POLISH: avatar size / title lower layer / font lock ===== */
+.firstAvatar[src*="asset_shuri_pose_"]{
+  transform:translateX(-50%) scale(1.38)!important;
+  transform-origin:50% 70%!important;
+}
+.stage .avatar[src*="asset_shuri_pose_"]{
+  transform:translateX(-50%) scale(1.34)!important;
+  transform-origin:50% 70%!important;
+}
+.firstStage,.stage{overflow:hidden!important;}
+.title-v4-front{
+  position:absolute!important;
+  inset:0!important;
+  z-index:6!important;
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+  clip-path:inset(72.2% 0 0 0)!important;
+  -webkit-clip-path:inset(72.2% 0 0 0)!important;
+  pointer-events:none!important;
+}
+html,body,
+button,input,textarea,select,
+.app,.firstPage,.storyPrologue,.endingCinematic,.endApp,
+.panel,.opTitle,.opExplain,.bigbtn,.choice,.firstChoice,
+.row,.row button,.tagPick,.movingWord,.chaseChoice,
+.memoryBtn,.quoteBtn,.quietAction,.readNotify,.revealCard,
+.assistPiece,.stanceCards button,.dualButtons button,.flashCard{
+  font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif!important;
+  font-style:normal!important;
+}
+button,input,textarea,select{-webkit-appearance:none;}
+
 </style><!-- GitHub Pages / Safari playable build -->
 </head><body><div id="app"></div>
 
@@ -2906,36 +2940,29 @@ function renderOp(s,opts,mode){
   }
   op.innerHTML=choiceHtml(opts);
 }
-function endingStoryMeta(id,e){
-  const immediateByLv={
-    0:'そのやり取りを境に、会話はそこで止まった。しゅりから次の話題が送られてくることもなかった。',
-    1:'その場では会話を続けた。でも、しゅりは少しだけ言葉を選ぶようになった。前までなら話していたことを、飲み込む瞬間が増えていく。',
-    2:'やり取りは普通に続いた。笑うこともあるし、返信も来る。ただ、どちらからも一歩踏み込む理由は生まれなかった。',
-    3:'会話は自然に続いていった。困った時には話せるし、一緒に笑える。でも、その安心はまだ恋とは少し違っていた。',
-    4:'少しずつ、しゅりの方から話しかける回数が増えた。用事がなくても、あなたの反応を見たくなる瞬間が生まれ始めた。',
-    5:'その日から、ふたりの距離ははっきり変わった。しゅりはあなたとの時間を「楽しい」だけじゃなく、特別なものとして意識し始めた。',
-    6:'しゅりの方から連絡が来るのが、珍しいことではなくなった。面白かったものも、どうでもいい話も、最初にあなたへ送りたくなる。',
-    7:'いつの間にか、待つ側と追う側が逆転していた。しゅりは理由もなくあなたを探し、話せない日を少し物足りなく感じるようになった。'
+function endingAnalysisMeta(id,e){
+  const byLv={
+    0:{why:'会話の中で「安心して話せる相手」という感覚が作れず、しゅり側が関係を続ける理由を失った。',key:'内面を軽く扱う・突っぱねる・相手のペースを無視する返しが重なると、しゅりは自分から話さなくなる。',memo:'近づくより先に、「この人には話して大丈夫」が必要。'},
+    1:{why:'理解しようとする気持ちはあっても、しゅり本人より先に気持ちや答えを決めてしまう場面が多かった。',key:'仮説そのものより、「それを本人の答えとして確定すること」が引っかかりになった。',memo:'分かったつもりで終わらず、「違うかも」を残して確認できると距離は縮まりやすい。'},
+    2:{why:'嫌われてはいない。でも、しゅりの中で「もっとこの人を知りたい」と思う決定打が足りなかった。',key:'無難な返しは安全だけど、自分の意見・熱量・具体性が薄いと恋愛の刺激が生まれにくい。',memo:'合わせるだけじゃなく、自分の考えや好みもちゃんと見せる。'},
+    3:{why:'安心感は十分に作れた。ただし、その安心が恋愛ではなく「話しやすい友達」に着地した。',key:'優しさや理解は高かった一方で、あなた自身の欲求や恋愛としての踏み込みが弱かった。',memo:'聞き役だけで終わらず、「私はこう思う」「もっと話したい」も少しずつ出す。'},
+    4:{why:'しゅりの内面を尊重しつつ、自分の意見も見せられたことで「他の人と少し違う」が生まれた。',key:'安心だけでなく、好奇心が動き始めている。ただ、恋愛として確定する一歩はまだ残っている。',memo:'今の距離感を壊さず、具体的な好意や自分の弱さを少し足すと恋愛側へ進みやすい。'},
+    5:{why:'理解・安心・自分の意見のバランスが取れ、しゅりが「この人ともっと近づきたい」と思えるところまで来た。',key:'相手を決めつけず、それでも曖昧なまま逃げない返しが恋愛の熱につながった。',memo:'しゅりを読むだけじゃなく、自分の気持ちも同じくらい言葉にできたのが強い。'},
+    6:{why:'安心、好奇心、尊敬、相互性がかなり高い。しゅり側から関係を動かしたくなる状態まで育った。',key:'「分かってくれる」だけでなく、「この人自身にも惹かれる」が成立している。',memo:'恋愛の主導権が片側ではなくなり、しゅりからも話したい・会いたいが出る関係。'},
+    7:{why:'しゅりを理解しようとしながら決めつけず、自分の意見・熱量・境界線も失わなかった。',key:'安心 + 好奇心 + 尊敬 + 相互性が全部そろい、攻略する側とされる側が完全に反転した。',memo:'しゅり中心に自分を消さなかったからこそ、しゅり側に「もっと近づきたい」が生まれた。'}
   };
-  const finalByLv={
-    0:'ふたりの関係は、ここで終わった。',
-    1:'関係は切れなかった。でも、しゅりはあなたとの間に一歩分の距離を置くようになった。',
-    2:'ふたりは「たまに話す人」のまま。近づきもしないし、嫌いにもならない距離に落ち着いた。',
-    3:'ふたりは友達になった。安心はある。でも、恋愛の扉はまだ開かなかった。',
-    4:'あなたは、しゅりにとって「ちょっと気になる人」になった。ここから先は、まだ始まっていない。',
-    5:'しゅりはあなたを好きになった。ふたりは、恋愛として次に進める距離までたどり着いた。',
-    6:'しゅりの気持ちは、もうかなりあなた側に傾いている。話したい、会いたいを、しゅりの方から言う関係になった。',
-    7:'攻略完了。しゅりの方があなたを追いかける関係になった。'
+  const special={
+    end_rescue:{why:'助けようとする気持ちは伝わった。でも、先回りしすぎてしゅり自身の選ぶ余地を減らしてしまった。',key:'「何でもしてあげる」より、候補を出して最後は本人に戻す方が安心につながる。',memo:'支えることと、決めることは別。'},
+    end_mindread:{why:'気持ちを当てようとしたことで、「私がまだ決めてないことまで決められた」感覚が残った。',key:'感情ラベルを先に置くより、事実や本人の言葉から確認する方がしゅりには合う。',memo:'「寂しかった？」より「どうだった？」の余白が強い。'},
+    end_analysis:{why:'分析の精度より、分析を本人の答えとして確定したことが距離を作った。',key:'しゅりは原因を知りたい。でも、他人に自分を完成形として定義されるのは苦手。',memo:'仮説は歓迎。断定は窮屈。'},
+    end_label:{why:'恋愛感情や性格を名前で決めたことで、しゅりが自分で意味を決める余白がなくなった。',key:'「好きなんじゃない？」と決めるより、今出ている言葉をそのまま受け取る方が近づける。',memo:'答えを急がないことも、親密さ。'},
+    end_overkind:{why:'優しさは十分に届いた。でも、合わせる・受け止めるだけで、あなた自身の輪郭が薄くなった。',key:'安心感は友達としてかなり高い。ただ、恋愛には「相手を知りたい」と思う刺激も必要。',memo:'優しい理解者から恋愛へ行くには、自分の欲求も見せる。'},
+    end_recovery_true:{why:'一度ズレたあと、謝るだけでなく実際の行動を変えたことで「問題が起きても戻れる人」になった。',key:'完璧さではなく、修復できる予測可能性が強い安心につながった。',memo:'失敗しないことより、ズレた後に直せること。'},
+    end_mystery_true:{why:'しゅり本人にも説明できない感情を、無理に解明せずそのまま置いておけた。',key:'昨日と今日で違っても矛盾扱いせず、その時の本人を見続けたことが安心につながった。',memo:'答えが出ないままでも一緒にいられるのは強い。'},
+    end_zokkon:{why:'理解・安心・熱量・相互性のバランスが最も高く、しゅり側から関係を動かしたくなるところまで到達した。',key:'「しゅりに合わせる人」ではなく、しゅりを尊重しながら自分の世界と意見も持っていたことが決定打。',memo:'攻略対象、完全反転。今度はしゅりがあなたを追う側。'}
   };
-  let immediate=immediateByLv[e.lv]||immediateByLv[3];
-  let final=finalByLv[e.lv]||finalByLv[3];
-  if(id==='end_rescue') immediate='あなたの優しさはちゃんと伝わった。でも、その優しさが少し先回りしすぎて、しゅりは「そこまでしなくて大丈夫」と一歩引いた。';
-  if(id==='end_mindread'||id==='end_analysis'||id==='end_label') immediate='気持ちを分かってもらえる安心より先に、「私の気持ちを決められたかも」という引っかかりが残った。しゅりは少しずつ、説明する言葉を減らしていった。';
-  if(id==='end_overkind') immediate='優しくしてもらえることは嬉しかった。だからこそ、しゅりはあなたを安心できる人として大切にした。ただ、その安心は恋愛の熱には変わらなかった。';
-  if(id==='end_zokkon') final='攻略対象、完全反転。しゅりの方から「今日話せる？」「会いたい」が飛んでくる関係になった。';
-  return {immediate,after:e.after,final};
+  return special[id]||byLv[e.lv]||byLv[3];
 }
-
 function endingFrames(id,e){
   const lowBg=U['backgrounds/01_room_night_after_stream.png'];
   const warmBg=U['backgrounds/18_happy_end.png'];
@@ -3036,8 +3063,8 @@ function renderEndingStory(e,id){
 function renderRelationResult(e,id){
   const av=avatarForEndingLevel(e.lv);
   const hearts='♥'.repeat(Math.max(1,e.lv));
-  const story=endingStoryMeta(id,e);
-  app.innerHTML=`<div class="spark"></div><div class="app endApp"><div class="top"><img class="logo" src="${U['ui/logo_title.png']}"><button class="iconbtn heart cleanTopBtn" onclick="openLog()" aria-label="ログ">♡</button><button class="iconbtn menu cleanTopBtn" onclick="openMenu()" aria-label="メニュー">≡</button></div><section class="brightEnd relationEnd"><div class="endKicker">♡ RELATION RESULT</div><div class="endHero"><img class="endBg" src="${U['backgrounds/18_happy_end.png']}" alt=""><div class="endVeil"></div><img class="endAvatar" src="${av}" alt="しゅり"></div><div class="endBody"><div class="relationLevel"><small>RELATIONSHIP</small><b>Lv.${e.lv}　${esc(e.title)}</b><span>${hearts}</span></div><div class="endDialogue"><span>しゅり</span><b>${esc(e.line)}</b></div><div class="storyEnding"><div class="storyEndingPart"><small>その時</small><p>${esc(story.immediate)}</p></div><div class="storyEndingPart"><small>その後</small><p>${esc(story.after)}</p></div><div class="storyEndingPart final"><small>ふたりの結末</small><p>${esc(story.final)}</p></div></div><div class="endMessage">最初は事故でつながった。でも最後に残った距離は、あなたが選んだもの。</div><button class="bigbtn endReplay" onclick="restart()">もう一度、最初から</button></div></section></div>`;
+  const analysis=endingAnalysisMeta(id,e);
+  app.innerHTML=`<div class="spark"></div><div class="app endApp"><div class="top"><img class="logo" src="${U['ui/logo_title.png']}"><button class="iconbtn heart cleanTopBtn" onclick="openLog()" aria-label="ログ">♡</button><button class="iconbtn menu cleanTopBtn" onclick="openMenu()" aria-label="メニュー">≡</button></div><section class="brightEnd relationEnd"><div class="endKicker">♡ RELATION RESULT</div><div class="endHero"><img class="endBg" src="${U['backgrounds/18_happy_end.png']}" alt=""><div class="endVeil"></div><img class="endAvatar" src="${av}" alt="しゅり"></div><div class="endBody"><div class="relationLevel"><small>RELATIONSHIP</small><b>Lv.${e.lv}　${esc(e.title)}</b><span>${hearts}</span></div><div class="endDialogue"><span>しゅり</span><b>${esc(e.line)}</b></div><div class="storyEnding analysisEnding"><div class="storyEndingPart"><small>なぜこの結果？</small><p>${esc(analysis.why)}</p></div><div class="storyEndingPart"><small>今回の分岐ポイント</small><p>${esc(analysis.key)}</p></div><div class="storyEndingPart final"><small>しゅり攻略メモ</small><p>${esc(analysis.memo)}</p></div></div><div class="endMessage">エピローグは「何が起きたか」。ここは「なぜこの距離になったか」の解説。</div><button class="bigbtn endReplay" onclick="restart()">もう一度、最初から</button></div></section></div>`;
   applyVars(); window.scrollTo({top:0,behavior:'instant'});
 }
 
