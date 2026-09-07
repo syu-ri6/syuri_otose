@@ -2587,6 +2587,22 @@ input.gameRange[type="range"]::-moz-range-thumb{
   text-align:center!important;
 }
 
+
+/* ===== FINAL FONT LOCK ===== */
+:root{
+  --syuri-font:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic","YuGothic",Meiryo,sans-serif;
+}
+html,body,
+body *,
+body *::before,
+body *::after,
+button,input,textarea,select,option{
+  font-family:var(--syuri-font)!important;
+}
+button,input,textarea,select{
+  font:inherit;
+}
+
 </style><!-- GitHub Pages / Safari playable build -->
 </head><body><div id="app"></div>
 
