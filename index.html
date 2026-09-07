@@ -2509,6 +2509,84 @@ html,body,body *{
 }
 button,input,textarea,select{font-family:inherit!important}
 
+
+
+/* ===== GIMMICK UI FIX: Safari font / range track / readable moving cards ===== */
+/* Safari ignored several old `font: ... inherit` shorthands, so force all
+   special-choice text to the same game typography explicitly. */
+.memoryBtn,.quoteBtn,.movingWord,.chaseChoice,.tagPick,
+.revealCard,.assistPiece,.stanceCards button,.dualButtons button,.flashCard,
+.quietAction,.readNotify,.row button,.opt,.orderPick,.distanceCards button{
+  font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif!important;
+  font-style:normal!important;
+  font-weight:850!important;
+  letter-spacing:0!important;
+}
+.memoryBtn,.quoteBtn{
+  font-size:10.4px!important;
+  line-height:1.42!important;
+}
+.movingWord,.chaseChoice{
+  font-size:9.8px!important;
+  line-height:1.28!important;
+  font-weight:900!important;
+}
+
+/* Restore a clearly visible range bar on iPhone Safari. */
+input.gameRange[type="range"]{
+  -webkit-appearance:none!important;
+  appearance:none!important;
+  width:100%!important;
+  height:30px!important;
+  margin:7px 0 5px!important;
+  padding:0!important;
+  background:transparent!important;
+  accent-color:#d97db8!important;
+}
+input.gameRange[type="range"]::-webkit-slider-runnable-track{
+  height:8px!important;
+  border-radius:999px!important;
+  background:linear-gradient(90deg,#f5b4d3 0%,#dc83bf 50%,#b99eea 100%)!important;
+  border:1px solid rgba(207,133,180,.42)!important;
+  box-shadow:inset 0 1px 2px rgba(92,56,83,.10)!important;
+}
+input.gameRange[type="range"]::-webkit-slider-thumb{
+  -webkit-appearance:none!important;
+  appearance:none!important;
+  width:24px!important;
+  height:24px!important;
+  margin-top:-9px!important;
+  border-radius:50%!important;
+  border:3px solid #fff!important;
+  background:linear-gradient(135deg,#ff76b7,#b292eb)!important;
+  box-shadow:0 3px 9px rgba(151,83,130,.28)!important;
+}
+input.gameRange[type="range"]::-moz-range-track{
+  height:8px!important;border-radius:999px!important;
+  background:linear-gradient(90deg,#f5b4d3,#dc83bf,#b99eea)!important;
+}
+input.gameRange[type="range"]::-moz-range-thumb{
+  width:20px!important;height:20px!important;border-radius:50%!important;
+  border:3px solid #fff!important;background:#d67fb9!important;
+}
+
+/* Long moving answers stay readable instead of flying half off-screen. */
+.chaseChoice.longMove{
+  width:58%!important;
+  max-width:58%!important;
+  min-height:48px!important;
+  padding:8px 10px!important;
+  white-space:normal!important;
+  text-align:center!important;
+  border:2px solid #e0a3c6!important;
+  box-shadow:0 5px 13px rgba(151,84,130,.16)!important;
+}
+.movingWord.longMove{
+  max-width:52%!important;
+  white-space:normal!important;
+  text-align:center!important;
+}
+
 </style><!-- GitHub Pages / Safari playable build -->
 </head><body><div id="app"></div>
 
@@ -2822,8 +2900,8 @@ function renderOp(s,opts,mode){
   const goIdx=(i,note='')=>{const t=opts[Math.max(0,Math.min(i,opts.length-1))]||opts[0];go(t.to,(note?note+' ':'')+t.text)};
   if(mode==='choice'){op.innerHTML=choiceHtml(opts);return;}
   if(mode==='pickword'){
-    op.innerHTML=`<div class="panel"><div class="opTitle">👀 どこを最初に拾う？</div><div class="opExplain">今いちばん引っかかった言葉を追ってタップ。</div><div class="wordArena" id="wordArena">${opts.map((o,i)=>`<button class="movingWord" data-i="${i}">${esc(o.text)}</button>`).join('')}</div></div>`;
-    const a=$('#wordArena'),bs=[...a.querySelectorAll('.movingWord')];let t=0;const mv=()=>{t+=.045;bs.forEach((b,i)=>{b.style.left=(50+Math.sin(t*(1.1+i*.15)+i*2.1)*34)+'%';b.style.top=(50+Math.cos(t*(.9+i*.12)+i*1.7)*30)+'%'});if(document.body.contains(a))requestAnimationFrame(mv)};mv();bs.forEach(b=>b.onclick=()=>goIdx(+b.dataset.i,'［最初に拾った言葉］'));return;
+    op.innerHTML=`<div class="panel"><div class="opTitle">👀 どこを最初に拾う？</div><div class="opExplain">今いちばん引っかかった言葉を追ってタップ。</div><div class="wordArena" id="wordArena">${opts.map((o,i)=>`<button class="movingWord ${o.text.length>10?'longMove':''}" data-i="${i}">${esc(o.text)}</button>`).join('')}</div></div>`;
+    const a=$('#wordArena'),bs=[...a.querySelectorAll('.movingWord')];let t=0;const mv=()=>{t+=.032;bs.forEach((b,i)=>{const long=b.classList.contains('longMove');const ax=long?16:28,ay=long?20:26;b.style.left=(50+Math.sin(t*(1.1+i*.15)+i*2.1)*ax)+'%';b.style.top=(50+Math.cos(t*(.9+i*.12)+i*1.7)*ay)+'%'});if(document.body.contains(a))requestAnimationFrame(mv)};mv();bs.forEach(b=>b.onclick=()=>goIdx(+b.dataset.i,'［最初に拾った言葉］'));return;
   }
   if(mode==='flashpick'){
     const labels=opts.map(o=>o.text);
@@ -2965,7 +3043,7 @@ function renderOp(s,opts,mode){
     op.innerHTML=`<div class="panel"><div class="opTitle">♡ 今、どこまで近づく？</div><div class="opExplain">余白を残すか、そのままか、もう一歩だけ行くか。</div><div class="distanceAxis"><span>余白</span><span>そのまま</span><span>一歩</span></div><input id="distanceRange" class="distanceRange" type="range" min="0" max="100" value="50"><div id="distanceMeaning" class="distanceMeaning">今の距離にいる</div><button id="distanceSend" class="bigbtn">この距離で続ける</button></div>`;const r=$('#distanceRange');r.oninput=()=>$('#distanceMeaning').textContent=+r.value<35?'今は追わず余白を残す':+r.value>65?'もう一歩だけ踏み込む':'今の距離にいる';$('#distanceSend').onclick=()=>{const v=+r.value;goIdx(v<35?0:v>65?2:1,'［距離 '+Math.round(v)+'%］')};return;
   }
   if(mode==='chase'){
-    op.innerHTML=`<div class="panel"><div class="opTitle">⚠️ 電車が来る</div><div class="opExplain">選びたい返事を見失わないで。カードは動き続ける。</div><div class="chaseTimer">残り <b id="chaseSec">7.0</b> 秒</div><div class="chaseArena" id="chaseArena">${opts.map((o,i)=>`<button class="chaseChoice" data-i="${i}">${esc(o.text)}</button>`).join('')}</div></div>`;const a=$('#chaseArena'),bs=[...a.querySelectorAll('.chaseChoice')],st=performance.now();let alive=true;const mv=()=>{if(!alive)return;const now=performance.now(),rem=Math.max(0,7000-(now-st));$('#chaseSec').textContent=(rem/1000).toFixed(1);bs.forEach((b,i)=>{const t=now/470+i*2.4;b.style.left=(50+Math.sin(t*.91+i)*34)+'%';b.style.top=(50+Math.cos(t*1.13+i*.7)*30)+'%'});if(rem<=0){alive=false;goIdx(0,'［時間切れ］');return}requestAnimationFrame(mv)};mv();bs.forEach(b=>b.onclick=()=>{if(!alive)return;alive=false;goIdx(+b.dataset.i,'［焦る中で追って選んだ］')});return;
+    op.innerHTML=`<div class="panel"><div class="opTitle">⚠️ 電車が来る</div><div class="opExplain">選びたい返事を見失わないで。長い返事はゆっくり動く。</div><div class="chaseTimer">残り <b id="chaseSec">8.0</b> 秒</div><div class="chaseArena" id="chaseArena">${opts.map((o,i)=>`<button class="chaseChoice ${o.text.length>13?'longMove':''}" data-i="${i}">${esc(o.text)}</button>`).join('')}</div></div>`;const a=$('#chaseArena'),bs=[...a.querySelectorAll('.chaseChoice')],st=performance.now();let alive=true;const mv=()=>{if(!alive)return;const now=performance.now(),rem=Math.max(0,8000-(now-st));$('#chaseSec').textContent=(rem/1000).toFixed(1);bs.forEach((b,i)=>{const long=b.classList.contains('longMove');const t=now/(long?1050:620)+i*2.4;const ampX=long?13:24,ampY=long?18:26;b.style.left=(50+Math.sin(t*.91+i)*ampX)+'%';b.style.top=(50+Math.cos(t*1.13+i*.7)*ampY)+'%'});if(rem<=0){alive=false;goIdx(0,'［時間切れ］');return}requestAnimationFrame(mv)};mv();bs.forEach(b=>b.onclick=()=>{if(!alive)return;alive=false;goIdx(+b.dataset.i,'［焦る中で追って選んだ］')});return;
   }
   if(mode==='specifics'){
     const words=['考え方','本気なところ','ふざけ方','優しさ','振れ幅','かわいさ'];let chosen=[];op.innerHTML=`<div class="panel"><div class="opTitle">♡ 具体的に2つ選ぶ</div><div class="opExplain">「全部」じゃなく、どこを好きだと思っているか。</div><div class="tagGrid">${words.map(w=>`<button class="tagPick" data-w="${w}">${w}</button>`).join('')}</div><button id="specSend" class="bigbtn" disabled>2つ選んで伝える</button></div>`;op.querySelectorAll('.tagPick').forEach(b=>b.onclick=()=>{const w=b.dataset.w;if(chosen.includes(w)){chosen=chosen.filter(x=>x!==w);b.classList.remove('on')}else if(chosen.length<2){chosen.push(w);b.classList.add('on')}$('#specSend').disabled=chosen.length!==2});$('#specSend').onclick=()=>{const c=chosen.join('・'),i=/考え方|振れ幅|本気/.test(c)?0:/かわいさ|優しさ/.test(c)?1:2;goIdx(i,'［好きなところ：'+c+'］')};return;
