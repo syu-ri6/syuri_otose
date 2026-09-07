@@ -2406,6 +2406,40 @@ html,body,button,input,textarea,select,.app,.firstPage,.storyPrologue,.endApp{
   pointer-events:none;
 }
 
+
+/* ===== CLEAN TITLE LAYER FIX ===== */
+.title-v4-canvas::before,.title-v4-canvas::after{content:none!important;display:none!important}
+.title-v4-front{position:absolute!important;inset:0!important;z-index:6!important;width:100%!important;height:100%!important;object-fit:cover!important;clip-path:inset(75% 9.5% 13% 9.5% round 999px)!important;-webkit-clip-path:inset(75% 9.5% 13% 9.5% round 999px)!important;pointer-events:none!important}
+.storyVeil{background:linear-gradient(180deg,rgba(255,255,255,.015),rgba(255,238,248,.05))!important}
+.storyKicker{background:#fffafc!important;opacity:1!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+.storyAvatar{opacity:1!important;visibility:visible!important;mix-blend-mode:normal!important}
+
+
+
+/* ===== CINEMATIC ENDING STORY ===== */
+.endingCinematic{
+  width:min(100%,460px);
+  height:100dvh;
+  margin:auto;
+  position:relative;
+  overflow:hidden;
+  padding:calc(env(safe-area-inset-top) + 8px) 10px calc(env(safe-area-inset-bottom) + 10px);
+  background:linear-gradient(180deg,#fff7fb,#f3eaf8);
+}
+.endingCinematic .storyHero{height:55dvh;min-height:360px;max-height:500px}
+.endingCinematic .storyAvatar{bottom:-31%;height:142%!important}
+.endingCinematic .storyKicker{margin-top:-42px}
+.endingCinematic .endingFade{position:absolute;inset:0;z-index:18;pointer-events:none;background:#fff;opacity:0;transition:opacity .42s ease}
+.endingCinematic.fading .endingFade{opacity:.96}
+.endingCinematic .endingResultHint{position:absolute;right:17px;top:calc(env(safe-area-inset-top) + 17px);z-index:5;color:#b38aa4;font-size:6.5px;font-weight:1000;letter-spacing:.15em}
+.endingCinematic .endingSystemWarm{background:#fff1f8!important;border-color:#efb4d2!important;color:#9e4d78!important}
+.endingCinematic .endingSystemQuiet{background:#f5f5f7!important;border-color:#ddd!important;color:#737078!important}
+.endingCinematic .endingSystemLove{background:linear-gradient(135deg,#fff0f7,#f3edff)!important;border-color:#e7acd0!important;color:#9d4f7b!important}
+@media(max-height:720px){
+  .endingCinematic .storyHero{height:50dvh;min-height:315px}
+  .endingCinematic .storyAvatar{height:147%!important;bottom:-37%}
+}
+
 </style><!-- GitHub Pages / Safari playable build -->
 </head><body><div id="app"></div>
 
@@ -2417,7 +2451,7 @@ html,body,button,input,textarea,select,.app,.firstPage,.storyPrologue,.endApp{
     <img class="title-v4-avatar" src="asset_f79afdfc1e01.png" alt="しゅり">
 
     <!-- ボタンだけ前面に戻す。これで脚がボタンの後ろを通って下へ続く -->
-    <img class="title-v4-front" src="asset_9078ff85edf3.png" alt="" aria-hidden="true">
+    <img class="title-v4-front" src="asset_e23a99f461ac.png" alt="" aria-hidden="true">
 
     <button class="title-v4-start-hit" type="button"
       onclick="startGame()" aria-label="しゅりを落としにいく"></button>
@@ -2429,6 +2463,70 @@ const U={"SOURCE_asset_sheet.png":"asset_77e4ca09b7e3.png","avatars/shuri_good.p
 const $=s=>document.querySelector(s);
 const app=$('#app'); let current='s0'; let log=[];
 const avatarMap={normal:'avatars/shuri_normal.png',good:'avatars/shuri_good.png',interest:'avatars/shuri_interest.png',shy:'avatars/shuri_shy.png',confused:'avatars/shuri_confused.png',nope:'avatars/shuri_nope.png',zokkon:'avatars/shuri_zokkon.png'};
+
+/* Additional Shuri pose set supplied by the user. Title art remains unchanged. */
+const POSE={
+  neutralClose:'asset_shuri_pose_neutral_close.png',
+  fists:'asset_shuri_pose_fists.png',
+  coverface:'asset_shuri_pose_coverface.png',
+  heart:'asset_shuri_pose_heart.png',
+  covermouth:'asset_shuri_pose_covermouth.png',
+  point:'asset_shuri_pose_point.png',
+  fingerheart:'asset_shuri_pose_fingerheart.png',
+  chin:'asset_shuri_pose_chin.png',
+  shush:'asset_shuri_pose_shush.png',
+  wave:'asset_shuri_pose_wave.png',
+  surprised:'asset_shuri_pose_surprised.png',
+  please:'asset_shuri_pose_please.png',
+  neutralFull:'asset_shuri_pose_neutral_full.png'
+};
+const poseByExpr={
+  normal:POSE.neutralClose,
+  good:POSE.wave,
+  interest:POSE.point,
+  shy:POSE.fingerheart,
+  confused:POSE.surprised,
+  nope:POSE.coverface,
+  zokkon:POSE.shush
+};
+const scenePoseOverrides={
+  s0:POSE.wave,
+  s1h:POSE.chin,
+  s2h:POSE.chin,s2m:POSE.neutralClose,s2l:POSE.chin,
+  s3h:POSE.neutralClose,s3m:POSE.chin,s3l:POSE.surprised,
+  s4h:POSE.fists,s4m:POSE.fists,s4l:POSE.fists,
+  s5h:POSE.wave,s5m:POSE.neutralClose,s5l:POSE.neutralFull,
+  s6h:POSE.please,s6m:POSE.please,s6l:POSE.coverface,
+  s7h:POSE.point,s7m:POSE.point,s7l:POSE.point,
+  s8h:POSE.neutralClose,s8m:POSE.chin,s8l:POSE.neutralFull,
+  s9h:POSE.surprised,s9m:POSE.covermouth,s9l:POSE.surprised,
+  s10h:POSE.chin,s10m:POSE.neutralClose,s10l:POSE.coverface,
+  s11h:POSE.neutralFull,s11m:POSE.neutralClose,s11l:POSE.coverface,
+  s12h:POSE.wave,s12m:POSE.neutralClose,s12l:POSE.neutralFull,
+  s13praise:POSE.fists,s13praise_h:POSE.fists,s13praise_m:POSE.wave,s13praise_l:POSE.chin,
+  s14h:POSE.heart,s14m:POSE.fingerheart,s14l:POSE.chin,
+  s15h:POSE.fingerheart,s15m:POSE.heart,s15l:POSE.covermouth,
+  s16h:POSE.heart,s16m:POSE.chin,s16l:POSE.coverface,
+  s17h:POSE.wave,s17m:POSE.neutralClose,s17l:POSE.neutralFull,
+  s18h:POSE.fingerheart,s18m:POSE.heart,s18l:POSE.chin,
+  s19h:POSE.shush,s19m:POSE.fingerheart,s19l:POSE.neutralFull,
+  s20h:POSE.shush,s20m:POSE.heart,s20l:POSE.covermouth,
+  m1:POSE.chin,m2:POSE.neutralClose,m3:POSE.surprised,m4:POSE.fingerheart,m5:POSE.heart,m6:POSE.shush
+};
+function avatarForScene(s){
+  if(!s)return POSE.neutralClose;
+  return scenePoseOverrides[s.id]||poseByExpr[s.expr]||POSE.neutralClose;
+}
+function avatarForEndingLevel(lv){
+  if(lv<=0)return POSE.coverface;
+  if(lv===1)return POSE.covermouth;
+  if(lv===2)return POSE.neutralFull;
+  if(lv===3)return POSE.wave;
+  if(lv===4)return POSE.point;
+  if(lv===5)return POSE.heart;
+  if(lv===6)return POSE.fingerheart;
+  return POSE.shush;
+}
 function shuffle(a){
   a=[...a];
   if(a.length<3){
@@ -2499,7 +2597,7 @@ function contextualModes(s){
 }
 function modeFor(s){return contextualModes(s)[0]||'choice';}
 function go(id,answer=''){if(!SCENES[id])return;if(answer)log.push({scene:current,answer});current=id;render();requestAnimationFrame(()=>{window.scrollTo(0,0);if(document.scrollingElement)document.scrollingElement.scrollTop=0;})}
-function frame(s,reply){return `<div class="spark"></div><div class="app"><div class="top"><img class="logo" src="${U['ui/logo_title.png']}"><button class="iconbtn heart" onclick="openLog()"></button><button class="iconbtn menu" onclick="openMenu()"></button></div><div class="subtop"><div class="nameplate"></div><div class="dayplate"></div></div><div class="system"></div><div class="stage"><img class="bg" src="${U['backgrounds/01_room_night_after_stream.png']}"><div class="veil"></div><img class="avatar" src="${U[avatarMap[s.expr]||avatarMap.normal]}"><div class="live"></div><div class="affPremium" aria-label="好感度64パーセント"><div class="affTop"><span>♡ 好感度</span><b>64%</b></div><div class="affTrack"><i></i><em>♥</em></div></div><div class="time">☾ しゅりとの時間</div></div><div class="scene"><div class="sceneBar">${esc(s.prologue)}</div><div class="dialog"><span class="speaker">しゅりから</span>${esc(s.text)}</div>${reply}</div><div class="footer">♥　SYURI LOVE SIMULATION　♥</div></div>`}
+function frame(s,reply){return `<div class="spark"></div><div class="app"><div class="top"><img class="logo" src="${U['ui/logo_title.png']}"><button class="iconbtn heart" onclick="openLog()"></button><button class="iconbtn menu" onclick="openMenu()"></button></div><div class="subtop"><div class="nameplate"></div><div class="dayplate"></div></div><div class="system"></div><div class="stage"><img class="bg" src="${U['backgrounds/01_room_night_after_stream.png']}"><div class="veil"></div><img class="avatar" src="${avatarForScene(s)}"><div class="live"></div><div class="affPremium" aria-label="好感度64パーセント"><div class="affTop"><span>♡ 好感度</span><b>64%</b></div><div class="affTrack"><i></i><em>♥</em></div></div><div class="time">☾ しゅりとの時間</div></div><div class="scene"><div class="sceneBar">${esc(s.prologue)}</div><div class="dialog"><span class="speaker">しゅりから</span>${esc(s.text)}</div>${reply}</div><div class="footer">♥　SYURI LOVE SIMULATION　♥</div></div>`}
 function esc(x){return String(x||'').replace(/[&<>]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[m])).replace(/\n/g,'<br>')}
 function choiceHtml(opts){return `<div class="choices">${opts.map((o,i)=>`<button class="choice" data-n="${i+1}" onclick='pick(${JSON.stringify(o.to)},${JSON.stringify(o.text)})'>${esc(o.text)}</button>`).join('')}</div>`}
 window.pick=(to,text)=>go(to,text);window.pickWithMeta=(to,text,note='')=>go(to, (note?note+' ':'') + text);
@@ -2517,7 +2615,7 @@ function firstChoiceHtml(opts){
 
 function renderPrologueScene(s){
   let step=0,locked=false;
-  const normal=U[avatarMap.normal], good=U[avatarMap.good], confused=U[avatarMap.confused], nope=U[avatarMap.nope];
+  const normal=POSE.wave, good=POSE.wave, confused=POSE.surprised, nope=POSE.fists;
   app.innerHTML=`
     <div class="storyPrologue" id="storyPrologue">
       <div class="prologueSky"></div>
@@ -2580,7 +2678,7 @@ function renderPrologueScene(s){
   window.scrollTo({top:0,behavior:'instant'});
 }
 function renderFirstScene(s,opts){
-  const av=U[avatarMap[s.expr]||avatarMap.normal];
+  const av=avatarForScene(s);
   app.innerHTML=`
     <div class="firstPage">
       <div class="firstGlow"></div>
@@ -2838,6 +2936,111 @@ function endingStoryMeta(id,e){
   return {immediate,after:e.after,final};
 }
 
+function endingFrames(id,e){
+  const lowBg=U['backgrounds/01_room_night_after_stream.png'];
+  const warmBg=U['backgrounds/18_happy_end.png'];
+  const normal=POSE.neutralFull, good=POSE.wave, interest=POSE.point, shy=POSE.fingerheart, confused=POSE.chin, nope=POSE.coverface, zokkon=POSE.shush;
+  const byLv={
+    0:[
+      {k:'接続解除条件を満たしました。',sys:'SYSTEM // SESSION COMPLETE',line:e.line,av:nope,bg:lowBg},
+      {k:'接続を終了します。',sys:'LIVE CONNECTION // CLOSED',line:'……じゃあね。',av:nope,bg:lowBg,quiet:true},
+      {k:'数日後',sys:'新しい接続：0',line:'配信はいつも通り続いている。けれど、あの夜のようにふたりだけで話すことは、もうなかった。',av:normal,bg:lowBg,narr:true},
+      {k:'そして',sys:'NO NEW MESSAGE',line:'しゅりから連絡が来ることはなくなった。',av:normal,bg:lowBg,narr:true}
+    ],
+    1:[
+      {k:'接続解除条件を満たしました。',sys:'SYSTEM // SESSION COMPLETE',line:e.line,av:confused,bg:lowBg},
+      {k:'接続を終了します。',sys:'LIVE CONNECTION // CLOSED',line:'また配信でね。',av:normal,bg:lowBg,quiet:true},
+      {k:'数日後',sys:'MESSAGE ACTIVITY // LOW',line:e.after,av:normal,bg:lowBg,narr:true},
+      {k:'ふたりの距離',sys:'RELATION // GUARDED',line:'関係は切れなかった。でも、しゅりは前より少しだけ言葉を選ぶようになった。',av:confused,bg:lowBg,narr:true}
+    ],
+    2:[
+      {k:'接続解除条件を満たしました。',sys:'SYSTEM // SESSION COMPLETE',line:e.line,av:normal,bg:lowBg},
+      {k:'接続を終了します。',sys:'LIVE CONNECTION // CLOSED',line:'じゃ、またね〜。',av:normal,bg:lowBg,quiet:true},
+      {k:'数日後',sys:'MESSAGE ACTIVITY // NORMAL',line:e.after,av:normal,bg:lowBg,narr:true},
+      {k:'ふたりの距離',sys:'RELATION // ACQUAINTANCE',line:'会えば話す。返信が来れば返す。ふたりは、そのくらいの距離に落ち着いた。',av:normal,bg:lowBg,narr:true}
+    ],
+    3:[
+      {k:'接続解除条件を満たしました。',sys:'SYSTEM // SESSION COMPLETE',line:e.line,av:good,bg:lowBg},
+      {k:'接続を終了します。',sys:'LIVE CONNECTION // CLOSED',line:'また普通に話そww',av:good,bg:lowBg,quiet:true},
+      {k:'数日後',sys:'MESSAGE ACTIVITY // STABLE',line:e.after,av:good,bg:warmBg,narr:true},
+      {k:'ふたりの距離',sys:'RELATION // FRIEND',line:'困った時には話せる。笑える。安心できる。でも、その安心はまだ恋とは少し違っていた。',av:good,bg:warmBg,narr:true}
+    ],
+    4:[
+      {k:'接続解除条件を満たしました。',sys:'SYSTEM // SESSION COMPLETE',line:e.line,av:interest,bg:warmBg},
+      {k:'接続を終了します。',sys:'LIVE CONNECTION // CLOSED',line:'……まあ、また話せるよね？',av:interest,bg:warmBg,quiet:true},
+      {k:'数日後',sys:'NEW MESSAGE // SHURI',line:'ねえ、これ見て。……いや別に、送る相手探してたとかじゃないけどww',av:interest,bg:warmBg},
+      {k:'少しずつ',sys:'RELATION // INTEREST',line:'用事がなくても、しゅりの方から話しかけてくることが増えていった。',av:interest,bg:warmBg,narr:true}
+    ],
+    5:[
+      {k:'接続解除条件を満たしました。',sys:'SYSTEM // SESSION COMPLETE',line:e.line,av:shy,bg:warmBg},
+      {k:'接続を終了します。',sys:'LIVE CONNECTION // CLOSED',line:'え、これで終わり？……なんか急だな。',av:shy,bg:warmBg,quiet:true},
+      {k:'数日後',sys:'NEW MESSAGE // SHURI',line:'今日さ、話せる？……ちょっと話したい。',av:shy,bg:warmBg},
+      {k:'そのあと',sys:'RELATION // LOVE',line:'しゅりはあなたとの時間を、ただ楽しいだけじゃなく「特別」として選ぶようになった。',av:shy,bg:warmBg,narr:true}
+    ],
+    6:[
+      {k:'接続解除条件を満たしました。',sys:'SYSTEM // SESSION COMPLETE',line:e.line,av:zokkon,bg:warmBg},
+      {k:'接続を終了します。',sys:'LIVE CONNECTION // CLOSED',line:'……終わるの、ちょっとやだかも。',av:shy,bg:warmBg,quiet:true},
+      {k:'翌日',sys:'NEW MESSAGE // SHURI',line:'ねえ、今日まだ話してなくない？',av:zokkon,bg:warmBg},
+      {k:'それから',sys:'RELATION // VERY HIGH',line:'面白かったものも、どうでもいい話も、最初にあなたへ送りたくなる。しゅりの方から会話を始めるのが、珍しくなくなった。',av:zokkon,bg:warmBg,narr:true}
+    ],
+    7:[
+      {k:'接続解除条件を満たしました。',sys:'SYSTEM // SESSION COMPLETE',line:'……え、終わるの？',av:shy,bg:warmBg},
+      {k:'接続を終了します。',sys:'LIVE CONNECTION // CLOSED',line:'そっか。……じゃあ、ばいび。',av:shy,bg:warmBg,quiet:true},
+      {k:'数日後',sys:'UNKNOWN CONNECTION DETECTED',line:'……え？',av:confused,bg:warmBg,love:true},
+      {k:'接続元：SHURI',sys:'PRIVATE CONNECTION // OPEN',line:'今日まだ話してないんだけど。',av:zokkon,bg:warmBg,love:true},
+      {k:'しゅりから',sys:'MESSAGE // NO SUBJECT',line:'いや用事はない。……話したかっただけ。',av:zokkon,bg:warmBg,love:true},
+      {k:'別の日',sys:'NEW MESSAGE // SHURI',line:'会いたい。いや、理由とかない。会いたいから言った。以上。',av:zokkon,bg:warmBg,love:true}
+    ]
+  };
+  return byLv[e.lv]||byLv[3];
+}
+
+function renderEndingStory(e,id){
+  const frames=endingFrames(id,e); let step=0,locked=false;
+  app.innerHTML=`
+    <div class="endingCinematic" id="endingCinematic">
+      <div class="prologueSky"></div>
+      <img class="storyLogo" src="${U['ui/logo_title.png']}" alt="しゅりを落とせ。">
+      <div class="storyHero">
+        <img id="endingBg" class="storyBg" src="${frames[0].bg}" alt="">
+        <div class="storyVeil"></div>
+        <img id="endingAvatar" class="storyAvatar" src="${frames[0].av}" alt="しゅり">
+        <div class="storyLive" id="endingLive">LIVE</div>
+        <div class="storyViewer">👤 1</div>
+      </div>
+      <div id="endingKicker" class="storyKicker">${esc(frames[0].k)}</div>
+      <div id="endingLine" class="storyLine"><span>しゅり</span><b>${esc(frames[0].line)}</b></div>
+      <div id="endingSystem" class="storySystem">${esc(frames[0].sys)}</div>
+      <button id="endingNext" class="storyNext" type="button">つづける</button>
+      <div class="endingResultHint">EPILOGUE</div>
+      <div class="endingFade"></div>
+    </div>`;
+  const root=$('#endingCinematic'), av=$('#endingAvatar'), bg=$('#endingBg'), k=$('#endingKicker'), line=$('#endingLine'), sys=$('#endingSystem'), next=$('#endingNext'), live=$('#endingLive');
+  const paint=(f)=>{
+    bg.src=f.bg; av.src=f.av; k.textContent=f.k;
+    line.innerHTML=f.narr?`<span>その後</span><b>${esc(f.line)}</b>`:`<span>しゅり</span><b>${esc(f.line)}</b>`;
+    sys.textContent=f.sys;
+    sys.className='storySystem '+(f.love?'endingSystemLove':f.quiet?'endingSystemQuiet':'endingSystemWarm');
+    live.style.opacity=f.quiet?'.35':'1';
+    line.classList.remove('pop');sys.classList.remove('pop');void line.offsetWidth;line.classList.add('pop');sys.classList.add('pop');
+  };
+  next.onclick=()=>{
+    if(locked)return;
+    if(step>=frames.length-1){locked=true;root.classList.add('fading');setTimeout(()=>renderRelationResult(e,id),430);return;}
+    step++; paint(frames[step]);
+    if(step===frames.length-1) next.textContent='ふたりの結末を見る';
+  };
+  applyVars(); window.scrollTo({top:0,behavior:'instant'});
+}
+
+function renderRelationResult(e,id){
+  const av=avatarForEndingLevel(e.lv);
+  const hearts='♥'.repeat(Math.max(1,e.lv));
+  const story=endingStoryMeta(id,e);
+  app.innerHTML=`<div class="spark"></div><div class="app endApp"><div class="top"><img class="logo" src="${U['ui/logo_title.png']}"><button class="iconbtn heart cleanTopBtn" onclick="openLog()" aria-label="ログ">♡</button><button class="iconbtn menu cleanTopBtn" onclick="openMenu()" aria-label="メニュー">≡</button></div><section class="brightEnd relationEnd"><div class="endKicker">♡ RELATION RESULT</div><div class="endHero"><img class="endBg" src="${U['backgrounds/18_happy_end.png']}" alt=""><div class="endVeil"></div><img class="endAvatar" src="${av}" alt="しゅり"></div><div class="endBody"><div class="relationLevel"><small>RELATIONSHIP</small><b>Lv.${e.lv}　${esc(e.title)}</b><span>${hearts}</span></div><div class="endDialogue"><span>しゅり</span><b>${esc(e.line)}</b></div><div class="storyEnding"><div class="storyEndingPart"><small>その時</small><p>${esc(story.immediate)}</p></div><div class="storyEndingPart"><small>その後</small><p>${esc(story.after)}</p></div><div class="storyEndingPart final"><small>ふたりの結末</small><p>${esc(story.final)}</p></div></div><div class="endMessage">最初は事故でつながった。でも最後に残った距離は、あなたが選んだもの。</div><button class="bigbtn endReplay" onclick="restart()">もう一度、最初から</button></div></section></div>`;
+  applyVars(); window.scrollTo({top:0,behavior:'instant'});
+}
+
 function renderEnd(s){
   const endingById={
     end_dislike:{lv:0,title:'関係終了',expr:'nope',line:'……あんまり話したくないかも。',after:'それから、しゅりから連絡が来なくなった。'},
@@ -2864,12 +3067,7 @@ function renderEnd(s){
     end_zokkon:{lv:7,title:'ZOKKON',expr:'zokkon',line:'今日まだ話してないんだけど。',after:'「いや用事はない。……話したかっただけ」\n\n別の日には、\n「会いたい」\n「いや、理由とかない」\n「会いたいから言った。以上。」\n\n攻略対象、完全に反転。しゅりの方があなたに会いたがるようになった。'}
   };
   const e=endingById[current]||{lv:3,title:'友達',expr:'good',line:'また話そ。',after:'ふたりの関係は、そのまま続いていった。'};
-  const av=U[avatarMap[e.expr]||avatarMap.normal];
-  const hearts='♥'.repeat(Math.max(1,e.lv));
-  const story=endingStoryMeta(current,e);
-  app.innerHTML=`<div class="spark"></div><div class="app endApp"><div class="top"><img class="logo" src="${U['ui/logo_title.png']}"><button class="iconbtn heart cleanTopBtn" onclick="openLog()" aria-label="ログ">♡</button><button class="iconbtn menu cleanTopBtn" onclick="openMenu()" aria-label="メニュー">≡</button></div><section class="brightEnd relationEnd"><div class="endKicker">♡ RELATION RESULT</div><div class="endHero"><img class="endBg" src="${U['backgrounds/18_happy_end.png']}" alt=""><div class="endVeil"></div><img class="endAvatar" src="${av}" alt="しゅり"></div><div class="endBody"><div class="relationLevel"><small>RELATIONSHIP</small><b>Lv.${e.lv}　${esc(e.title)}</b><span>${hearts}</span></div><div class="endDialogue"><span>しゅり</span><b>${esc(e.line)}</b></div><div class="storyEnding"><div class="storyEndingPart"><small>その時</small><p>${esc(story.immediate)}</p></div><div class="storyEndingPart"><small>その後</small><p>${esc(story.after)}</p></div><div class="storyEndingPart final"><small>ふたりの結末</small><p>${esc(story.final)}</p></div></div><div class="endMessage">選んだ言葉は、その場だけじゃなく、その後の距離まで変えていく。</div><button class="bigbtn endReplay" onclick="restart()">もう一度、最初から</button></div></section></div>`;
-  applyVars();
-  window.scrollTo({top:0,behavior:'instant'});
+  renderEndingStory(e,current);
 }
 window.openLog=()=>{let m=$('#modal');$('#modalTitle').textContent='会話ログ';$('#modalBody').innerHTML=log.length?log.map(x=>`<div class="logitem">${esc(x.answer)}</div>`).join(''):'<div class="subtle">まだログはありません。</div>';m.classList.add('open')}
 window.openMenu=()=>{let m=$('#modal');$('#modalTitle').textContent='MENU';$('#modalBody').innerHTML=`<button class="bigbtn" onclick="restart()">最初から</button><button class="bigbtn" style="margin-top:8px;background:#b99ac8" onclick="closeModal()">戻る</button>`;m.classList.add('open')}
