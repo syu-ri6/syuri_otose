@@ -2474,6 +2474,34 @@ button,input,textarea,select,
 }
 button,input,textarea,select{-webkit-appearance:none;}
 
+
+/* ===== ORIGINAL TRANSPARENT POSE FIX =====
+   Use the user's original transparent pose files.
+   Their transparent padding is normalized, so no extra CSS zoom is needed. */
+.firstAvatar[src*="asset_shuri_pose_"]{
+  transform:translateX(-50%)!important;
+  transform-origin:50% 70%!important;
+  height:150%!important;
+  bottom:-40%!important;
+  max-width:104%!important;
+  opacity:1!important;
+  filter:drop-shadow(0 8px 12px rgba(84,45,70,.13))!important;
+}
+.stage .avatar[src*="asset_shuri_pose_"]{
+  transform:translateX(-50%)!important;
+  transform-origin:50% 70%!important;
+  height:168%!important;
+  bottom:-52%!important;
+  max-width:108%!important;
+  opacity:1!important;
+  filter:drop-shadow(0 8px 12px rgba(84,45,70,.13))!important;
+}
+.storyAvatar[src*="asset_shuri_pose_"],
+.endAvatar[src*="asset_shuri_pose_"]{
+  opacity:1!important;
+  mix-blend-mode:normal!important;
+}
+
 </style><!-- GitHub Pages / Safari playable build -->
 </head><body><div id="app"></div>
 
